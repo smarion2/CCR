@@ -428,6 +428,7 @@ namespace CCR
                                                 missing, missing, missing, missing, missing, missing);
 
                     Excel._Worksheet workSheet = excelApp.ActiveSheet;
+                    excelApp.ReferenceStyle = Excel.XlReferenceStyle.xlA1;
                     //excelApp.Visible = true;
                     // format work sheet
                     workSheet.Range["1:1"].Orientation = 90;
