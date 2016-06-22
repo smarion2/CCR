@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="categoryDS" targetNamespace="http://tempuri.org/categoryDS.xsd" xmlns:mstns="http://tempuri.org/categoryDS.xsd" xmlns="http://tempuri.org/categoryDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="SouthWareConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SouthWareConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.CCR.Properties.Settings.GlobalReference.Default.SouthWareConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SWCCSCATGTableAdapter" GeneratorDataComponentClassName="SWCCSCATGTableAdapter" Name="SWCCSCATG" UserDataComponentName="SWCCSCATGTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SouthWareConnectionString (Settings)" DbObjectName="swdb.dbo.SWCCSCATG" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT categorycode, categorydescription FROM dbo.SWCCSCATG
+where locationnumber = '900'</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="categorycode" DataSetColumn="categorycode" />
+              <Mapping SourceColumn="categorydescription" DataSetColumn="categorydescription" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="categoryDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="categoryDS" msprop:Generator_UserDSName="categoryDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="SWCCSCATG" msprop:Generator_TableClassName="SWCCSCATGDataTable" msprop:Generator_TableVarName="tableSWCCSCATG" msprop:Generator_RowChangedName="SWCCSCATGRowChanged" msprop:Generator_TablePropName="SWCCSCATG" msprop:Generator_RowDeletingName="SWCCSCATGRowDeleting" msprop:Generator_RowChangingName="SWCCSCATGRowChanging" msprop:Generator_RowEvHandlerName="SWCCSCATGRowChangeEventHandler" msprop:Generator_RowDeletedName="SWCCSCATGRowDeleted" msprop:Generator_RowClassName="SWCCSCATGRow" msprop:Generator_UserTableName="SWCCSCATG" msprop:Generator_RowEvArgName="SWCCSCATGRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="categorycode" msprop:Generator_ColumnVarNameInTable="columncategorycode" msprop:Generator_ColumnPropNameInRow="categorycode" msprop:Generator_ColumnPropNameInTable="categorycodeColumn" msprop:Generator_UserColumnName="categorycode">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="categorydescription" msprop:Generator_ColumnVarNameInTable="columncategorydescription" msprop:Generator_ColumnPropNameInRow="categorydescription" msprop:Generator_ColumnPropNameInTable="categorydescriptionColumn" msprop:Generator_UserColumnName="categorydescription" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="35" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

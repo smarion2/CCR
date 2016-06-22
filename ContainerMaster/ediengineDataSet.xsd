@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ediengineDataSet" targetNamespace="http://tempuri.org/ediengineDataSet.xsd" xmlns:mstns="http://tempuri.org/ediengineDataSet.xsd" xmlns="http://tempuri.org/ediengineDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection ConnectionStringObject="Data Source=srv-edi;Initial Catalog=ediengine;Persist Security Info=True;User ID=swdb;Password=SouthWare99" IsAppSettingsProperty="false" Modifier="Assembly" Name="srv-edi.ediengine.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="856tmpTableAdapter" GeneratorDataComponentClassName="_856tmpTableAdapter" Name="856tmp" UserDataComponentName="856tmpTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="srv-edi.ediengine.dbo" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>  select d.ORIGLINENO, c.PONO, INVNO, b.vendcode as 'CCAsku', b.CUSTSTYLE as 'INVcustSku', d.BUYERSKU as 'ASNcustSku', b.QTY as 'InvoiceQty', sum(d.QTY) as 'ASNqty', SHPDATE, SHPTONAME, INVDATE  
+  from OUT_810_HDR a
+  join OUT_810_DTL b on a.TRANNO = b.TRANNO
+  join OUT_856_ORD c on c.INVOICENO = a.INVNO 
+  join OUT_856_LIN d on d.ITEMCODE = b.VENDCODE and d.TRANNO = c.TRANNO AND c.ORDSEQNO = d.ORDSEQNO
+  where (b.QTY != d.QTY or d.BUYERSKU != b.CUSTSTYLE)  and SHPDATE &gt; '3/1/2016' and SHPTONAME like 'JO%' 
+  group by INVNO, VENDCODE, b.QTY, SHPDATE, c.PONO, SHPTONAME, INVDATE, d.ORIGLINENO, b.CUSTSTYLE, d.BUYERSKU
+  order by INVNO, VENDCODE</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="PONO" DataSetColumn="PONO" />
+              <Mapping SourceColumn="SHPDATE" DataSetColumn="SHPDATE" />
+              <Mapping SourceColumn="ORIGLINENO" DataSetColumn="ORIGLINENO" />
+              <Mapping SourceColumn="INVNO" DataSetColumn="INVNO" />
+              <Mapping SourceColumn="SHPTONAME" DataSetColumn="SHPTONAME" />
+              <Mapping SourceColumn="INVDATE" DataSetColumn="INVDATE" />
+              <Mapping SourceColumn="InvoiceQty" DataSetColumn="InvoiceQty" />
+              <Mapping SourceColumn="ASNqty" DataSetColumn="ASNqty" />
+              <Mapping SourceColumn="CCAsku" DataSetColumn="CCAsku" />
+              <Mapping SourceColumn="INVcustSku" DataSetColumn="INVcustSku" />
+              <Mapping SourceColumn="ASNcustSku" DataSetColumn="ASNcustSku" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ediengineDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ediengineDataSet" msprop:Generator_UserDSName="ediengineDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="_x0038_56tmp" msprop:Generator_TableClassName="_856tmpDataTable" msprop:Generator_TableVarName="table856tmp" msprop:Generator_TablePropName="_856tmp" msprop:Generator_RowDeletingName="_856tmpRowDeleting" msprop:Generator_RowChangingName="_856tmpRowChanging" msprop:Generator_RowEvHandlerName="_856tmpRowChangeEventHandler" msprop:Generator_RowDeletedName="_856tmpRowDeleted" msprop:Generator_UserTableName="856tmp" msprop:Generator_RowChangedName="_856tmpRowChanged" msprop:Generator_RowEvArgName="_856tmpRowChangeEvent" msprop:Generator_RowClassName="_856tmpRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PONO" msprop:Generator_ColumnVarNameInTable="columnPONO" msprop:Generator_ColumnPropNameInRow="PONO" msprop:Generator_ColumnPropNameInTable="PONOColumn" msprop:Generator_UserColumnName="PONO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="22" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SHPDATE" msprop:Generator_ColumnVarNameInTable="columnSHPDATE" msprop:Generator_ColumnPropNameInRow="SHPDATE" msprop:Generator_ColumnPropNameInTable="SHPDATEColumn" msprop:Generator_UserColumnName="SHPDATE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ORIGLINENO" msprop:Generator_ColumnVarNameInTable="columnORIGLINENO" msprop:Generator_ColumnPropNameInRow="ORIGLINENO" msprop:Generator_ColumnPropNameInTable="ORIGLINENOColumn" msprop:Generator_UserColumnName="ORIGLINENO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="INVNO" msprop:Generator_ColumnVarNameInTable="columnINVNO" msprop:Generator_ColumnPropNameInRow="INVNO" msprop:Generator_ColumnPropNameInTable="INVNOColumn" msprop:Generator_UserColumnName="INVNO">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="22" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SHPTONAME" msprop:Generator_ColumnVarNameInTable="columnSHPTONAME" msprop:Generator_ColumnPropNameInRow="SHPTONAME" msprop:Generator_ColumnPropNameInTable="SHPTONAMEColumn" msprop:Generator_UserColumnName="SHPTONAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="60" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="INVDATE" msprop:Generator_ColumnVarNameInTable="columnINVDATE" msprop:Generator_ColumnPropNameInRow="INVDATE" msprop:Generator_ColumnPropNameInTable="INVDATEColumn" msprop:Generator_UserColumnName="INVDATE" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="InvoiceQty" msprop:Generator_ColumnVarNameInTable="columnInvoiceQty" msprop:Generator_ColumnPropNameInRow="InvoiceQty" msprop:Generator_ColumnPropNameInTable="InvoiceQtyColumn" msprop:Generator_UserColumnName="InvoiceQty" type="xs:decimal" />
+              <xs:element name="ASNqty" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnASNqty" msprop:Generator_ColumnPropNameInRow="ASNqty" msprop:Generator_ColumnPropNameInTable="ASNqtyColumn" msprop:Generator_UserColumnName="ASNqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CCAsku" msprop:Generator_ColumnVarNameInTable="columnCCAsku" msprop:Generator_ColumnPropNameInRow="CCAsku" msprop:Generator_ColumnPropNameInTable="CCAskuColumn" msprop:Generator_UserColumnName="CCAsku">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="48" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="INVcustSku" msprop:Generator_ColumnVarNameInTable="columnINVcustSku" msprop:Generator_ColumnPropNameInRow="INVcustSku" msprop:Generator_ColumnPropNameInTable="INVcustSkuColumn" msprop:Generator_UserColumnName="INVcustSku">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="48" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ASNcustSku" msprop:Generator_ColumnVarNameInTable="columnASNcustSku" msprop:Generator_ColumnPropNameInRow="ASNcustSku" msprop:Generator_ColumnPropNameInTable="ASNcustSkuColumn" msprop:Generator_UserColumnName="ASNcustSku">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="48" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

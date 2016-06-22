@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="itemImageDS" targetNamespace="http://tempuri.org/itemImageDS.xsd" xmlns:mstns="http://tempuri.org/itemImageDS.xsd" xmlns="http://tempuri.org/itemImageDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="SouthWareConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SouthWareConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.CCR.Properties.Settings.GlobalReference.Default.SouthWareConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SouthWareConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>select a.stocknumber, d.upc, stockdescription1, quantityonhand, listpricemult as 'MSRP', itemprice_1 as 'Wholesale', b.innerpkselunt, c.mastercaseqty, 'file://\\srv-sw\southware\nlhtml\images\products\' + imagefilename as 'imagePath'
+FROM SWCCSSTOK a
+left join SWCCXD078 b on a.stocknumber = b.stocknumber and b.locationnumber in ('900','800')
+left join SWCCXD088 c on c.stocknumber = a.stocknumber and c.locationnumber in ('900','800')
+left join SWCCSX005 d on d.stocknumber = a.stocknumber and d.locationnumber in ('900', '800')
+where a.stocknumber in (SELECT Items from ItemFilterTMP) and a.locationnumber in ('900','800')</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="stocknumber" DataSetColumn="stocknumber" />
+              <Mapping SourceColumn="upc" DataSetColumn="upc" />
+              <Mapping SourceColumn="stockdescription1" DataSetColumn="stockdescription1" />
+              <Mapping SourceColumn="quantityonhand" DataSetColumn="quantityonhand" />
+              <Mapping SourceColumn="MSRP" DataSetColumn="MSRP" />
+              <Mapping SourceColumn="Wholesale" DataSetColumn="Wholesale" />
+              <Mapping SourceColumn="innerpkselunt" DataSetColumn="innerpkselunt" />
+              <Mapping SourceColumn="mastercaseqty" DataSetColumn="mastercaseqty" />
+              <Mapping SourceColumn="imagePath" DataSetColumn="imagePath" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="itemImageDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="itemImageDS" msprop:Generator_UserDSName="itemImageDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="stocknumber" msprop:Generator_ColumnVarNameInTable="columnstocknumber" msprop:Generator_ColumnPropNameInRow="stocknumber" msprop:Generator_ColumnPropNameInTable="stocknumberColumn" msprop:Generator_UserColumnName="stocknumber">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="upc" msprop:Generator_ColumnVarNameInTable="columnupc" msprop:Generator_ColumnPropNameInRow="upc" msprop:Generator_ColumnPropNameInTable="upcColumn" msprop:Generator_UserColumnName="upc">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="stockdescription1" msprop:Generator_ColumnVarNameInTable="columnstockdescription1" msprop:Generator_ColumnPropNameInRow="stockdescription1" msprop:Generator_ColumnPropNameInTable="stockdescription1Column" msprop:Generator_UserColumnName="stockdescription1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quantityonhand" msprop:Generator_ColumnVarNameInTable="columnquantityonhand" msprop:Generator_ColumnPropNameInRow="quantityonhand" msprop:Generator_ColumnPropNameInTable="quantityonhandColumn" msprop:Generator_UserColumnName="quantityonhand" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MSRP" msprop:Generator_ColumnVarNameInTable="columnMSRP" msprop:Generator_ColumnPropNameInRow="MSRP" msprop:Generator_ColumnPropNameInTable="MSRPColumn" msprop:Generator_UserColumnName="MSRP" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Wholesale" msprop:Generator_ColumnVarNameInTable="columnWholesale" msprop:Generator_ColumnPropNameInRow="Wholesale" msprop:Generator_ColumnPropNameInTable="WholesaleColumn" msprop:Generator_UserColumnName="Wholesale" type="xs:decimal" minOccurs="0" />
+              <xs:element name="innerpkselunt" msprop:Generator_ColumnVarNameInTable="columninnerpkselunt" msprop:Generator_ColumnPropNameInRow="innerpkselunt" msprop:Generator_ColumnPropNameInTable="innerpkseluntColumn" msprop:Generator_UserColumnName="innerpkselunt" type="xs:decimal" minOccurs="0" />
+              <xs:element name="mastercaseqty" msprop:Generator_ColumnVarNameInTable="columnmastercaseqty" msprop:Generator_ColumnPropNameInRow="mastercaseqty" msprop:Generator_ColumnPropNameInTable="mastercaseqtyColumn" msprop:Generator_UserColumnName="mastercaseqty" type="xs:int" minOccurs="0" />
+              <xs:element name="imagePath" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnimagePath" msprop:Generator_ColumnPropNameInRow="imagePath" msprop:Generator_ColumnPropNameInTable="imagePathColumn" msprop:Generator_UserColumnName="imagePath" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="79" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

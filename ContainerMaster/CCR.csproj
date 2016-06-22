@@ -1,0 +1,567 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{89DE1526-D7F5-45E9-8ACF-9FA76C78E3B3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CCR</RootNamespace>
+    <AssemblyName>CCR</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>\\shares\apps\CCR\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Unc</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <ApplicationRevision>55</ApplicationRevision>
+    <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>88AD5066FFBFF052CDF44DF2A600A5E079207544</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ContainerMaster_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>CCR.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\CCRlogo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeLib">
+      <HintPath>.\BarcodeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DataStreams">
+      <HintPath>.\DataStreams.dll</HintPath>
+    </Reference>
+    <Reference Include="LumenWorks.Framework.IO">
+      <HintPath>.\LumenWorks.Framework.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="categoryDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>categoryDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\ContainerMaster.cs" />
+    <Compile Include="Classes\ErrorLogger.cs" />
+    <Compile Include="Classes\ReportFilters.cs" />
+    <Compile Include="Forms\analysisWeeklySummaryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\analysisWeeklySummaryForm.Designer.cs">
+      <DependentUpon>analysisWeeklySummaryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ASNmismatch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ASNmismatch.Designer.cs">
+      <DependentUpon>ASNmismatch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuyReportDS.cs">
+      <DependentUpon>BuyReportDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="BuyReportDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BuyReportDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BarcodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BarcodeForm.Designer.cs">
+      <DependentUpon>BarcodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\BuyReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\BuyReportForm.Designer.cs">
+      <DependentUpon>BuyReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\cmEditContainerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\cmEditContainerForm.Designer.cs">
+      <DependentUpon>cmEditContainerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContainerMasterDS.cs">
+      <DependentUpon>ContainerMasterDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ContainerMasterDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContainerMasterDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\CreateUpsInvoice.cs" />
+    <Compile Include="Classes\DataTableToExcel.cs" />
+    <Compile Include="ediengineDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ediengineDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\GetData.cs" />
+    <Compile Include="Forms\InputContainerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\InputContainerForm.Designer.cs">
+      <DependentUpon>InputContainerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ContainerMasterReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ContainerMasterReportForm.Designer.cs">
+      <DependentUpon>ContainerMasterReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CPASForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CPASForm.Designer.cs">
+      <DependentUpon>CPASForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\InputRetailData.cs" />
+    <Compile Include="Forms\LogOnCCR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LogOnCCR.Designer.cs">
+      <DependentUpon>LogOnCCR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\PopulateJASTracking.cs" />
+    <Compile Include="Classes\Program.cs" />
+    <Compile Include="Classes\Prompt.cs" />
+    <Compile Include="Forms\RoyaltyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RoyaltyForm.Designer.cs">
+      <DependentUpon>RoyaltyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="itemImageDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>itemImageDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ItemImageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ItemImageForm.Designer.cs">
+      <DependentUpon>ItemImageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Forms\SwarovskiSalesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SwarovskiSalesForm.Designer.cs">
+      <DependentUpon>SwarovskiSalesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="royaltyDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>royaltyDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="sworvskiDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sworvskiDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\UserPermissions.cs" />
+    <Compile Include="Forms\WalmartOutsReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\WalmartOutsReportForm.Designer.cs">
+      <DependentUpon>WalmartOutsReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="wmOutsReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>wmOutsReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\YoYReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\YoYReportForm.Designer.cs">
+      <DependentUpon>YoYReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="yoyDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>yoyDS.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\analysisWeeklySummaryForm.resx">
+      <DependentUpon>analysisWeeklySummaryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ASNmismatch.resx">
+      <DependentUpon>ASNmismatch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BarcodeForm.resx">
+      <DependentUpon>BarcodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\BuyReportForm.resx">
+      <DependentUpon>BuyReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\cmEditContainerForm.resx">
+      <DependentUpon>cmEditContainerForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContainerMaster1.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\InputContainerForm.resx">
+      <DependentUpon>InputContainerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ContainerMasterReportForm.resx">
+      <DependentUpon>ContainerMasterReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CPASForm.resx">
+      <DependentUpon>CPASForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LogOnCCR.resx">
+      <DependentUpon>LogOnCCR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ItemImageForm.resx">
+      <DependentUpon>ItemImageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="itemImage.rdlc" />
+    <EmbeddedResource Include="yoyReport.rdlc" />
+    <EmbeddedResource Include="Forms\RoyaltyForm.resx">
+      <DependentUpon>RoyaltyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\YoYReportForm.resx">
+      <DependentUpon>YoYReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="BuyReport.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ediMismatch.rdlc" />
+    <EmbeddedResource Include="RoyaltyReport.rdlc" />
+    <EmbeddedResource Include="SwarovskiSalesReport.rdlc" />
+    <EmbeddedResource Include="Forms\SwarovskiSalesForm.resx">
+      <DependentUpon>SwarovskiSalesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WalmartOuts.rdlc">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\WalmartOutsReportForm.resx">
+      <DependentUpon>WalmartOutsReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="categoryDS.xsc">
+      <DependentUpon>categoryDS.xsd</DependentUpon>
+    </None>
+    <None Include="categoryDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>categoryDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="categoryDS.xss">
+      <DependentUpon>categoryDS.xsd</DependentUpon>
+    </None>
+    <None Include="ContainerMasterDS.xsc">
+      <DependentUpon>ContainerMasterDS.xsd</DependentUpon>
+    </None>
+    <None Include="ContainerMasterDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ContainerMasterDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="ContainerMasterDS.xss">
+      <DependentUpon>ContainerMasterDS.xsd</DependentUpon>
+    </None>
+    <None Include="ContainerMaster_TemporaryKey.pfx" />
+    <None Include="ediengineDataSet.xsc">
+      <DependentUpon>ediengineDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ediengineDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ediengineDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ediengineDataSet.xss">
+      <DependentUpon>ediengineDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="itemImageDS.xsc">
+      <DependentUpon>itemImageDS.xsd</DependentUpon>
+    </None>
+    <None Include="itemImageDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>itemImageDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="itemImageDS.xss">
+      <DependentUpon>itemImageDS.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="BuyReportDS.xsc">
+      <DependentUpon>BuyReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="BuyReportDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BuyReportDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BuyReportDS.xss">
+      <DependentUpon>BuyReportDS.xsd</DependentUpon>
+    </None>
+    <None Include="royaltyDS.xsc">
+      <DependentUpon>royaltyDS.xsd</DependentUpon>
+    </None>
+    <None Include="royaltyDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>royaltyDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="royaltyDS.xss">
+      <DependentUpon>royaltyDS.xsd</DependentUpon>
+    </None>
+    <None Include="sworvskiDS.xsc">
+      <DependentUpon>sworvskiDS.xsd</DependentUpon>
+    </None>
+    <None Include="sworvskiDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>sworvskiDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="sworvskiDS.xss">
+      <DependentUpon>sworvskiDS.xsd</DependentUpon>
+    </None>
+    <None Include="wmOutsReport.xsc">
+      <DependentUpon>wmOutsReport.xsd</DependentUpon>
+    </None>
+    <None Include="wmOutsReport.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>wmOutsReport.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="wmOutsReport.xss">
+      <DependentUpon>wmOutsReport.xsd</DependentUpon>
+    </None>
+    <None Include="yoyDS.xsc">
+      <DependentUpon>yoyDS.xsd</DependentUpon>
+    </None>
+    <None Include="yoyDS.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>yoyDS.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="yoyDS.xss">
+      <DependentUpon>yoyDS.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,KB2468871">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29 and Update for .NET Framework 4 %28KB2468871%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client,KB2468871">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29 and Update for .NET Framework 4 %28KB2468871%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.ReportViewer.12.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Report Viewer 2014 Runtime</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.Express.10.5">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2008 R2 Express</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.Express.11.0">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2012 Express</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.SqlLocalDB.11.1">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2012 Express LocalDB</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.SQLSysClrTypes.12.0.x64">
+      <Visible>False</Visible>
+      <ProductName>Microsoft® System CLR Types for SQL Server® 2014 %28x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.SQLSysClrTypes.12.0.x86">
+      <Visible>False</Visible>
+      <ProductName>Microsoft® System CLR Types for SQL Server® 2014 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Microsoft.ReportViewer.DataVisualization">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\CCRlogo.ico" />
+    <Content Include="Images\CCRlogo.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

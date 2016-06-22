@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BuyReportDS" targetNamespace="http://tempuri.org/SouthWareDataSet1.xsd" xmlns:mstns="http://tempuri.org/SouthWareDataSet1.xsd" xmlns="http://tempuri.org/SouthWareDataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="SouthWareConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SouthWareConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ContainerMaster.Properties.Settings.GlobalReference.Default.SouthWareConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BuyReportDataTableAdapter" GeneratorDataComponentClassName="BuyReportDataTableAdapter" Name="BuyReportData" UserDataComponentName="BuyReportDataTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SouthWareConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>EXEC	[dbo].[BuyReport]
+</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="stocknumber" DataSetColumn="stocknumber" />
+              <Mapping SourceColumn="michaelsCode" DataSetColumn="michaelsCode" />
+              <Mapping SourceColumn="michaelsCurrentStoreCount" DataSetColumn="michaelsCurrentStoreCount" />
+              <Mapping SourceColumn="michaelsFutureStoreCount" DataSetColumn="michaelsFutureStoreCount" />
+              <Mapping SourceColumn="michaelsROS" DataSetColumn="michaelsROS" />
+              <Mapping SourceColumn="michaelsROSoverride" DataSetColumn="michaelsROSoverride" />
+              <Mapping SourceColumn="michaelsRolloutDate" DataSetColumn="michaelsRolloutDate" />
+              <Mapping SourceColumn="michaelsRolloutAmount" DataSetColumn="michaelsRolloutAmount" />
+              <Mapping SourceColumn="michaelsRolloutDate2" DataSetColumn="michaelsRolloutDate2" />
+              <Mapping SourceColumn="michaelsRolloutAmount2" DataSetColumn="michaelsRolloutAmount2" />
+              <Mapping SourceColumn="michaelsBackUp" DataSetColumn="michaelsBackUp" />
+              <Mapping SourceColumn="michaelsDropDate" DataSetColumn="michaelsDropDate" />
+              <Mapping SourceColumn="joannCode" DataSetColumn="joannCode" />
+              <Mapping SourceColumn="joannCurrentStoreCount" DataSetColumn="joannCurrentStoreCount" />
+              <Mapping SourceColumn="joannFutureStoreCount" DataSetColumn="joannFutureStoreCount" />
+              <Mapping SourceColumn="joannROS" DataSetColumn="joannROS" />
+              <Mapping SourceColumn="joannROSoverride" DataSetColumn="joannROSoverride" />
+              <Mapping SourceColumn="joannRolloutDate" DataSetColumn="joannRolloutDate" />
+              <Mapping SourceColumn="joannRolloutAmount" DataSetColumn="joannRolloutAmount" />
+              <Mapping SourceColumn="joannRolloutDate2" DataSetColumn="joannRolloutDate2" />
+              <Mapping SourceColumn="joannRolloutAmount2" DataSetColumn="joannRolloutAmount2" />
+              <Mapping SourceColumn="joannBackup" DataSetColumn="joannBackup" />
+              <Mapping SourceColumn="joannDropDate" DataSetColumn="joannDropDate" />
+              <Mapping SourceColumn="acCode" DataSetColumn="acCode" />
+              <Mapping SourceColumn="acCurrentStoreCount" DataSetColumn="acCurrentStoreCount" />
+              <Mapping SourceColumn="acFutureStoreCount" DataSetColumn="acFutureStoreCount" />
+              <Mapping SourceColumn="acROS" DataSetColumn="acROS" />
+              <Mapping SourceColumn="acROSoverride" DataSetColumn="acROSoverride" />
+              <Mapping SourceColumn="acRolloutDate" DataSetColumn="acRolloutDate" />
+              <Mapping SourceColumn="acRolloutAmount" DataSetColumn="acRolloutAmount" />
+              <Mapping SourceColumn="acRolloutDate2" DataSetColumn="acRolloutDate2" />
+              <Mapping SourceColumn="acRolloutAmount2" DataSetColumn="acRolloutAmount2" />
+              <Mapping SourceColumn="acBackUp" DataSetColumn="acBackUp" />
+              <Mapping SourceColumn="acDropDate" DataSetColumn="acDropDate" />
+              <Mapping SourceColumn="meijerCode" DataSetColumn="meijerCode" />
+              <Mapping SourceColumn="meijerCurrentStoreCount" DataSetColumn="meijerCurrentStoreCount" />
+              <Mapping SourceColumn="meijerFutureStoreCount" DataSetColumn="meijerFutureStoreCount" />
+              <Mapping SourceColumn="meijerROS" DataSetColumn="meijerROS" />
+              <Mapping SourceColumn="meijerROSoverride" DataSetColumn="meijerROSoverride" />
+              <Mapping SourceColumn="meijerRolloutDate" DataSetColumn="meijerRolloutDate" />
+              <Mapping SourceColumn="meijerRolloutAmount" DataSetColumn="meijerRolloutAmount" />
+              <Mapping SourceColumn="meijerRolloutDate2" DataSetColumn="meijerRolloutDate2" />
+              <Mapping SourceColumn="meijerRolloutAmount2" DataSetColumn="meijerRolloutAmount2" />
+              <Mapping SourceColumn="meijerBackUp" DataSetColumn="meijerBackUp" />
+              <Mapping SourceColumn="meijerDropDate" DataSetColumn="meijerDropDate" />
+              <Mapping SourceColumn="wmcaCode" DataSetColumn="wmcaCode" />
+              <Mapping SourceColumn="wmcaCurrentStoreCount" DataSetColumn="wmcaCurrentStoreCount" />
+              <Mapping SourceColumn="wmcaFutureStoreCount" DataSetColumn="wmcaFutureStoreCount" />
+              <Mapping SourceColumn="wmcaROS" DataSetColumn="wmcaROS" />
+              <Mapping SourceColumn="wmcaROSoverride" DataSetColumn="wmcaROSoverride" />
+              <Mapping SourceColumn="wmcaRolloutDate" DataSetColumn="wmcaRolloutDate" />
+              <Mapping SourceColumn="wmcaRolloutAmount" DataSetColumn="wmcaRolloutAmount" />
+              <Mapping SourceColumn="wmcaRolloutDate2" DataSetColumn="wmcaRolloutDate2" />
+              <Mapping SourceColumn="wmcaRolloutAmount2" DataSetColumn="wmcaRolloutAmount2" />
+              <Mapping SourceColumn="wmcaBackup" DataSetColumn="wmcaBackup" />
+              <Mapping SourceColumn="wmcaDropDate" DataSetColumn="wmcaDropDate" />
+              <Mapping SourceColumn="itemNotes" DataSetColumn="itemNotes" />
+              <Mapping SourceColumn="override" DataSetColumn="override" />
+              <Mapping SourceColumn="CMID" DataSetColumn="CMID" />
+              <Mapping SourceColumn="ItemNumber" DataSetColumn="ItemNumber" />
+              <Mapping SourceColumn="ItemQty" DataSetColumn="ItemQty" />
+              <Mapping SourceColumn="Supplier" DataSetColumn="Supplier" />
+              <Mapping SourceColumn="ShipDate" DataSetColumn="ShipDate" />
+              <Mapping SourceColumn="ETADate" DataSetColumn="ETADate" />
+              <Mapping SourceColumn="InvoiceNumber" DataSetColumn="InvoiceNumber" />
+              <Mapping SourceColumn="ShipType" DataSetColumn="ShipType" />
+              <Mapping SourceColumn="Delivered" DataSetColumn="Delivered" />
+              <Mapping SourceColumn="RecDate" DataSetColumn="RecDate" />
+              <Mapping SourceColumn="ContainerQty" DataSetColumn="ContainerQty" />
+              <Mapping SourceColumn="ContainerNumber" DataSetColumn="ContainerNumber" />
+              <Mapping SourceColumn="orderquantity" DataSetColumn="orderquantity" />
+              <Mapping SourceColumn="locationnumber" DataSetColumn="locationnumber" />
+              <Mapping SourceColumn="primaryvendorno" DataSetColumn="primaryvendorno" />
+              <Mapping SourceColumn="productcategory" DataSetColumn="productcategory" />
+              <Mapping SourceColumn="stockdescription1" DataSetColumn="stockdescription1" />
+              <Mapping SourceColumn="qtyformatcode" DataSetColumn="qtyformatcode" />
+              <Mapping SourceColumn="quantityonhand" DataSetColumn="quantityonhand" />
+              <Mapping SourceColumn="MTD" DataSetColumn="MTD" />
+              <Mapping SourceColumn="salesAmountLM" DataSetColumn="salesAmountLM" />
+              <Mapping SourceColumn="salesAmount2M" DataSetColumn="salesAmount2M" />
+              <Mapping SourceColumn="salesAmount3M" DataSetColumn="salesAmount3M" />
+              <Mapping SourceColumn="salesAmount4M" DataSetColumn="salesAmount4M" />
+              <Mapping SourceColumn="salesAmount5M" DataSetColumn="salesAmount5M" />
+              <Mapping SourceColumn="salesAmount6M" DataSetColumn="salesAmount6M" />
+              <Mapping SourceColumn="qtyonrequisition" DataSetColumn="qtyonrequisition" />
+              <Mapping SourceColumn="quantitycommitted" DataSetColumn="quantitycommitted" />
+              <Mapping SourceColumn="qtyonbackorder" DataSetColumn="qtyonbackorder" />
+              <Mapping SourceColumn="qtyinuse" DataSetColumn="qtyinuse" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="SouthWareConnectionString (Settings)" DbObjectName="swdb.dbo.BuyReport" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+                <SelectCommand>
+                  <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
+                    <CommandText>dbo.BuyReport</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="ReturnValue" ParameterName="@RETURN_VALUE" Precision="10" ProviderType="Int" Scale="0" Size="4" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BuyReportDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="BuyReportDS" msprop:Generator_UserDSName="BuyReportDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BuyReportData" msprop:Generator_TableClassName="BuyReportDataDataTable" msprop:Generator_TableVarName="tableBuyReportData" msprop:Generator_RowChangedName="BuyReportDataRowChanged" msprop:Generator_TablePropName="BuyReportData" msprop:Generator_RowDeletingName="BuyReportDataRowDeleting" msprop:Generator_RowChangingName="BuyReportDataRowChanging" msprop:Generator_RowEvHandlerName="BuyReportDataRowChangeEventHandler" msprop:Generator_RowDeletedName="BuyReportDataRowDeleted" msprop:Generator_RowClassName="BuyReportDataRow" msprop:Generator_UserTableName="BuyReportData" msprop:Generator_RowEvArgName="BuyReportDataRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="stocknumber" msprop:Generator_ColumnVarNameInTable="columnstocknumber" msprop:Generator_ColumnPropNameInRow="stocknumber" msprop:Generator_ColumnPropNameInTable="stocknumberColumn" msprop:Generator_UserColumnName="stocknumber">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="michaelsCode" msprop:Generator_ColumnVarNameInTable="columnmichaelsCode" msprop:Generator_ColumnPropNameInRow="michaelsCode" msprop:Generator_ColumnPropNameInTable="michaelsCodeColumn" msprop:Generator_UserColumnName="michaelsCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="michaelsCurrentStoreCount" msprop:Generator_ColumnVarNameInTable="columnmichaelsCurrentStoreCount" msprop:Generator_ColumnPropNameInRow="michaelsCurrentStoreCount" msprop:Generator_ColumnPropNameInTable="michaelsCurrentStoreCountColumn" msprop:Generator_UserColumnName="michaelsCurrentStoreCount" type="xs:double" minOccurs="0" />
+              <xs:element name="michaelsFutureStoreCount" msprop:Generator_ColumnVarNameInTable="columnmichaelsFutureStoreCount" msprop:Generator_ColumnPropNameInRow="michaelsFutureStoreCount" msprop:Generator_ColumnPropNameInTable="michaelsFutureStoreCountColumn" msprop:Generator_UserColumnName="michaelsFutureStoreCount" type="xs:double" minOccurs="0" />
+              <xs:element name="michaelsROS" msprop:Generator_ColumnVarNameInTable="columnmichaelsROS" msprop:Generator_ColumnPropNameInRow="michaelsROS" msprop:Generator_ColumnPropNameInTable="michaelsROSColumn" msprop:Generator_UserColumnName="michaelsROS" type="xs:double" minOccurs="0" />
+              <xs:element name="michaelsROSoverride" msprop:Generator_ColumnVarNameInTable="columnmichaelsROSoverride" msprop:Generator_ColumnPropNameInRow="michaelsROSoverride" msprop:Generator_ColumnPropNameInTable="michaelsROSoverrideColumn" msprop:Generator_UserColumnName="michaelsROSoverride" type="xs:double" minOccurs="0" />
+              <xs:element name="michaelsRolloutDate" msprop:Generator_ColumnVarNameInTable="columnmichaelsRolloutDate" msprop:Generator_ColumnPropNameInRow="michaelsRolloutDate" msprop:Generator_ColumnPropNameInTable="michaelsRolloutDateColumn" msprop:Generator_UserColumnName="michaelsRolloutDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="michaelsRolloutAmount" msprop:Generator_ColumnVarNameInTable="columnmichaelsRolloutAmount" msprop:Generator_ColumnPropNameInRow="michaelsRolloutAmount" msprop:Generator_ColumnPropNameInTable="michaelsRolloutAmountColumn" msprop:Generator_UserColumnName="michaelsRolloutAmount" type="xs:double" minOccurs="0" />
+              <xs:element name="michaelsRolloutDate2" msprop:Generator_ColumnVarNameInTable="columnmichaelsRolloutDate2" msprop:Generator_ColumnPropNameInRow="michaelsRolloutDate2" msprop:Generator_ColumnPropNameInTable="michaelsRolloutDate2Column" msprop:Generator_UserColumnName="michaelsRolloutDate2" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="michaelsRolloutAmount2" msprop:Generator_ColumnVarNameInTable="columnmichaelsRolloutAmount2" msprop:Generator_ColumnPropNameInRow="michaelsRolloutAmount2" msprop:Generator_ColumnPropNameInTable="michaelsRolloutAmount2Column" msprop:Generator_UserColumnName="michaelsRolloutAmount2" type="xs:double" minOccurs="0" />
+              <xs:element name="michaelsBackUp" msprop:Generator_ColumnVarNameInTable="columnmichaelsBackUp" msprop:Generator_ColumnPropNameInRow="michaelsBackUp" msprop:Generator_ColumnPropNameInTable="michaelsBackUpColumn" msprop:Generator_UserColumnName="michaelsBackUp" type="xs:double" minOccurs="0" />
+              <xs:element name="michaelsDropDate" msprop:Generator_ColumnVarNameInTable="columnmichaelsDropDate" msprop:Generator_ColumnPropNameInRow="michaelsDropDate" msprop:Generator_ColumnPropNameInTable="michaelsDropDateColumn" msprop:Generator_UserColumnName="michaelsDropDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="joannCode" msprop:Generator_ColumnVarNameInTable="columnjoannCode" msprop:Generator_ColumnPropNameInRow="joannCode" msprop:Generator_ColumnPropNameInTable="joannCodeColumn" msprop:Generator_UserColumnName="joannCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="joannCurrentStoreCount" msprop:Generator_ColumnVarNameInTable="columnjoannCurrentStoreCount" msprop:Generator_ColumnPropNameInRow="joannCurrentStoreCount" msprop:Generator_ColumnPropNameInTable="joannCurrentStoreCountColumn" msprop:Generator_UserColumnName="joannCurrentStoreCount" type="xs:double" minOccurs="0" />
+              <xs:element name="joannFutureStoreCount" msprop:Generator_ColumnVarNameInTable="columnjoannFutureStoreCount" msprop:Generator_ColumnPropNameInRow="joannFutureStoreCount" msprop:Generator_ColumnPropNameInTable="joannFutureStoreCountColumn" msprop:Generator_UserColumnName="joannFutureStoreCount" type="xs:double" minOccurs="0" />
+              <xs:element name="joannROS" msprop:Generator_ColumnVarNameInTable="columnjoannROS" msprop:Generator_ColumnPropNameInRow="joannROS" msprop:Generator_ColumnPropNameInTable="joannROSColumn" msprop:Generator_UserColumnName="joannROS" type="xs:double" minOccurs="0" />
+              <xs:element name="joannROSoverride" msprop:Generator_ColumnVarNameInTable="columnjoannROSoverride" msprop:Generator_ColumnPropNameInRow="joannROSoverride" msprop:Generator_ColumnPropNameInTable="joannROSoverrideColumn" msprop:Generator_UserColumnName="joannROSoverride" type="xs:double" minOccurs="0" />
+              <xs:element name="joannRolloutDate" msprop:Generator_ColumnVarNameInTable="columnjoannRolloutDate" msprop:Generator_ColumnPropNameInRow="joannRolloutDate" msprop:Generator_ColumnPropNameInTable="joannRolloutDateColumn" msprop:Generator_UserColumnName="joannRolloutDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="joannRolloutAmount" msprop:Generator_ColumnVarNameInTable="columnjoannRolloutAmount" msprop:Generator_ColumnPropNameInRow="joannRolloutAmount" msprop:Generator_ColumnPropNameInTable="joannRolloutAmountColumn" msprop:Generator_UserColumnName="joannRolloutAmount" type="xs:double" minOccurs="0" />
+              <xs:element name="joannRolloutDate2" msprop:Generator_ColumnVarNameInTable="columnjoannRolloutDate2" msprop:Generator_ColumnPropNameInRow="joannRolloutDate2" msprop:Generator_ColumnPropNameInTable="joannRolloutDate2Column" msprop:Generator_UserColumnName="joannRolloutDate2" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="joannRolloutAmount2" msprop:Generator_ColumnVarNameInTable="columnjoannRolloutAmount2" msprop:Generator_ColumnPropNameInRow="joannRolloutAmount2" msprop:Generator_ColumnPropNameInTable="joannRolloutAmount2Column" msprop:Generator_UserColumnName="joannRolloutAmount2" type="xs:double" minOccurs="0" />
+              <xs:element name="joannBackup" msprop:Generator_ColumnVarNameInTable="columnjoannBackup" msprop:Generator_ColumnPropNameInRow="joannBackup" msprop:Generator_ColumnPropNameInTable="joannBackupColumn" msprop:Generator_UserColumnName="joannBackup" type="xs:double" minOccurs="0" />
+              <xs:element name="joannDropDate" msprop:Generator_ColumnVarNameInTable="columnjoannDropDate" msprop:Generator_ColumnPropNameInRow="joannDropDate" msprop:Generator_ColumnPropNameInTable="joannDropDateColumn" msprop:Generator_UserColumnName="joannDropDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="acCode" msprop:Generator_ColumnVarNameInTable="columnacCode" msprop:Generator_ColumnPropNameInRow="acCode" msprop:Generator_ColumnPropNameInTable="acCodeColumn" msprop:Generator_UserColumnName="acCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="acCurrentStoreCount" msprop:Generator_ColumnVarNameInTable="columnacCurrentStoreCount" msprop:Generator_ColumnPropNameInRow="acCurrentStoreCount" msprop:Generator_ColumnPropNameInTable="acCurrentStoreCountColumn" msprop:Generator_UserColumnName="acCurrentStoreCount" type="xs:double" minOccurs="0" />
+              <xs:element name="acFutureStoreCount" msprop:Generator_ColumnVarNameInTable="columnacFutureStoreCount" msprop:Generator_ColumnPropNameInRow="acFutureStoreCount" msprop:Generator_ColumnPropNameInTable="acFutureStoreCountColumn" msprop:Generator_UserColumnName="acFutureStoreCount" type="xs:double" minOccurs="0" />
+              <xs:element name="acROS" msprop:Generator_ColumnVarNameInTable="columnacROS" msprop:Generator_ColumnPropNameInRow="acROS" msprop:Generator_ColumnPropNameInTable="acROSColumn" msprop:Generator_UserColumnName="acROS" type="xs:double" minOccurs="0" />
+              <xs:element name="acROSoverride" msprop:Generator_ColumnVarNameInTable="columnacROSoverride" msprop:Generator_ColumnPropNameInRow="acROSoverride" msprop:Generator_ColumnPropNameInTable="acROSoverrideColumn" msprop:Generator_UserColumnName="acROSoverride" type="xs:double" minOccurs="0" />
+              <xs:element name="acRolloutDate" msprop:Generator_ColumnVarNameInTable="columnacRolloutDate" msprop:Generator_ColumnPropNameInRow="acRolloutDate" msprop:Generator_ColumnPropNameInTable="acRolloutDateColumn" msprop:Generator_UserColumnName="acRolloutDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="acRolloutAmount" msprop:Generator_ColumnVarNameInTable="columnacRolloutAmount" msprop:Generator_ColumnPropNameInRow="acRolloutAmount" msprop:Generator_ColumnPropNameInTable="acRolloutAmountColumn" msprop:Generator_UserColumnName="acRolloutAmount" type="xs:double" minOccurs="0" />
+              <xs:element name="acRolloutDate2" msprop:Generator_ColumnVarNameInTable="columnacRolloutDate2" msprop:Generator_ColumnPropNameInRow="acRolloutDate2" msprop:Generator_ColumnPropNameInTable="acRolloutDate2Column" msprop:Generator_UserColumnName="acRolloutDate2" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="acRolloutAmount2" msprop:Generator_ColumnVarNameInTable="columnacRolloutAmount2" msprop:Generator_ColumnPropNameInRow="acRolloutAmount2" msprop:Generator_ColumnPropNameInTable="acRolloutAmount2Column" msprop:Generator_UserColumnName="acRolloutAmount2" type="xs:double" minOccurs="0" />
+              <xs:element name="acBackUp" msprop:Generator_ColumnVarNameInTable="columnacBackUp" msprop:Generator_ColumnPropNameInRow="acBackUp" msprop:Generator_ColumnPropNameInTable="acBackUpColumn" msprop:Generator_UserColumnName="acBackUp" type="xs:double" minOccurs="0" />
+              <xs:element name="acDropDate" msprop:Generator_ColumnVarNameInTable="columnacDropDate" msprop:Generator_ColumnPropNameInRow="acDropDate" msprop:Generator_ColumnPropNameInTable="acDropDateColumn" msprop:Generator_UserColumnName="acDropDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="meijerCode" msprop:Generator_ColumnVarNameInTable="columnmeijerCode" msprop:Generator_ColumnPropNameInRow="meijerCode" msprop:Generator_ColumnPropNameInTable="meijerCodeColumn" msprop:Generator_UserColumnName="meijerCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="meijerCurrentStoreCount" msprop:Generator_ColumnVarNameInTable="columnmeijerCurrentStoreCount" msprop:Generator_ColumnPropNameInRow="meijerCurrentStoreCount" msprop:Generator_ColumnPropNameInTable="meijerCurrentStoreCountColumn" msprop:Generator_UserColumnName="meijerCurrentStoreCount" type="xs:double" minOccurs="0" />
+              <xs:element name="meijerFutureStoreCount" msprop:Generator_ColumnVarNameInTable="columnmeijerFutureStoreCount" msprop:Generator_ColumnPropNameInRow="meijerFutureStoreCount" msprop:Generator_ColumnPropNameInTable="meijerFutureStoreCountColumn" msprop:Generator_UserColumnName="meijerFutureStoreCount" type="xs:double" minOccurs="0" />
+              <xs:element name="meijerROS" msprop:Generator_ColumnVarNameInTable="columnmeijerROS" msprop:Generator_ColumnPropNameInRow="meijerROS" msprop:Generator_ColumnPropNameInTable="meijerROSColumn" msprop:Generator_UserColumnName="meijerROS" type="xs:double" minOccurs="0" />
+              <xs:element name="meijerROSoverride" msprop:Generator_ColumnVarNameInTable="columnmeijerROSoverride" msprop:Generator_ColumnPropNameInRow="meijerROSoverride" msprop:Generator_ColumnPropNameInTable="meijerROSoverrideColumn" msprop:Generator_UserColumnName="meijerROSoverride" type="xs:double" minOccurs="0" />
+              <xs:element name="meijerRolloutDate" msprop:Generator_ColumnVarNameInTable="columnmeijerRolloutDate" msprop:Generator_ColumnPropNameInRow="meijerRolloutDate" msprop:Generator_ColumnPropNameInTable="meijerRolloutDateColumn" msprop:Generator_UserColumnName="meijerRolloutDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="meijerRolloutAmount" msprop:Generator_ColumnVarNameInTable="columnmeijerRolloutAmount" msprop:Generator_ColumnPropNameInRow="meijerRolloutAmount" msprop:Generator_ColumnPropNameInTable="meijerRolloutAmountColumn" msprop:Generator_UserColumnName="meijerRolloutAmount" type="xs:double" minOccurs="0" />
+              <xs:element name="meijerRolloutDate2" msprop:Generator_ColumnVarNameInTable="columnmeijerRolloutDate2" msprop:Generator_ColumnPropNameInRow="meijerRolloutDate2" msprop:Generator_ColumnPropNameInTable="meijerRolloutDate2Column" msprop:Generator_UserColumnName="meijerRolloutDate2" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="meijerRolloutAmount2" msprop:Generator_ColumnVarNameInTable="columnmeijerRolloutAmount2" msprop:Generator_ColumnPropNameInRow="meijerRolloutAmount2" msprop:Generator_ColumnPropNameInTable="meijerRolloutAmount2Column" msprop:Generator_UserColumnName="meijerRolloutAmount2" type="xs:double" minOccurs="0" />
+              <xs:element name="meijerBackUp" msprop:Generator_ColumnVarNameInTable="columnmeijerBackUp" msprop:Generator_ColumnPropNameInRow="meijerBackUp" msprop:Generator_ColumnPropNameInTable="meijerBackUpColumn" msprop:Generator_UserColumnName="meijerBackUp" type="xs:double" minOccurs="0" />
+              <xs:element name="meijerDropDate" msprop:Generator_ColumnVarNameInTable="columnmeijerDropDate" msprop:Generator_ColumnPropNameInRow="meijerDropDate" msprop:Generator_ColumnPropNameInTable="meijerDropDateColumn" msprop:Generator_UserColumnName="meijerDropDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="wmcaCode" msprop:Generator_ColumnVarNameInTable="columnwmcaCode" msprop:Generator_ColumnPropNameInRow="wmcaCode" msprop:Generator_ColumnPropNameInTable="wmcaCodeColumn" msprop:Generator_UserColumnName="wmcaCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="wmcaCurrentStoreCount" msprop:Generator_ColumnVarNameInTable="columnwmcaCurrentStoreCount" msprop:Generator_ColumnPropNameInRow="wmcaCurrentStoreCount" msprop:Generator_ColumnPropNameInTable="wmcaCurrentStoreCountColumn" msprop:Generator_UserColumnName="wmcaCurrentStoreCount" type="xs:double" minOccurs="0" />
+              <xs:element name="wmcaFutureStoreCount" msprop:Generator_ColumnVarNameInTable="columnwmcaFutureStoreCount" msprop:Generator_ColumnPropNameInRow="wmcaFutureStoreCount" msprop:Generator_ColumnPropNameInTable="wmcaFutureStoreCountColumn" msprop:Generator_UserColumnName="wmcaFutureStoreCount" type="xs:double" minOccurs="0" />
+              <xs:element name="wmcaROS" msprop:Generator_ColumnVarNameInTable="columnwmcaROS" msprop:Generator_ColumnPropNameInRow="wmcaROS" msprop:Generator_ColumnPropNameInTable="wmcaROSColumn" msprop:Generator_UserColumnName="wmcaROS" type="xs:double" minOccurs="0" />
+              <xs:element name="wmcaROSoverride" msprop:Generator_ColumnVarNameInTable="columnwmcaROSoverride" msprop:Generator_ColumnPropNameInRow="wmcaROSoverride" msprop:Generator_ColumnPropNameInTable="wmcaROSoverrideColumn" msprop:Generator_UserColumnName="wmcaROSoverride" type="xs:double" minOccurs="0" />
+              <xs:element name="wmcaRolloutDate" msprop:Generator_ColumnVarNameInTable="columnwmcaRolloutDate" msprop:Generator_ColumnPropNameInRow="wmcaRolloutDate" msprop:Generator_ColumnPropNameInTable="wmcaRolloutDateColumn" msprop:Generator_UserColumnName="wmcaRolloutDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="wmcaRolloutAmount" msprop:Generator_ColumnVarNameInTable="columnwmcaRolloutAmount" msprop:Generator_ColumnPropNameInRow="wmcaRolloutAmount" msprop:Generator_ColumnPropNameInTable="wmcaRolloutAmountColumn" msprop:Generator_UserColumnName="wmcaRolloutAmount" type="xs:double" minOccurs="0" />
+              <xs:element name="wmcaRolloutDate2" msprop:Generator_ColumnVarNameInTable="columnwmcaRolloutDate2" msprop:Generator_ColumnPropNameInRow="wmcaRolloutDate2" msprop:Generator_ColumnPropNameInTable="wmcaRolloutDate2Column" msprop:Generator_UserColumnName="wmcaRolloutDate2" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="wmcaRolloutAmount2" msprop:Generator_ColumnVarNameInTable="columnwmcaRolloutAmount2" msprop:Generator_ColumnPropNameInRow="wmcaRolloutAmount2" msprop:Generator_ColumnPropNameInTable="wmcaRolloutAmount2Column" msprop:Generator_UserColumnName="wmcaRolloutAmount2" type="xs:double" minOccurs="0" />
+              <xs:element name="wmcaBackup" msprop:Generator_ColumnVarNameInTable="columnwmcaBackup" msprop:Generator_ColumnPropNameInRow="wmcaBackup" msprop:Generator_ColumnPropNameInTable="wmcaBackupColumn" msprop:Generator_UserColumnName="wmcaBackup" type="xs:double" minOccurs="0" />
+              <xs:element name="wmcaDropDate" msprop:Generator_ColumnVarNameInTable="columnwmcaDropDate" msprop:Generator_ColumnPropNameInRow="wmcaDropDate" msprop:Generator_ColumnPropNameInTable="wmcaDropDateColumn" msprop:Generator_UserColumnName="wmcaDropDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="itemNotes" msprop:Generator_ColumnVarNameInTable="columnitemNotes" msprop:Generator_ColumnPropNameInRow="itemNotes" msprop:Generator_ColumnPropNameInTable="itemNotesColumn" msprop:Generator_UserColumnName="itemNotes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="override" msprop:Generator_ColumnVarNameInTable="columnoverride" msprop:Generator_ColumnPropNameInRow="_override" msprop:Generator_ColumnPropNameInTable="overrideColumn" msprop:Generator_UserColumnName="override" type="xs:int" minOccurs="0" />
+              <xs:element name="CMID" msprop:Generator_ColumnVarNameInTable="columnCMID" msprop:Generator_ColumnPropNameInRow="CMID" msprop:Generator_ColumnPropNameInTable="CMIDColumn" msprop:Generator_UserColumnName="CMID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItemNumber" msprop:Generator_ColumnVarNameInTable="columnItemNumber" msprop:Generator_ColumnPropNameInRow="ItemNumber" msprop:Generator_ColumnPropNameInTable="ItemNumberColumn" msprop:Generator_UserColumnName="ItemNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="53" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ItemQty" msprop:Generator_ColumnVarNameInTable="columnItemQty" msprop:Generator_ColumnPropNameInRow="ItemQty" msprop:Generator_ColumnPropNameInTable="ItemQtyColumn" msprop:Generator_UserColumnName="ItemQty" type="xs:double" minOccurs="0" />
+              <xs:element name="Supplier" msprop:Generator_ColumnVarNameInTable="columnSupplier" msprop:Generator_ColumnPropNameInRow="Supplier" msprop:Generator_ColumnPropNameInTable="SupplierColumn" msprop:Generator_UserColumnName="Supplier" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShipDate" msprop:Generator_ColumnVarNameInTable="columnShipDate" msprop:Generator_ColumnPropNameInRow="ShipDate" msprop:Generator_ColumnPropNameInTable="ShipDateColumn" msprop:Generator_UserColumnName="ShipDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ETADate" msprop:Generator_ColumnVarNameInTable="columnETADate" msprop:Generator_ColumnPropNameInRow="ETADate" msprop:Generator_ColumnPropNameInTable="ETADateColumn" msprop:Generator_UserColumnName="ETADate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="InvoiceNumber" msprop:Generator_ColumnVarNameInTable="columnInvoiceNumber" msprop:Generator_ColumnPropNameInRow="InvoiceNumber" msprop:Generator_ColumnPropNameInTable="InvoiceNumberColumn" msprop:Generator_UserColumnName="InvoiceNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ShipType" msprop:Generator_ColumnVarNameInTable="columnShipType" msprop:Generator_ColumnPropNameInRow="ShipType" msprop:Generator_ColumnPropNameInTable="ShipTypeColumn" msprop:Generator_UserColumnName="ShipType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Delivered" msprop:Generator_ColumnVarNameInTable="columnDelivered" msprop:Generator_ColumnPropNameInRow="Delivered" msprop:Generator_ColumnPropNameInTable="DeliveredColumn" msprop:Generator_UserColumnName="Delivered" type="xs:double" minOccurs="0" />
+              <xs:element name="RecDate" msprop:Generator_ColumnVarNameInTable="columnRecDate" msprop:Generator_ColumnPropNameInRow="RecDate" msprop:Generator_ColumnPropNameInTable="RecDateColumn" msprop:Generator_UserColumnName="RecDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ContainerQty" msprop:Generator_ColumnVarNameInTable="columnContainerQty" msprop:Generator_ColumnPropNameInRow="ContainerQty" msprop:Generator_ColumnPropNameInTable="ContainerQtyColumn" msprop:Generator_UserColumnName="ContainerQty" type="xs:double" minOccurs="0" />
+              <xs:element name="ContainerNumber" msprop:Generator_ColumnVarNameInTable="columnContainerNumber" msprop:Generator_ColumnPropNameInRow="ContainerNumber" msprop:Generator_ColumnPropNameInTable="ContainerNumberColumn" msprop:Generator_UserColumnName="ContainerNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="orderquantity" msprop:Generator_ColumnVarNameInTable="columnorderquantity" msprop:Generator_ColumnPropNameInRow="orderquantity" msprop:Generator_ColumnPropNameInTable="orderquantityColumn" msprop:Generator_UserColumnName="orderquantity" type="xs:decimal" minOccurs="0" />
+              <xs:element name="locationnumber" msprop:Generator_ColumnVarNameInTable="columnlocationnumber" msprop:Generator_ColumnPropNameInRow="locationnumber" msprop:Generator_ColumnPropNameInTable="locationnumberColumn" msprop:Generator_UserColumnName="locationnumber">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="primaryvendorno" msprop:Generator_ColumnVarNameInTable="columnprimaryvendorno" msprop:Generator_ColumnPropNameInRow="primaryvendorno" msprop:Generator_ColumnPropNameInTable="primaryvendornoColumn" msprop:Generator_UserColumnName="primaryvendorno">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="productcategory" msprop:Generator_ColumnVarNameInTable="columnproductcategory" msprop:Generator_ColumnPropNameInRow="productcategory" msprop:Generator_ColumnPropNameInTable="productcategoryColumn" msprop:Generator_UserColumnName="productcategory">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="stockdescription1" msprop:Generator_ColumnVarNameInTable="columnstockdescription1" msprop:Generator_ColumnPropNameInRow="stockdescription1" msprop:Generator_ColumnPropNameInTable="stockdescription1Column" msprop:Generator_UserColumnName="stockdescription1">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="qtyformatcode" msprop:Generator_ColumnVarNameInTable="columnqtyformatcode" msprop:Generator_ColumnPropNameInRow="qtyformatcode" msprop:Generator_ColumnPropNameInTable="qtyformatcodeColumn" msprop:Generator_UserColumnName="qtyformatcode" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="quantityonhand" msprop:Generator_ColumnVarNameInTable="columnquantityonhand" msprop:Generator_ColumnPropNameInRow="quantityonhand" msprop:Generator_ColumnPropNameInTable="quantityonhandColumn" msprop:Generator_UserColumnName="quantityonhand" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MTD" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMTD" msprop:Generator_ColumnPropNameInRow="MTD" msprop:Generator_ColumnPropNameInTable="MTDColumn" msprop:Generator_UserColumnName="MTD" type="xs:decimal" minOccurs="0" />
+              <xs:element name="salesAmountLM" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsalesAmountLM" msprop:Generator_ColumnPropNameInRow="salesAmountLM" msprop:Generator_ColumnPropNameInTable="salesAmountLMColumn" msprop:Generator_UserColumnName="salesAmountLM" type="xs:decimal" minOccurs="0" />
+              <xs:element name="salesAmount2M" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsalesAmount2M" msprop:Generator_ColumnPropNameInRow="salesAmount2M" msprop:Generator_ColumnPropNameInTable="salesAmount2MColumn" msprop:Generator_UserColumnName="salesAmount2M" type="xs:decimal" minOccurs="0" />
+              <xs:element name="salesAmount3M" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsalesAmount3M" msprop:Generator_ColumnPropNameInRow="salesAmount3M" msprop:Generator_ColumnPropNameInTable="salesAmount3MColumn" msprop:Generator_UserColumnName="salesAmount3M" type="xs:decimal" minOccurs="0" />
+              <xs:element name="salesAmount4M" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsalesAmount4M" msprop:Generator_ColumnPropNameInRow="salesAmount4M" msprop:Generator_ColumnPropNameInTable="salesAmount4MColumn" msprop:Generator_UserColumnName="salesAmount4M" type="xs:decimal" minOccurs="0" />
+              <xs:element name="salesAmount5M" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsalesAmount5M" msprop:Generator_ColumnPropNameInRow="salesAmount5M" msprop:Generator_ColumnPropNameInTable="salesAmount5MColumn" msprop:Generator_UserColumnName="salesAmount5M" type="xs:decimal" minOccurs="0" />
+              <xs:element name="salesAmount6M" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsalesAmount6M" msprop:Generator_ColumnPropNameInRow="salesAmount6M" msprop:Generator_ColumnPropNameInTable="salesAmount6MColumn" msprop:Generator_UserColumnName="salesAmount6M" type="xs:decimal" minOccurs="0" />
+              <xs:element name="qtyonrequisition" msprop:Generator_ColumnVarNameInTable="columnqtyonrequisition" msprop:Generator_ColumnPropNameInRow="qtyonrequisition" msprop:Generator_ColumnPropNameInTable="qtyonrequisitionColumn" msprop:Generator_UserColumnName="qtyonrequisition" type="xs:decimal" minOccurs="0" />
+              <xs:element name="quantitycommitted" msprop:Generator_ColumnVarNameInTable="columnquantitycommitted" msprop:Generator_ColumnPropNameInRow="quantitycommitted" msprop:Generator_ColumnPropNameInTable="quantitycommittedColumn" msprop:Generator_UserColumnName="quantitycommitted" type="xs:decimal" minOccurs="0" />
+              <xs:element name="qtyonbackorder" msprop:Generator_ColumnVarNameInTable="columnqtyonbackorder" msprop:Generator_ColumnPropNameInRow="qtyonbackorder" msprop:Generator_ColumnPropNameInTable="qtyonbackorderColumn" msprop:Generator_UserColumnName="qtyonbackorder" type="xs:decimal" minOccurs="0" />
+              <xs:element name="qtyinuse" msprop:Generator_ColumnVarNameInTable="columnqtyinuse" msprop:Generator_ColumnPropNameInRow="qtyinuse" msprop:Generator_ColumnPropNameInTable="qtyinuseColumn" msprop:Generator_UserColumnName="qtyinuse" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:BuyReportData" />
+      <xs:field xpath="mstns:stocknumber" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

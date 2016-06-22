@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ContainerMasterDS" targetNamespace="http://tempuri.org/ContainerMasterDS.xsd" xmlns:mstns="http://tempuri.org/ContainerMasterDS.xsd" xmlns="http://tempuri.org/ContainerMasterDS.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="SouthWareConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="SouthWareConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.ContainerMaster.Properties.Settings.GlobalReference.Default.SouthWareConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="SouthWareConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>  SELECT        LTRIM(SWCCSPO2.ponumber) AS ponumber, SWCCSPO1.dateordered, SWCCSPO1.shipdate, SWCCSPO1.comments, RTRIM(SWCCSPO2.stocknumber) as 'stocknumber', SWCCSPO2.expectedshipdate, SWCCSPO2.requestedshipdate, 
+                         SWCCSPO2.descline1, SWCCSPO2.vendornumber, SWCCSPO2.orderquantity, SWCCSPO2.receivedtodateqty, SWCCSPO2.cancelledqty, sum(CM_Data.ItemQty) as ItemQty, SWCCXD078.innerpkselunt as 'qtyformatcode', SWCCSSTOK.productcategory, SWCCSSTOK.quantityonhand, SWCCSX005.upc, 
+                         CM_Details.Delivered, CM_Data.CMID, CM_Details.Supplier, CM_Details.ShipDate AS Expr1, CM_Details.ETADate, CM_Details.ContainerQty, CM_Details.ShipType, CM_Details.ContainerNumber, SWCCSSTOK.locationnumber
+                        
+FROM            SWCCSPO2 
+JOIN SWCCSPO1 ON SWCCSPO1.ponumber = SWCCSPO2.ponumber 
+LEFT JOIN SWCCSSTOK ON SWCCSSTOK.stocknumber = SWCCSPO2.stocknumber 
+LEFT JOIN SWCCSX005 ON SWCCSX005.stocknumber = SWCCSPO2.stocknumber
+Left JOIN SWCCXD078 ON SWCCXD078.stocknumber = SWCCSX005.stocknumber and (SWCCXD078.locationnumber in ('900','800'))
+join SWCCAVEND on SWCCAVEND.vendornumber = SWCCSPO2.vendornumber and SWCCAVEND.userflag_1 = '1'
+LEFT JOIN CM_Data ON CM_Data.PONumber = LTRIM(SWCCSPO2.ponumber) AND CM_Data.ItemNumber = SWCCSPO2.stocknumber 
+LEFT JOIN CM_Details ON CM_Data.CMID = CM_Details.CMID 
+
+WHERE        (SWCCSPO1.status = 'O') and (SWCCSSTOK.locationnumber in ('900', '800')) AND (SWCCSX005.locationnumber in ('900', '800')) and CM_Details.Delivered IS NULL 
+
+group by SWCCSPO2.ponumber, SWCCSPO1.dateordered, SWCCSPO1.shipdate, SWCCSPO1.comments, SWCCSPO2.stocknumber, SWCCSPO2.expectedshipdate, SWCCSPO2.requestedshipdate, 
+                         SWCCSPO2.descline1, SWCCSPO2.vendornumber, SWCCXD078.innerpkselunt, SWCCSSTOK.productcategory, SWCCSSTOK.quantityonhand, SWCCSX005.upc, 
+                         CM_Details.Delivered, CM_Data.CMID, CM_Details.Supplier, CM_Details.ShipDate, CM_Details.ETADate, CM_Details.ContainerQty, CM_Details.ShipType, CM_Details.ContainerNumber, SWCCSSTOK.locationnumber, SWCCSPO2.orderquantity, SWCCSPO2.receivedtodateqty, SWCCSPO2.cancelledqty
+ORDER BY SWCCSPO2.stocknumber, SWCCSPO2.requestedshipdate</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ponumber" DataSetColumn="ponumber" />
+              <Mapping SourceColumn="dateordered" DataSetColumn="dateordered" />
+              <Mapping SourceColumn="shipdate" DataSetColumn="shipdate" />
+              <Mapping SourceColumn="comments" DataSetColumn="comments" />
+              <Mapping SourceColumn="stocknumber" DataSetColumn="stocknumber" />
+              <Mapping SourceColumn="expectedshipdate" DataSetColumn="expectedshipdate" />
+              <Mapping SourceColumn="requestedshipdate" DataSetColumn="requestedshipdate" />
+              <Mapping SourceColumn="descline1" DataSetColumn="descline1" />
+              <Mapping SourceColumn="vendornumber" DataSetColumn="vendornumber" />
+              <Mapping SourceColumn="orderquantity" DataSetColumn="orderquantity" />
+              <Mapping SourceColumn="ItemQty" DataSetColumn="ItemQty" />
+              <Mapping SourceColumn="productcategory" DataSetColumn="productcategory" />
+              <Mapping SourceColumn="quantityonhand" DataSetColumn="quantityonhand" />
+              <Mapping SourceColumn="upc" DataSetColumn="upc" />
+              <Mapping SourceColumn="Delivered" DataSetColumn="Delivered" />
+              <Mapping SourceColumn="Supplier" DataSetColumn="Supplier" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+              <Mapping SourceColumn="ETADate" DataSetColumn="ETADate" />
+              <Mapping SourceColumn="ContainerQty" DataSetColumn="ContainerQty" />
+              <Mapping SourceColumn="ShipType" DataSetColumn="ShipType" />
+              <Mapping SourceColumn="ContainerNumber" DataSetColumn="ContainerNumber" />
+              <Mapping SourceColumn="receivedtodateqty" DataSetColumn="receivedtodateqty" />
+              <Mapping SourceColumn="CMID" DataSetColumn="CMID" />
+              <Mapping SourceColumn="locationnumber" DataSetColumn="locationnumber" />
+              <Mapping SourceColumn="qtyformatcode" DataSetColumn="qtyformatcode" />
+              <Mapping SourceColumn="cancelledqty" DataSetColumn="cancelledqty" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ContainerMasterDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ContainerMasterDS" msprop:Generator_UserDSName="ContainerMasterDS">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_RowClassName="DataTable1Row" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ponumber" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnponumber" msprop:Generator_ColumnPropNameInRow="ponumber" msprop:Generator_ColumnPropNameInTable="ponumberColumn" msprop:Generator_UserColumnName="ponumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="dateordered" msprop:Generator_ColumnVarNameInTable="columndateordered" msprop:Generator_ColumnPropNameInRow="dateordered" msprop:Generator_ColumnPropNameInTable="dateorderedColumn" msprop:Generator_UserColumnName="dateordered" type="xs:dateTime" />
+              <xs:element name="shipdate" msprop:Generator_ColumnVarNameInTable="columnshipdate" msprop:Generator_ColumnPropNameInRow="shipdate" msprop:Generator_ColumnPropNameInTable="shipdateColumn" msprop:Generator_UserColumnName="shipdate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="comments" msprop:Generator_ColumnVarNameInTable="columncomments" msprop:Generator_ColumnPropNameInRow="comments" msprop:Generator_ColumnPropNameInTable="commentsColumn" msprop:Generator_UserColumnName="comments" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="stocknumber" msprop:Generator_ColumnVarNameInTable="columnstocknumber" msprop:Generator_ColumnPropNameInRow="stocknumber" msprop:Generator_ColumnPropNameInTable="stocknumberColumn" msprop:Generator_UserColumnName="stocknumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="expectedshipdate" msprop:Generator_ColumnVarNameInTable="columnexpectedshipdate" msprop:Generator_ColumnPropNameInRow="expectedshipdate" msprop:Generator_ColumnPropNameInTable="expectedshipdateColumn" msprop:Generator_UserColumnName="expectedshipdate" type="xs:dateTime" />
+              <xs:element name="requestedshipdate" msprop:Generator_ColumnVarNameInTable="columnrequestedshipdate" msprop:Generator_ColumnPropNameInRow="requestedshipdate" msprop:Generator_ColumnPropNameInTable="requestedshipdateColumn" msprop:Generator_UserColumnName="requestedshipdate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="descline1" msprop:Generator_ColumnVarNameInTable="columndescline1" msprop:Generator_ColumnPropNameInRow="descline1" msprop:Generator_ColumnPropNameInTable="descline1Column" msprop:Generator_UserColumnName="descline1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="vendornumber" msprop:Generator_ColumnVarNameInTable="columnvendornumber" msprop:Generator_ColumnPropNameInRow="vendornumber" msprop:Generator_ColumnPropNameInTable="vendornumberColumn" msprop:Generator_UserColumnName="vendornumber">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="orderquantity" msprop:Generator_ColumnVarNameInTable="columnorderquantity" msprop:Generator_ColumnPropNameInRow="orderquantity" msprop:Generator_ColumnPropNameInTable="orderquantityColumn" msprop:Generator_UserColumnName="orderquantity" type="xs:decimal" minOccurs="0" />
+              <xs:element name="ItemQty" msprop:Generator_ColumnVarNameInTable="columnItemQty" msprop:Generator_ColumnPropNameInRow="ItemQty" msprop:Generator_ColumnPropNameInTable="ItemQtyColumn" msprop:Generator_UserColumnName="ItemQty" type="xs:double" minOccurs="0" />
+              <xs:element name="productcategory" msprop:Generator_ColumnVarNameInTable="columnproductcategory" msprop:Generator_ColumnPropNameInRow="productcategory" msprop:Generator_ColumnPropNameInTable="productcategoryColumn" msprop:Generator_UserColumnName="productcategory" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="quantityonhand" msprop:Generator_ColumnVarNameInTable="columnquantityonhand" msprop:Generator_ColumnPropNameInRow="quantityonhand" msprop:Generator_ColumnPropNameInTable="quantityonhandColumn" msprop:Generator_UserColumnName="quantityonhand" type="xs:decimal" minOccurs="0" />
+              <xs:element name="upc" msprop:Generator_ColumnVarNameInTable="columnupc" msprop:Generator_ColumnPropNameInRow="upc" msprop:Generator_ColumnPropNameInTable="upcColumn" msprop:Generator_UserColumnName="upc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Delivered" msprop:Generator_ColumnVarNameInTable="columnDelivered" msprop:Generator_ColumnPropNameInRow="Delivered" msprop:Generator_ColumnPropNameInTable="DeliveredColumn" msprop:Generator_UserColumnName="Delivered" type="xs:double" minOccurs="0" />
+              <xs:element name="Supplier" msprop:Generator_ColumnVarNameInTable="columnSupplier" msprop:Generator_ColumnPropNameInRow="Supplier" msprop:Generator_ColumnPropNameInTable="SupplierColumn" msprop:Generator_UserColumnName="Supplier" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expr1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ETADate" msprop:Generator_ColumnVarNameInTable="columnETADate" msprop:Generator_ColumnPropNameInRow="ETADate" msprop:Generator_ColumnPropNameInTable="ETADateColumn" msprop:Generator_UserColumnName="ETADate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ContainerQty" msprop:Generator_ColumnVarNameInTable="columnContainerQty" msprop:Generator_ColumnPropNameInRow="ContainerQty" msprop:Generator_ColumnPropNameInTable="ContainerQtyColumn" msprop:Generator_UserColumnName="ContainerQty" type="xs:double" minOccurs="0" />
+              <xs:element name="ShipType" msprop:Generator_ColumnVarNameInTable="columnShipType" msprop:Generator_ColumnPropNameInRow="ShipType" msprop:Generator_ColumnPropNameInTable="ShipTypeColumn" msprop:Generator_UserColumnName="ShipType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ContainerNumber" msprop:Generator_ColumnVarNameInTable="columnContainerNumber" msprop:Generator_ColumnPropNameInRow="ContainerNumber" msprop:Generator_ColumnPropNameInTable="ContainerNumberColumn" msprop:Generator_UserColumnName="ContainerNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="receivedtodateqty" msprop:Generator_ColumnVarNameInTable="columnreceivedtodateqty" msprop:Generator_ColumnPropNameInRow="receivedtodateqty" msprop:Generator_ColumnPropNameInTable="receivedtodateqtyColumn" msprop:Generator_UserColumnName="receivedtodateqty" type="xs:decimal" minOccurs="0" />
+              <xs:element name="CMID" msprop:Generator_ColumnVarNameInTable="columnCMID" msprop:Generator_ColumnPropNameInRow="CMID" msprop:Generator_ColumnPropNameInTable="CMIDColumn" msprop:Generator_UserColumnName="CMID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="locationnumber" msprop:Generator_ColumnVarNameInTable="columnlocationnumber" msprop:Generator_ColumnPropNameInRow="locationnumber" msprop:Generator_ColumnPropNameInTable="locationnumberColumn" msprop:Generator_UserColumnName="locationnumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="qtyformatcode" msprop:Generator_ColumnVarNameInTable="columnqtyformatcode" msprop:Generator_ColumnPropNameInRow="qtyformatcode" msprop:Generator_ColumnPropNameInTable="qtyformatcodeColumn" msprop:Generator_UserColumnName="qtyformatcode" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cancelledqty" msprop:Generator_ColumnVarNameInTable="columncancelledqty" msprop:Generator_ColumnPropNameInRow="cancelledqty" msprop:Generator_ColumnPropNameInTable="cancelledqtyColumn" msprop:Generator_UserColumnName="cancelledqty" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1">
+      <xs:selector xpath=".//mstns:DataTable1" />
+      <xs:field xpath="mstns:CMID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
