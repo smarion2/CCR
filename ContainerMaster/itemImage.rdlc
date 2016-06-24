@@ -355,7 +355,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.25in</Height>
+              <Height>1.4375in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -633,6 +633,7 @@
                     <Image Name="Image1">
                       <Source>External</Source>
                       <Value>=Fields!imagePath.Value</Value>
+                      <Sizing>FitProportional</Sizing>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -681,7 +682,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>imageDS</DataSetName>
-        <Height>0.5in</Height>
+        <Height>1.6875in</Height>
         <Width>9.25in</Width>
         <Style>
           <Border>

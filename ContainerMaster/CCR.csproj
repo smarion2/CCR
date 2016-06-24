@@ -216,11 +216,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>royaltyDS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="sworvskiDS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>sworvskiDS.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Classes\UserPermissions.cs" />
     <Compile Include="Forms\WalmartOutsReportForm.cs">
       <SubType>Form</SubType>
@@ -301,7 +296,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ediMismatch.rdlc" />
     <EmbeddedResource Include="RoyaltyReport.rdlc" />
-    <EmbeddedResource Include="SwarovskiSalesReport.rdlc" />
     <EmbeddedResource Include="Forms\SwarovskiSalesForm.resx">
       <DependentUpon>SwarovskiSalesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -387,17 +381,6 @@
     </None>
     <None Include="royaltyDS.xss">
       <DependentUpon>royaltyDS.xsd</DependentUpon>
-    </None>
-    <None Include="sworvskiDS.xsc">
-      <DependentUpon>sworvskiDS.xsd</DependentUpon>
-    </None>
-    <None Include="sworvskiDS.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>sworvskiDS.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="sworvskiDS.xss">
-      <DependentUpon>sworvskiDS.xsd</DependentUpon>
     </None>
     <None Include="wmOutsReport.xsc">
       <DependentUpon>wmOutsReport.xsd</DependentUpon>

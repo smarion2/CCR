@@ -19,7 +19,7 @@ namespace CCR
         }
 
         private void SwarovskiSalesForm_Load(object sender, EventArgs e)
-        {            
+        {
             this.sWCCSCATGTableAdapter.Fill(this.categoryDS.SWCCSCATG);
         }
 
@@ -28,6 +28,20 @@ namespace CCR
             string fromDate = dateTimePicker1.Text;
             string toDate = dateTimePicker2.Text;
             string cats = string.Empty;
+            string location = string.Empty;
+            string connectionString = "Data Source=srv-swdb;Initial Catalog=swdb;Persist Security Info=True;User ID=swdb;Password=SouthWare99";
+            if (radioButton700.Checked == true)
+            {
+                location = "700";
+            }
+            else if (radioButton800.Checked == true)
+            {
+                location = "800";
+            }
+            else if (radioButton900.Checked == true)
+            {
+                location = "900";
+            }
 
             DateTime fD = Convert.ToDateTime(fromDate);
             DateTime tD = Convert.ToDateTime(toDate);
@@ -38,10 +52,18 @@ namespace CCR
             }
 
             ReportFilters.CatFilter(cats);
-            this.SWCCSBIL2TableAdapter.Fill(this.sworvskiDS.SWCCSBIL2, fD, tD);
+            ReportFilters.ItemFilter(ItemFiltertextBox.Text);
+            DataTable dt = GetData.ExecuteQuery(@"SELECT  billtoname,
+                                           sum(quantitytoship) as 'UnitsShipped',
+                                           sum(unitprice * quantitytoship) as 'UnitsShippedPrice',
+                                           category
+                                   FROM SWCCSHST2 b
+                                  join SWCCSHST1 a on a.invoicenumber = b.invoicenumber
+                                  where itemidstocksvc in (select Items from ItemFilterTMP) and category in (select Cats from CatFilterTMP) and b.locationnumber = @0 and a.invoicedate >= @1 and a.invoicedate <= @2
+                                  group by billtoname, category", connectionString, location, fromDate, toDate);
             ReportFilters.DropTables();
-            
-            this.reportViewer1.RefreshReport();
+            DataTableToExcel.ExportToExcel(dt);            
+
         }
     }
 }

@@ -103,28 +103,28 @@
             // swarovskiSalesReportToolStripMenuItem
             // 
             this.swarovskiSalesReportToolStripMenuItem.Name = "swarovskiSalesReportToolStripMenuItem";
-            this.swarovskiSalesReportToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.swarovskiSalesReportToolStripMenuItem.Text = "Swarovski Sales Report";
+            this.swarovskiSalesReportToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.swarovskiSalesReportToolStripMenuItem.Text = " Quantity Sold Sales Report";
             this.swarovskiSalesReportToolStripMenuItem.Click += new System.EventHandler(this.swarovskiSalesReportToolStripMenuItem_Click);
             // 
             // royaltyReportToolStripMenuItem
             // 
             this.royaltyReportToolStripMenuItem.Name = "royaltyReportToolStripMenuItem";
-            this.royaltyReportToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.royaltyReportToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.royaltyReportToolStripMenuItem.Text = "Royalty Report";
             this.royaltyReportToolStripMenuItem.Click += new System.EventHandler(this.royaltyReportToolStripMenuItem_Click);
             // 
             // yOYReportToolStripMenuItem
             // 
             this.yOYReportToolStripMenuItem.Name = "yOYReportToolStripMenuItem";
-            this.yOYReportToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.yOYReportToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.yOYReportToolStripMenuItem.Text = "YOY Report";
             this.yOYReportToolStripMenuItem.Click += new System.EventHandler(this.yOYReportToolStripMenuItem_Click);
             // 
             // itemImageReportToolStripMenuItem
             // 
             this.itemImageReportToolStripMenuItem.Name = "itemImageReportToolStripMenuItem";
-            this.itemImageReportToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.itemImageReportToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.itemImageReportToolStripMenuItem.Text = "Item Image Report";
             this.itemImageReportToolStripMenuItem.Click += new System.EventHandler(this.itemImageReportToolStripMenuItem_Click);
             // 
