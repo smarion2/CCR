@@ -30,13 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.SWCCSBIL2BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.sworvskiDS = new CCR.sworvskiDS();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
-            this.SWCCSBIL2TableAdapter = new CCR.sworvskiDSTableAdapters.SWCCSBIL2TableAdapter();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.sWCCSCATGBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.categoryDS = new CCR.categoryDS();
@@ -49,7 +47,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.SWCCSBIL2BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sworvskiDS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sWCCSCATGBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryDS)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -58,12 +55,9 @@
             // SWCCSBIL2BindingSource
             // 
             this.SWCCSBIL2BindingSource.DataMember = "SWCCSBIL2";
-            this.SWCCSBIL2BindingSource.DataSource = this.sworvskiDS;
             // 
             // sworvskiDS
             // 
-            this.sworvskiDS.DataSetName = "sworvskiDS";
-            this.sworvskiDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -112,7 +106,6 @@
             // 
             // SWCCSBIL2TableAdapter
             // 
-            this.SWCCSBIL2TableAdapter.ClearBeforeFill = true;
             // 
             // listBox1
             // 
@@ -229,7 +222,6 @@
             this.Text = "SwarovskiSalesForm";
             this.Load += new System.EventHandler(this.SwarovskiSalesForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.SWCCSBIL2BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sworvskiDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sWCCSCATGBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryDS)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -246,8 +238,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.BindingSource SWCCSBIL2BindingSource;
-        private sworvskiDS sworvskiDS;
-        private sworvskiDSTableAdapters.SWCCSBIL2TableAdapter SWCCSBIL2TableAdapter;
         private System.Windows.Forms.ListBox listBox1;
         private categoryDS categoryDS;
         private System.Windows.Forms.BindingSource sWCCSCATGBindingSource;

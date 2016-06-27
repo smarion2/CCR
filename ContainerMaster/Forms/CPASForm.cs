@@ -272,6 +272,22 @@ namespace CCR
             bar = null;
         }
 
+        LauraJanelleForm lj;
+        private void atAGlanceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lj == null)
+            {
+                lj = new LauraJanelleForm();
+                lj.MdiParent = this;
+                lj.FormClosed += new FormClosedEventHandler(lj_formClosed);
+                lj.Show();
+            }
+        }
+
+        private void lj_formClosed(object sender, FormClosedEventArgs e)
+        {
+            lj = null;
+        }
     }
        
 }

@@ -84,3 +84,4 @@ C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\RdlCompile.cache
 C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\RdlCompile.compiled
 C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.exe.manifest
 C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.application
+C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.LauraJanelleForm.resources

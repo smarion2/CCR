@@ -55,6 +55,8 @@
             this.createUPSInvoiceFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.designGADToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.barcodeImageGeneratorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lauraJanelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.atAGlanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContainerMasterDS)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -82,7 +84,8 @@
             this.analysisToolStripMenuItem,
             this.accountingToolStripMenuItem,
             this.eDIToolStripMenuItem,
-            this.designGADToolStripMenuItem});
+            this.designGADToolStripMenuItem,
+            this.lauraJanelleToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(969, 24);
@@ -250,6 +253,21 @@
             this.barcodeImageGeneratorToolStripMenuItem.Text = "Barcode Image Generator";
             this.barcodeImageGeneratorToolStripMenuItem.Click += new System.EventHandler(this.barcodeImageGeneratorToolStripMenuItem_Click);
             // 
+            // lauraJanelleToolStripMenuItem
+            // 
+            this.lauraJanelleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.atAGlanceToolStripMenuItem});
+            this.lauraJanelleToolStripMenuItem.Name = "lauraJanelleToolStripMenuItem";
+            this.lauraJanelleToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
+            this.lauraJanelleToolStripMenuItem.Text = "Laura Janelle";
+            // 
+            // atAGlanceToolStripMenuItem
+            // 
+            this.atAGlanceToolStripMenuItem.Name = "atAGlanceToolStripMenuItem";
+            this.atAGlanceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.atAGlanceToolStripMenuItem.Text = "At a Glance";
+            this.atAGlanceToolStripMenuItem.Click += new System.EventHandler(this.atAGlanceToolStripMenuItem_Click);
+            // 
             // CPASForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -297,6 +315,8 @@
         private System.Windows.Forms.ToolStripMenuItem itemImageReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem designGADToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem barcodeImageGeneratorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lauraJanelleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem atAGlanceToolStripMenuItem;
     }
 }
 

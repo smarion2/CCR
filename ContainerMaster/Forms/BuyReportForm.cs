@@ -635,6 +635,7 @@ namespace CCR
                     conn.Open();
                     command.ExecuteNonQuery();
                     conn.Close();
+                    MessageBox.Show("Customer Codes updated!");
                 }
             }
         }
