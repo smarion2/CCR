@@ -288,6 +288,12 @@ namespace CCR
         {
             lj = null;
         }
+
+        private void dSRReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LauraJanelleDSR dsr = new LauraJanelleDSR();
+            dsr.GenerateReport();
+        }
     }
        
 }

@@ -105,6 +105,7 @@
     </Compile>
     <Compile Include="Classes\ContainerMaster.cs" />
     <Compile Include="Classes\ErrorLogger.cs" />
+    <Compile Include="Classes\LauraJanelleDSR.cs" />
     <Compile Include="Classes\ReportFilters.cs" />
     <Compile Include="Forms\analysisWeeklySummaryForm.cs">
       <SubType>Form</SubType>

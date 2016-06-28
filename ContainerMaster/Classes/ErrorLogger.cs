@@ -19,9 +19,9 @@ namespace CCR
                 conn.Open();
                 try
                 {
-                    using (SqlCommand command = new SqlCommand("INSERT INTO CCRErrors VALUES (@User, @Error, @Exception, @Date)", conn))
+                    using (SqlCommand command = new SqlCommand("INSERT INTO CCRErrors VALUES (@Username, @Error, @Exception, @Date)", conn))
                     {
-                        command.Parameters.AddWithValue("@User", System.Environment.MachineName);
+                        command.Parameters.AddWithValue("@Username", System.Environment.MachineName);
                         command.Parameters.AddWithValue("@Error", error);
                         command.Parameters.AddWithValue("@Exception", ex);
                         command.Parameters.AddWithValue("@Date", System.DateTime.Today);

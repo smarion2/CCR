@@ -57,6 +57,7 @@
             this.barcodeImageGeneratorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lauraJanelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.atAGlanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dSRReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContainerMasterDS)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -256,7 +257,8 @@
             // lauraJanelleToolStripMenuItem
             // 
             this.lauraJanelleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.atAGlanceToolStripMenuItem});
+            this.atAGlanceToolStripMenuItem,
+            this.dSRReportToolStripMenuItem});
             this.lauraJanelleToolStripMenuItem.Name = "lauraJanelleToolStripMenuItem";
             this.lauraJanelleToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
             this.lauraJanelleToolStripMenuItem.Text = "Laura Janelle";
@@ -267,6 +269,13 @@
             this.atAGlanceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.atAGlanceToolStripMenuItem.Text = "At a Glance";
             this.atAGlanceToolStripMenuItem.Click += new System.EventHandler(this.atAGlanceToolStripMenuItem_Click);
+            // 
+            // dSRReportToolStripMenuItem
+            // 
+            this.dSRReportToolStripMenuItem.Name = "dSRReportToolStripMenuItem";
+            this.dSRReportToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.dSRReportToolStripMenuItem.Text = "DSR report";
+            this.dSRReportToolStripMenuItem.Click += new System.EventHandler(this.dSRReportToolStripMenuItem_Click);
             // 
             // CPASForm
             // 
@@ -317,6 +326,7 @@
         private System.Windows.Forms.ToolStripMenuItem barcodeImageGeneratorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lauraJanelleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem atAGlanceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dSRReportToolStripMenuItem;
     }
 }
 
