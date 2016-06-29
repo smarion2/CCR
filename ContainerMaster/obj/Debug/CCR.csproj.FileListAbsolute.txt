@@ -58,7 +58,6 @@ C:\Users\sammarion\Documents\CCR\ContainerMaster\bin\Debug\CCR.application
 C:\Users\sammarion\Documents\CCR\ContainerMaster\bin\Debug\BarcodeLib.dll
 C:\Users\sammarion\Documents\CCR\ContainerMaster\bin\Debug\DataStreams.dll
 C:\Users\sammarion\Documents\CCR\ContainerMaster\bin\Debug\LumenWorks.Framework.IO.dll
-C:\Users\sammarion\Documents\CCR\ContainerMaster\bin\Debug\Microsoft.ReportViewer.WinForms.dll
 C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.csproj.ResolveComReference.cache
 C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.Forms.analysisWeeklySummaryForm.resources
 C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.ASNmismatch.resources
@@ -77,8 +76,6 @@ C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.Properties.Resour
 C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.SwarovskiSalesForm.resources
 C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.WalmartOutsReportForm.resources
 C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.csproj.GenerateResource.Cache
-C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\RdlCompile.cache
-C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\RdlCompile.compiled
 C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.exe.manifest
 C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.application
 C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.exe
