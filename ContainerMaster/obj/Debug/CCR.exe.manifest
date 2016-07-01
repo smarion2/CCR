@@ -70,14 +70,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CCR.exe" size="1290176">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="CCR.exe" size="1299392">
       <assemblyIdentity name="CCR" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>gxFNxpOyT5idnJHIx8crZLh1C9duuHMsfQPQevCD3jg=</dsig:DigestValue>
+        <dsig:DigestValue>I48m2RGU/YudQxVPuq6NH+14MgmT7UvR9t3kKAp+8DI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
