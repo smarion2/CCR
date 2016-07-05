@@ -364,38 +364,39 @@ namespace CCR
                                 }));
                     int count = 0;
 
-                    foreach (DataRow row in containerDT.Rows)
-                    {
-                        count++;
-                        progressLabel.BeginInvoke(
-                            new Action(() =>
-                            {
-                                progressLabel.Text = "Creating Containers " + count + " of " + containerDT.Rows.Count.ToString();
-                            }));
-                        // create container
-                        string cmID = row["CMID"].ToString();
-                        
-                        buyReportDT.Columns.Add("\"Supplier: " + row["Supplier"] + "\r\n" +
-                                                "ETA: " + Convert.ToDateTime(row["ETADate"]).ToShortDateString() + "\r\n" +
-                                                "Shipped: " + Convert.ToDateTime(row["ShipDate"]).ToShortDateString() + "\r\n" +
-                                                "Cartons: " + row["ContainerQty"] + "\r\n" +
-                                                "Delivery Mode: " + row["ShipType"] + "\r\n" +
-                                                "Container number: " + row["ContainerNumber"] + "\"");
-                        System.Data.DataTable containerDeets = GetData.ExecuteQuery("select ItemNumber, sum(itemqty) as ItemQty from CM_Data a join CM_Details b on a.CMID = b.CMID where b.CMID = @0 group by ItemNumber", connectionString, cmID);
-                        // fill container with data                    
-                        for (int c = 0; c < containerDeets.Rows.Count; c++)
-                        {
-                            for (int b = 0; b < buyReportDT.Rows.Count; b++)
-                            {
-                                string containerItem = containerDeets.Rows[c][0].ToString();
-                                string buyItem = buyReportDT.Rows[b][0].ToString();
-                                if (containerItem == buyItem)
-                                {
-                                    buyReportDT.Rows[b][buyReportDT.Columns.Count - 1] = containerDeets.Rows[c][1];
-                                }
-                            }
-                        }
-                    }
+                    //foreach (DataRow row in containerDT.Rows)
+                    //{
+                    //    count++;
+                    //    progressLabel.BeginInvoke(
+                    //        new Action(() =>
+                    //        {
+                    //            progressLabel.Text = "Creating Containers " + count + " of " + containerDT.Rows.Count.ToString();
+                    //        }));
+                    //    // create container
+                    //    string cmID = row["CMID"].ToString();
+
+                    //    buyReportDT.Columns.Add("\"Supplier: " + row["Supplier"] + "\r\n" +
+                    //                            "ETA: " + Convert.ToDateTime(row["ETADate"]).ToShortDateString() + "\r\n" +
+                    //                            "Shipped: " + Convert.ToDateTime(row["ShipDate"]).ToShortDateString() + "\r\n" +
+                    //                            "Cartons: " + row["ContainerQty"] + "\r\n" +
+                    //                            "Delivery Mode: " + row["ShipType"] + "\r\n" +
+                    //                            "Container number: " + row["ContainerNumber"] + "\"");
+                    //    System.Data.DataTable containerDeets = GetData.ExecuteQuery("select ItemNumber, sum(itemqty) as ItemQty, a.CMID from CM_Data a join CM_Details b on a.CMID = b.CMID where b.CMID = @0 group by ItemNumber, a.CMID", connectionString, cmID);
+                    //    // fill container with data                    
+                    //    for (int c = 0; c < containerDeets.Rows.Count; c++)
+                    //    {
+                    //        for (int b = 0; b < buyReportDT.Rows.Count; b++)
+                    //        {
+                    //            string containerItem = containerDeets.Rows[c][0].ToString();
+                    //            string buyItem = buyReportDT.Rows[b][0].ToString();
+                    //            if (containerItem == buyItem)
+                    //            {
+                    //                buyReportDT.Rows[b][buyReportDT.Columns.Count - 1] = containerDeets.Rows[c][1];
+                    //            }
+                    //        }
+                    //    }
+                    //}
+                    AddContainer.ToDataTable(buyReportDT);
 
                     // write data to csv
                     StringBuilder sb = new StringBuilder();

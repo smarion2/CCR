@@ -53,7 +53,7 @@ namespace CCR
 												left join SWCCATERM f on f.termscode = b.termscode
 		                                        left join IvystoneSalesPeople c on c.SalesPersonNumber = b.salesperson
 		                                        left join SWCCRSMAN d on d.salespersonnumber = b.salesperson                            
-                                                where b.locationnumber = '800' and orderdate > '6/20/2016'             
+                                                where b.locationnumber = '800' and orderdate > '6/1/2016'             
 		              
                                                 UNION
 		 
@@ -75,7 +75,7 @@ namespace CCR
 									            left join SWCCATERM f on f.termscode = b.termscode        
 		                                        left join IvystoneSalesPeople c on c.SalesPersonNumber = b.salespersonnumber                
 		                                        left join SWCCRSMAN d on d.salespersonnumber = b.salespersonnumber
-                                                where b.locationnumber = '800' and orderdate > '6/20/2016') x 
+                                                where b.locationnumber = '800' and orderdate > '6/1/2016') x 
 		                                        where totalprice > 0 
                                                 group by customernumber, billtoname, ordernumber, ponumber, productcategory, salespersonname, ManagerName, orderdate, 
 														totalprice, termsdescription, usercomment, trackingnumber
@@ -84,16 +84,12 @@ namespace CCR
             dt.Columns.Add("Weekly Total").SetOrdinal(10);
             // intialize variables to get categorys in the same column and get a weekly total
             string orderIndex = dt.Rows[0]["Order Id"].ToString();
-            string catColumn = dt.Rows[0]["Product purchased"].ToString();
-            bool endOfWeek = false;
-            double weeklyTotal = Convert.ToDouble(dt.Rows[0]["Order Amount"]);
+            string catColumn = dt.Rows[0]["Product purchased"].ToString();            
             for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                DateTime dateIndex = Convert.ToDateTime(dt.Rows[i]["Order Date"]);
+            {                
                 // if the current row is a new order number
                 if (orderIndex != dt.Rows[i]["Order Id"].ToString())
                 {
-                    weeklyTotal += Convert.ToDouble(dt.Rows[i]["Order Amount"]);
                     orderIndex = dt.Rows[i]["Order Id"].ToString();
                     dt.Rows[i - 1]["Product purchased"] = catColumn;
                     catColumn = dt.Rows[i]["Product purchased"].ToString();
@@ -112,6 +108,23 @@ namespace CCR
                     catColumn += ", " + dt.Rows[i]["Product purchased"].ToString();
                     dt.Rows[i]["Product purchased"] = "";
                 }
+            }
+            // clean up extra rows created by the cat column
+            for (int i = dt.Rows.Count - 1; i > -1; i--)
+            {
+                if (dt.Rows[i]["Product purchased"].ToString() == "")
+                {
+                    dt.Rows.Remove(dt.Rows[i]);
+                }
+            }
+
+            // calculate weekly totals
+            bool endOfWeek = false;
+            double weeklyTotal = 0;
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                weeklyTotal += Convert.ToDouble(dt.Rows[i]["Order Amount"]);
+                DateTime dateIndex = Convert.ToDateTime(dt.Rows[i]["Order Date"]);
                 if (i + 1 < dt.Rows.Count)
                 {
                     // calculate the weekly total
@@ -129,14 +142,6 @@ namespace CCR
                 else
                 {
                     dt.Rows[i]["Weekly Total"] = weeklyTotal.ToString("c");
-                }
-            }
-            // clean up extra rows created by the cat column
-            for (int i = dt.Rows.Count - 1; i > -1; i--)
-            {
-                if (dt.Rows[i]["Product purchased"].ToString() == "")
-                {
-                    dt.Rows.Remove(dt.Rows[i]);
                 }
             }
 

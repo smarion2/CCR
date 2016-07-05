@@ -20,7 +20,12 @@ namespace CCR
 
         private void ContainerMasterReportForm_Load(object sender, EventArgs e)
         {
-            CreateReport();
+            ContainerMaster cm = new ContainerMaster();
+            cm.CreateReport();
+
+            //CreateReport();
+
+
             // TODO: This line of code loads data into the 'ContainerMasterDS.DataTable1' table. You can move, or remove it, as needed.
             //ContainerMasterDS.EnforceConstraints = false;
             //this.DataTable1TableAdapter.Fill(this.ContainerMasterDS.DataTable1);

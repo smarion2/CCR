@@ -104,6 +104,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>categoryDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Classes\AddContainer.cs" />
     <Compile Include="Classes\ContainerMaster.cs" />
     <Compile Include="Classes\ErrorLogger.cs" />
     <Compile Include="Classes\LauraJanelleDSR.cs" />

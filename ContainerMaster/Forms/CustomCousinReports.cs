@@ -72,7 +72,7 @@ namespace CCR
                         if (child.Checked == true)
                         {
                             child.Parent.Checked = true;
-                            fields += child.Name + ", " + "as '" + child.Text + "'";
+                            fields += child.Name + " as '" + child.Text + "', ";
                         }
                     }
                 }

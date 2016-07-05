@@ -12,7 +12,6 @@ namespace CCR
     public class ContainerMaster
     {
         private DataTable poTable;
-        private DataTable cmDetailsTable;
         private DataTable balanceDueTable;
         private string connectionString = "Data Source=srv-swdb;Initial Catalog=swdb;Persist Security Info=True;User ID=swdb;Password=SouthWare99";
         //private Form prompt = new Form()
@@ -52,7 +51,7 @@ namespace CCR
                             }));
 
                 poTable = GetData.ExecuteQuery("EXEC ContainerMaster", connectionString);
-                cmDetailsTable = GetData.ExecuteQuery("select * from CM_Details where Delivered is null order by Supplier, ETADate", connectionString);
+                //cmDetailsTable = GetData.ExecuteQuery("select * from CM_Details where Delivered is null order by Supplier, ETADate", connectionString);
                 balanceDueTable = GetData.ExecuteQuery("select PONumber, ItemNumber, sum(ItemQty) from CM_Data a join CM_Details b on a.CMID = b.CMID where Delivered is null group by ItemNumber, PONumber", connectionString);
 
                 reportStatus.BeginInvoke(
@@ -104,42 +103,8 @@ namespace CCR
                 poTable.Columns.Remove("orderquantity");
                 poTable.Columns.Remove("receivedtodateqty");
                 poTable.Columns.Remove("cancelledqty");
+                AddContainer.ToDataTable(poTable, 9);
 
-                int containerCount = 0;
-                foreach (DataRow row in cmDetailsTable.Rows)
-                {
-                    containerCount++;
-                    reportStatus.BeginInvoke(
-                        new Action(() =>
-                        {
-                            reportStatus.Text = "Creating Container: " + containerCount + " of " + cmDetailsTable.Rows.Count;
-                        }));
-   
-                    int columnPos = 9;
-                    // create container
-                    string cmID = row["CMID"].ToString();
-                    poTable.Columns.Add("\"Supplier: " + row["Supplier"] + "\r\n" +
-                                            "ETA: " + row["ETADate"] + "\r\n" +
-                                            "Shipped: " + row["ShipDate"] + "\r\n" +
-                                            "Cartons: " + row["ContainerQty"] + "\r\n" +
-                                            "Delivery Mode: " + row["ShipType"] + "\r\n" +
-                                            "Container number: " + row["ContainerNumber"] + "\"").SetOrdinal(columnPos);
-                    System.Data.DataTable containerDeets = GetData.ExecuteQuery("select PONumber, ItemNumber, sum(itemqty) as ItemQty from CM_Data a join CM_Details b on a.CMID = b.CMID where b.CMID = @0 group by PONumber, ItemNumber", connectionString, cmID);
-                    // fill container with data                    
-                    for (int c = 0; c < containerDeets.Rows.Count; c++)
-                    {
-                        for (int b = 0; b < poTable.Rows.Count; b++)
-                        {
-                            string containerItem = containerDeets.Rows[c][0].ToString() + containerDeets.Rows[c][1].ToString();
-                            string poItem = poTable.Rows[b][0].ToString() + poTable.Rows[b][1];
-                            if (containerItem == poItem)
-                            {
-                                poTable.Rows[b][columnPos] = containerDeets.Rows[c][2];
-                            }
-                        }
-                    }
-                    columnPos++;
-                }
                 reportStatus.BeginInvoke(
                     new Action(() =>
                     {
