@@ -289,6 +289,7 @@ namespace CCR
             lj = null;
         }
 
+<<<<<<< HEAD
         CustomCousinReports ccr;
         private void customCousinReportsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -304,6 +305,12 @@ namespace CCR
         private void ccr_formClosed(object sender, FormClosedEventArgs e)
         {
             ccr = null;
+=======
+        private void dSRReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LauraJanelleDSR dsr = new LauraJanelleDSR();
+            dsr.GenerateReport();
+>>>>>>> c0e702af995ca0b7c8597330d6b130c66a897460
         }
     }
        

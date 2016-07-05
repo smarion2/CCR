@@ -14,14 +14,18 @@
     <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="CCR.exe.manifest" size="7662">
+    <dependentAssembly dependencyType="install" codebase="CCR.exe.manifest" size="7255">
       <assemblyIdentity name="CCR.exe" version="1.1.0.56" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+<<<<<<< HEAD
         <dsig:DigestValue>vzoratCA9HAjcUUGae8HZZO827HdvvpuhJdUueAr17E=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>IyHGdcMzRoYYOLfqTd0R8naiDpvIM8tmkMvBFsDodT4=</dsig:DigestValue>
+>>>>>>> c0e702af995ca0b7c8597330d6b130c66a897460
       </hash>
     </dependentAssembly>
   </dependency>

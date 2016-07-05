@@ -87,6 +87,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -105,6 +106,7 @@
     </Compile>
     <Compile Include="Classes\ContainerMaster.cs" />
     <Compile Include="Classes\ErrorLogger.cs" />
+    <Compile Include="Classes\LauraJanelleDSR.cs" />
     <Compile Include="Classes\ReportFilters.cs" />
     <Compile Include="Forms\CustomCousinReports.cs">
       <SubType>Form</SubType>
@@ -217,6 +219,11 @@
     <Compile Include="Forms\LauraJanelleForm.Designer.cs">
       <DependentUpon>LauraJanelleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LinqToSQL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LinqToSQL.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Forms\SwarovskiSalesForm.cs">
       <SubType>Form</SubType>
@@ -293,6 +300,9 @@
     <EmbeddedResource Include="Forms\LauraJanelleForm.resx">
       <DependentUpon>LauraJanelleForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="LinqToSQL.dbml.layout">
+      <DependentUpon>LinqToSQL.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="yoyReport.rdlc" />
     <EmbeddedResource Include="Forms\RoyaltyForm.resx">
       <DependentUpon>RoyaltyForm.cs</DependentUpon>
@@ -368,6 +378,11 @@
     </None>
     <None Include="itemImageDS.xss">
       <DependentUpon>itemImageDS.xsd</DependentUpon>
+    </None>
+    <None Include="LinqToSQL.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>LinqToSQL.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -557,7 +572,9 @@
     <Content Include="Images\CCRlogo.ico" />
     <Content Include="Images\CCRlogo.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

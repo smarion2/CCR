@@ -57,7 +57,12 @@
             this.barcodeImageGeneratorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lauraJanelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.atAGlanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+<<<<<<< HEAD
             this.customCousinReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+=======
+            this.dSRReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.commissionScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+>>>>>>> c0e702af995ca0b7c8597330d6b130c66a897460
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContainerMasterDS)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -258,7 +263,9 @@
             // lauraJanelleToolStripMenuItem
             // 
             this.lauraJanelleToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.atAGlanceToolStripMenuItem});
+            this.atAGlanceToolStripMenuItem,
+            this.dSRReportToolStripMenuItem,
+            this.commissionScheduleToolStripMenuItem});
             this.lauraJanelleToolStripMenuItem.Name = "lauraJanelleToolStripMenuItem";
             this.lauraJanelleToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
             this.lauraJanelleToolStripMenuItem.Text = "Laura Janelle";
@@ -266,6 +273,7 @@
             // atAGlanceToolStripMenuItem
             // 
             this.atAGlanceToolStripMenuItem.Name = "atAGlanceToolStripMenuItem";
+<<<<<<< HEAD
             this.atAGlanceToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.atAGlanceToolStripMenuItem.Text = "At a Glance";
             this.atAGlanceToolStripMenuItem.Click += new System.EventHandler(this.atAGlanceToolStripMenuItem_Click);
@@ -276,6 +284,24 @@
             this.customCousinReportsToolStripMenuItem.Size = new System.Drawing.Size(144, 20);
             this.customCousinReportsToolStripMenuItem.Text = "Custom Cousin Reports";
             this.customCousinReportsToolStripMenuItem.Click += new System.EventHandler(this.customCousinReportsToolStripMenuItem_Click);
+=======
+            this.atAGlanceToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.atAGlanceToolStripMenuItem.Text = "At a Glance";
+            this.atAGlanceToolStripMenuItem.Click += new System.EventHandler(this.atAGlanceToolStripMenuItem_Click);
+            // 
+            // dSRReportToolStripMenuItem
+            // 
+            this.dSRReportToolStripMenuItem.Name = "dSRReportToolStripMenuItem";
+            this.dSRReportToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.dSRReportToolStripMenuItem.Text = "DSR report";
+            this.dSRReportToolStripMenuItem.Click += new System.EventHandler(this.dSRReportToolStripMenuItem_Click);
+            // 
+            // commissionScheduleToolStripMenuItem
+            // 
+            this.commissionScheduleToolStripMenuItem.Name = "commissionScheduleToolStripMenuItem";
+            this.commissionScheduleToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.commissionScheduleToolStripMenuItem.Text = "Commission Schedule";
+>>>>>>> c0e702af995ca0b7c8597330d6b130c66a897460
             // 
             // CPASForm
             // 
@@ -326,7 +352,12 @@
         private System.Windows.Forms.ToolStripMenuItem barcodeImageGeneratorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lauraJanelleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem atAGlanceToolStripMenuItem;
+<<<<<<< HEAD
         private System.Windows.Forms.ToolStripMenuItem customCousinReportsToolStripMenuItem;
+=======
+        private System.Windows.Forms.ToolStripMenuItem dSRReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem commissionScheduleToolStripMenuItem;
+>>>>>>> c0e702af995ca0b7c8597330d6b130c66a897460
     }
 }
 
