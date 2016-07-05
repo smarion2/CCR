@@ -288,6 +288,23 @@ namespace CCR
         {
             lj = null;
         }
+
+        CustomCousinReports ccr;
+        private void customCousinReportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(ccr == null)
+            {
+                ccr = new CustomCousinReports();
+                ccr.MdiParent = this;
+                ccr.FormClosed += new FormClosedEventHandler(ccr_formClosed);
+                ccr.Show();
+            }            
+        }
+
+        private void ccr_formClosed(object sender, FormClosedEventArgs e)
+        {
+            ccr = null;
+        }
     }
        
 }

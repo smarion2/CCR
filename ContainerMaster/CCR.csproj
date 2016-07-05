@@ -64,7 +64,7 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>CCR.Program</StartupObject>
@@ -106,6 +106,12 @@
     <Compile Include="Classes\ContainerMaster.cs" />
     <Compile Include="Classes\ErrorLogger.cs" />
     <Compile Include="Classes\ReportFilters.cs" />
+    <Compile Include="Forms\CustomCousinReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomCousinReports.Designer.cs">
+      <DependentUpon>CustomCousinReports.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\analysisWeeklySummaryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,6 +252,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>yoyDS.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Forms\CustomCousinReports.resx">
+      <DependentUpon>CustomCousinReports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\analysisWeeklySummaryForm.resx">
       <DependentUpon>analysisWeeklySummaryForm.cs</DependentUpon>
     </EmbeddedResource>
