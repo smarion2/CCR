@@ -30,3 +30,4 @@ C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.exe.manifest
 C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.application
 C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.exe
 C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.pdb
+C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.International_PO_log.resources

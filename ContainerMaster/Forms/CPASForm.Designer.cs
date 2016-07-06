@@ -57,12 +57,10 @@
             this.barcodeImageGeneratorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lauraJanelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.atAGlanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-
-            this.customCousinReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-
             this.dSRReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.commissionScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-
+            this.customCousinReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.internationalPOLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContainerMasterDS)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -152,7 +150,8 @@
             // 
             this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.containerMasterToolStripMenuItem,
-            this.buyReportToolStripMenuItem});
+            this.buyReportToolStripMenuItem,
+            this.internationalPOLogToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.reportsToolStripMenuItem.Text = "Reports";
@@ -160,14 +159,14 @@
             // containerMasterToolStripMenuItem
             // 
             this.containerMasterToolStripMenuItem.Name = "containerMasterToolStripMenuItem";
-            this.containerMasterToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.containerMasterToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.containerMasterToolStripMenuItem.Text = "Container Master";
             this.containerMasterToolStripMenuItem.Click += new System.EventHandler(this.containerMasterToolStripMenuItem_Click);
             // 
             // buyReportToolStripMenuItem
             // 
             this.buyReportToolStripMenuItem.Name = "buyReportToolStripMenuItem";
-            this.buyReportToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.buyReportToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.buyReportToolStripMenuItem.Text = "Buy Report";
             this.buyReportToolStripMenuItem.Click += new System.EventHandler(this.buyReportToolStripMenuItem_Click);
             // 
@@ -273,18 +272,6 @@
             // atAGlanceToolStripMenuItem
             // 
             this.atAGlanceToolStripMenuItem.Name = "atAGlanceToolStripMenuItem";
-
-            this.atAGlanceToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
-            this.atAGlanceToolStripMenuItem.Text = "At a Glance";
-            this.atAGlanceToolStripMenuItem.Click += new System.EventHandler(this.atAGlanceToolStripMenuItem_Click);
-            // 
-            // customCousinReportsToolStripMenuItem
-            // 
-            this.customCousinReportsToolStripMenuItem.Name = "customCousinReportsToolStripMenuItem";
-            this.customCousinReportsToolStripMenuItem.Size = new System.Drawing.Size(144, 20);
-            this.customCousinReportsToolStripMenuItem.Text = "Custom Cousin Reports";
-            this.customCousinReportsToolStripMenuItem.Click += new System.EventHandler(this.customCousinReportsToolStripMenuItem_Click);
-
             this.atAGlanceToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.atAGlanceToolStripMenuItem.Text = "At a Glance";
             this.atAGlanceToolStripMenuItem.Click += new System.EventHandler(this.atAGlanceToolStripMenuItem_Click);
@@ -301,7 +288,20 @@
             this.commissionScheduleToolStripMenuItem.Name = "commissionScheduleToolStripMenuItem";
             this.commissionScheduleToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.commissionScheduleToolStripMenuItem.Text = "Commission Schedule";
-
+            // 
+            // customCousinReportsToolStripMenuItem
+            // 
+            this.customCousinReportsToolStripMenuItem.Name = "customCousinReportsToolStripMenuItem";
+            this.customCousinReportsToolStripMenuItem.Size = new System.Drawing.Size(144, 20);
+            this.customCousinReportsToolStripMenuItem.Text = "Custom Cousin Reports";
+            this.customCousinReportsToolStripMenuItem.Click += new System.EventHandler(this.customCousinReportsToolStripMenuItem_Click);
+            // 
+            // internationalPOLogToolStripMenuItem
+            // 
+            this.internationalPOLogToolStripMenuItem.Name = "internationalPOLogToolStripMenuItem";
+            this.internationalPOLogToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.internationalPOLogToolStripMenuItem.Text = "International PO Log";
+            this.internationalPOLogToolStripMenuItem.Click += new System.EventHandler(this.internationalPOLogToolStripMenuItem_Click);
             // 
             // CPASForm
             // 
@@ -357,7 +357,7 @@
 
         private System.Windows.Forms.ToolStripMenuItem dSRReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem commissionScheduleToolStripMenuItem;
-
+        private System.Windows.Forms.ToolStripMenuItem internationalPOLogToolStripMenuItem;
     }
 }
 

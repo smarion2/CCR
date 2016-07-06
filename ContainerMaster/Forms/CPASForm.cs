@@ -312,6 +312,23 @@ namespace CCR
             LauraJanelleDSR dsr = new LauraJanelleDSR();
             dsr.GenerateReport();
         }
+
+        International_PO_log poLog;
+        private void internationalPOLogToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (poLog == null)
+            {
+                poLog = new International_PO_log();
+                poLog.MdiParent = this;
+                poLog.FormClosed += new FormClosedEventHandler(poLog_formClosed);
+                poLog.Show();
+            }
+        }
+
+        private void poLog_formClosed(object sender, FormClosedEventArgs e)
+        {
+            poLog = null;
+        }
     }
        
 }
