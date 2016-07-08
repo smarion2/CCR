@@ -268,7 +268,7 @@ namespace CCR
         public string GetColumnName(int index)
         {
             const string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
+            
             var value = "";
 
             if (index >= letters.Length)

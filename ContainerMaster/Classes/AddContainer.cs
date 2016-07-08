@@ -40,6 +40,7 @@ namespace CCR
                         {
                             string containerItem = cmDataTable.Rows[c]["POnumber"].ToString() + cmDataTable.Rows[c]["ItemNumber"].ToString();
                             string poItem = dt.Rows[b]["ponumber"].ToString() + dt.Rows[b]["stocknumber"];
+
                             if (containerItem == poItem && cmID == cmDataTable.Rows[c]["CMID"].ToString())
                             {
                                 dt.Rows[b][position] = cmDataTable.Rows[c][2];

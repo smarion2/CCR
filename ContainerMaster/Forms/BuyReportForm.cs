@@ -20,8 +20,6 @@ namespace CCR
     public partial class BuyReportForm : Form
     {
         string connectionString = "Data Source=srv-swdb;Initial Catalog=swdb;Persist Security Info=True;User ID=swdb;Password=SouthWare99";
-        System.Data.DataTable buyReportDT = new System.Data.DataTable();
-        System.Data.DataTable containerDT;
         string location = string.Empty;
 
         public BuyReportForm()
@@ -38,6 +36,8 @@ namespace CCR
         private void runReportButton_Click_1(object sender, EventArgs e)
         {
 
+            System.Data.DataTable buyReportDT = new System.Data.DataTable();
+            System.Data.DataTable containerDT;
             SaveFileDialog fileDialog = new SaveFileDialog();
             fileDialog.Filter = "CSV | *.csv";
             if (fileDialog.ShowDialog() == DialogResult.OK)
@@ -79,7 +79,6 @@ namespace CCR
                     ReportFilters.ItemFilter(ItemFilter.Text, location);
                     ReportFilters.VendorFilter(vendorFilters.Text, location);
                     ReportFilters.CatFilter(catFilters.Text, location);
-                    //CheckFilters();
 
                     // start building containers on the report
                     try
@@ -94,7 +93,7 @@ namespace CCR
                             SqlDataAdapter adapt = new SqlDataAdapter(cmd);
                             adapt.Fill(buyReportDT);
                         }
-                            //buyReportDT = GetData.ExecuteQuery("EXEC BuyReportTest", connectionString);
+                           
                     }
                     catch (Exception ex)
                     {
@@ -102,7 +101,6 @@ namespace CCR
                         ErrorLogger.LogError("Failed Getting Data for buy Report", ex.ToString());
                         return;
                     }
-                    //ReportFilters.DropTables();
 
                     if (expediteCB.Checked == true)
                     {
@@ -169,15 +167,15 @@ namespace CCR
                             }
                             if (c + 1 == 11)
                             {
-                                int total = 0;
-                                for (int i = 12; i < 17; i++)
+                                double total = 0;
+                                for (int i = 12; i <= 17; i++)
                                 {
                                     if (buyReportDT.Rows[r][i] != DBNull.Value)
                                     {
-                                        total += Convert.ToInt32(buyReportDT.Rows[r][i]);
+                                        total += Convert.ToDouble(buyReportDT.Rows[r][i]);
                                     }
                                 }
-                                buyReportDT.Rows[r][c] = total / 6;
+                                buyReportDT.Rows[r][c] = Math.Round(total / 6);
                             }
                             if (c + 1 == 31)
                             {
@@ -362,40 +360,7 @@ namespace CCR
                                     progressLabel.Visible = true;
                                     progressLabel.Text = "Creating Containers";
                                 }));
-                    int count = 0;
 
-                    //foreach (DataRow row in containerDT.Rows)
-                    //{
-                    //    count++;
-                    //    progressLabel.BeginInvoke(
-                    //        new Action(() =>
-                    //        {
-                    //            progressLabel.Text = "Creating Containers " + count + " of " + containerDT.Rows.Count.ToString();
-                    //        }));
-                    //    // create container
-                    //    string cmID = row["CMID"].ToString();
-
-                    //    buyReportDT.Columns.Add("\"Supplier: " + row["Supplier"] + "\r\n" +
-                    //                            "ETA: " + Convert.ToDateTime(row["ETADate"]).ToShortDateString() + "\r\n" +
-                    //                            "Shipped: " + Convert.ToDateTime(row["ShipDate"]).ToShortDateString() + "\r\n" +
-                    //                            "Cartons: " + row["ContainerQty"] + "\r\n" +
-                    //                            "Delivery Mode: " + row["ShipType"] + "\r\n" +
-                    //                            "Container number: " + row["ContainerNumber"] + "\"");
-                    //    System.Data.DataTable containerDeets = GetData.ExecuteQuery("select ItemNumber, sum(itemqty) as ItemQty, a.CMID from CM_Data a join CM_Details b on a.CMID = b.CMID where b.CMID = @0 group by ItemNumber, a.CMID", connectionString, cmID);
-                    //    // fill container with data                    
-                    //    for (int c = 0; c < containerDeets.Rows.Count; c++)
-                    //    {
-                    //        for (int b = 0; b < buyReportDT.Rows.Count; b++)
-                    //        {
-                    //            string containerItem = containerDeets.Rows[c][0].ToString();
-                    //            string buyItem = buyReportDT.Rows[b][0].ToString();
-                    //            if (containerItem == buyItem)
-                    //            {
-                    //                buyReportDT.Rows[b][buyReportDT.Columns.Count - 1] = containerDeets.Rows[c][1];
-                    //            }
-                    //        }
-                    //    }
-                    //}
                     AddContainer.ToDataTable(buyReportDT);
 
                     // write data to csv
@@ -431,8 +396,11 @@ namespace CCR
                     Excel._Worksheet workSheet = excelApp.ActiveSheet;
                     excelApp.ReferenceStyle = Excel.XlReferenceStyle.xlA1;
                     //excelApp.Visible = true;
+
                     // format work sheet
                     workSheet.Range["1:1"].Orientation = 90;
+                    workSheet.Range["1:1"].RowHeight = 150;
+                    workSheet.Range["1:1"].WrapText = true;
                     workSheet.Range["G1:I" + (buyReportDT.Rows.Count + 1)].Interior.Color = ColorTranslator.ToOle(Color.FromArgb(186, 220, 232));
                     workSheet.Range["J1:J" + (buyReportDT.Rows.Count + 1)].Interior.Color = ColorTranslator.ToOle(Color.FromArgb(146, 208, 80));
                     workSheet.Range["K1:K" + (buyReportDT.Rows.Count + 1)].Interior.Color = ColorTranslator.ToOle(Color.FromArgb(184, 204, 228));

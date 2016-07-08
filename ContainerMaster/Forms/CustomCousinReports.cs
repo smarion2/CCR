@@ -17,13 +17,17 @@ namespace CCR
             InitializeComponent();
         }
 
-        string fromTable;
-        int numberOfFields = 0;
-        int numberOfFieldsTMP = 0;
-        string tables = string.Empty;
         string sqlQuery = "SELECT ";
-        string fields = string.Empty;
+        Table fromTable = new Table();
+        // Create dictionarys of the relations for each table
+        Dictionary<string, string> SWCCSBIL1relations = new Dictionary<string, string>();
+        Dictionary<string, string> SWCCSBIL2relations = new Dictionary<string, string>();
+        Dictionary<string, string> SWCCSSTOKrelations = new Dictionary<string, string>();
+        Dictionary<string, string> SWCCSPO1relations = new Dictionary<string, string>();
 
+        List<Table> tableList = new List<Table>();
+
+        // make sure to check the parent node if any children have been seleted. 
         private void CheckParents()
         {
             foreach (TreeNode node in treeView1.Nodes)
@@ -36,90 +40,189 @@ namespace CCR
                         {
                             if (node.Nodes[i].Checked == true)
                             {
-                                numberOfFieldsTMP++;
                                 node.Checked = true;
-                                //return;
                             }
                         }
-                        if (numberOfFieldsTMP > numberOfFields)
-                        {
-                            fromTable = node.Name;
-                            numberOfFields = numberOfFieldsTMP;
-                            numberOfFieldsTMP = 0;
-                        }
-
                     }
-                    else
-                    {
-
-                    }
-
                 }
-            }  
-
+            }
         }
 
-        private void GetFieldTableNames()
+        // find table with the most fields and set it as the from table
+        private Table GetFromTable()
+        {
+            int numberOfFields = 0;
+            foreach (Table table in tableList)
+            {
+                if (table.fields.Count > numberOfFields)
+                {
+                    fromTable = table;
+                    numberOfFields = table.fields.Count;
+                }
+            }
+            fromTable.fromTable = true;
+            fromTable.initilized = true;        
+            return fromTable;
+            //Table result = tableList.Find(x => x.tableName == fromTable.tableName);
+        }
+
+        private void CreateTables()
         {
             foreach (TreeNode node in treeView1.Nodes)
             {
                 if (node.Checked == true)
                 {
-                    tables += node.Name + ",";
-
+                    Table table = new Table();
+                    table.tableName = node.Name;
                     foreach (TreeNode child in node.Nodes)
                     {
                         if (child.Checked == true)
                         {
                             child.Parent.Checked = true;
-                            fields += child.Name + " as '" + child.Text + "', ";
+                            table.fields.Add(child.Name + " as '" + child.Text + "'");                            
+                        }
+                    }
+                    tableList.Add(table);
+                }
+            }
+            //fields = fields.Substring(0, fields.Length - 2);
+
+
+        }
+
+        private void InitilizeTableRealtions(Table table)
+        {
+            if (table.tableName == "SWCCSBIL1")
+            {
+                table.tableRelationList.Add(SWCCSBIL1relations);
+            }
+            if (table.tableName == "SWCCSBIL2")
+            {
+                table.tableRelationList.Add(SWCCSBIL2relations);
+            }
+            if (table.tableName == "SWCCSSTOK")
+            {
+                table.tableRelationList.Add(SWCCSSTOKrelations);
+            }
+            if (table.tableName == "SWCCSPO1")
+            {
+                table.tableRelationList.Add(SWCCSPO1relations);
+            }
+        }
+
+
+        private void CheckForJoins()
+        {
+            Table fromTable = GetFromTable();
+
+            foreach (Table table in tableList)
+            {
+                InitilizeTableRealtions(table);
+            }
+            foreach (Table initTable in tableList)
+            {
+                if (initTable.fromTable == false)
+                    fromTable.JoinTables(initTable);
+            }
+            // try to join any tables that where not initialized
+            foreach (Table joinToJoin in tableList)
+            {
+                if (joinToJoin.initilized == false)
+                {
+                    foreach(Table alreadyJoined in tableList)
+                    {
+                        if (alreadyJoined.fromTable == false && alreadyJoined.initilized == true)
+                        {
+                            alreadyJoined.JoinTables(joinToJoin);
                         }
                     }
                 }
             }
-            fields = fields.Substring(0, fields.Length - 2);
-            sqlQuery += fields + "\r\n";
-            sqlQuery += "FROM " + fromTable + "\r\n";
 
+            //MessageBox.Show(sqlQuery);
         }
 
-        private void CheckForJoins()
+        private void CreateQuery()
         {
-            char delimiter = ',';
-            tables = tables.Replace(fromTable + ",", string.Empty);
-            string[] joinTables = tables.Split(delimiter);
-
-            if (fromTable == "SWCCSBIL1")
+            sqlQuery = "SELECT ";
+            foreach (Table table in tableList)
             {
-                foreach (string table in joinTables)
+                foreach (string fields in table.fields)
                 {
-                    if (table == "SWCCSBIL2")
-                        sqlQuery += "join SWCCSBIL1 on SWCCSBIL2.ordernumber = SWCCSBIL1.ordernumber \r\n";
-
+                    if (table.initilized)
+                        sqlQuery += fields + ", \r\n";
+                    else
+                        MessageBox.Show("Could not join " + table.tableName + "\r\n Fields selected for this table will be dropped");
                 }
             }
-            if (fromTable == "SWCCSBIL2")
+            sqlQuery += "FROM " + fromTable.tableName + "\r\n";
+            foreach (Table tableJoins in tableList)
             {
-                foreach (string table in joinTables)
-                {
-                    if (table == "SWCCSBIL1")
-                        sqlQuery += "join SWCCSBIL1 on SWCCSBIL1.ordernumber = SWCSSBIL2.ordernumber \r\n";
-                    if (table == "SWCCSTOK")
-                        sqlQuery += "join SWCCSBIL2 on SWCCSTOK.stocknumber = SWCCSBIL2.stocknumber";
-                }
+                if (tableJoins.fromTable == false)
+                    sqlQuery += tableJoins.joinStatement + "\r\n";
             }
-            
             MessageBox.Show(sqlQuery);
-
-
-
+            sqlQuery = string.Empty;
+            tableList.Clear();
+            //fromTable = null;
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            CheckParents();
-            GetFieldTableNames();
+        {            
+            //CreateRelations();
+            CreateTables();
             CheckForJoins();
+            CreateQuery();
+        }
+
+        private void CreateRelations()
+        {
+
+        }
+
+        private void CustomCousinReports_Load(object sender, EventArgs e)
+        {
+            SWCCSBIL1relations.Add("SWCCSBIL2", "join SWCCSBIL2 on SWCCSBIL2.ordernumber = SWCCSBIL1.ordernumber");
+
+            SWCCSBIL2relations.Add("SWCCSBIL1", "join SWCCSBIL1 on SWCCSBIL1.ordernumber = SWCCSBIL2.ordernumber");
+            SWCCSBIL2relations.Add("SWCCSSTOK", "join SWCCSSTOK on SWCCSSTOK.stocknumber = SWCCSBIL2.stockordered");
+
+            SWCCSSTOKrelations.Add("SWCCSBIL2", "join SWCCSBIL2 on SWCCSBIL2.stockordered = SWCCSSTOK.stocknumber");
+
+            SWCCSPO1relations.Add("SWCCSPO2", "join SWCCSPO2 on SWCCSPO2.ponumber = SWCCSPO1.ponumber");
+
         }
     }
+
+
+
+    class Table
+    {
+        public bool fromTable = false;
+        public bool initilized = false;
+        public string tableName { get; set; }
+
+        private string _joinStatement;
+        public string joinStatement { get { return this._joinStatement; } }
+
+
+        public List<string> fields = new List<string>();
+        public List<Dictionary<string, string>> tableRelationList = new List<Dictionary<string, string>>();
+
+        public void JoinTables(Table tableToJoin)
+        {
+            foreach (Dictionary<string, string> relations in tableRelationList)
+            {
+                string joinStatement;
+                if (relations.TryGetValue(tableToJoin.tableName, out joinStatement))
+                {
+                    tableToJoin._joinStatement = joinStatement;
+                    tableToJoin.initilized = true;
+                    break;
+                }
+            }
+        }
+    }
+
 }
+
