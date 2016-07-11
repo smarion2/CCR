@@ -187,15 +187,16 @@
             System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("Order status");
             System.Windows.Forms.TreeNode treeNode84 = new System.Windows.Forms.TreeNode("Unit of measure");
             System.Windows.Forms.TreeNode treeNode85 = new System.Windows.Forms.TreeNode("Weight of item");
-            System.Windows.Forms.TreeNode treeNode86 = new System.Windows.Forms.TreeNode("Stock description");
-            System.Windows.Forms.TreeNode treeNode87 = new System.Windows.Forms.TreeNode("Quantity on hand");
-            System.Windows.Forms.TreeNode treeNode88 = new System.Windows.Forms.TreeNode("Quantity on backorder");
-            System.Windows.Forms.TreeNode treeNode89 = new System.Windows.Forms.TreeNode("Quantity committed");
-            System.Windows.Forms.TreeNode treeNode90 = new System.Windows.Forms.TreeNode("Date last sold");
-            System.Windows.Forms.TreeNode treeNode91 = new System.Windows.Forms.TreeNode("Date last invoiced");
-            System.Windows.Forms.TreeNode treeNode92 = new System.Windows.Forms.TreeNode("Last invoice number");
-            System.Windows.Forms.TreeNode treeNode93 = new System.Windows.Forms.TreeNode("Date created");
-            System.Windows.Forms.TreeNode treeNode94 = new System.Windows.Forms.TreeNode("Item Info", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode86 = new System.Windows.Forms.TreeNode("Bin location");
+            System.Windows.Forms.TreeNode treeNode87 = new System.Windows.Forms.TreeNode("Stock description");
+            System.Windows.Forms.TreeNode treeNode88 = new System.Windows.Forms.TreeNode("Quantity on hand");
+            System.Windows.Forms.TreeNode treeNode89 = new System.Windows.Forms.TreeNode("Quantity on backorder");
+            System.Windows.Forms.TreeNode treeNode90 = new System.Windows.Forms.TreeNode("Quantity committed");
+            System.Windows.Forms.TreeNode treeNode91 = new System.Windows.Forms.TreeNode("Date last sold");
+            System.Windows.Forms.TreeNode treeNode92 = new System.Windows.Forms.TreeNode("Date last invoiced");
+            System.Windows.Forms.TreeNode treeNode93 = new System.Windows.Forms.TreeNode("Last invoice number");
+            System.Windows.Forms.TreeNode treeNode94 = new System.Windows.Forms.TreeNode("Date created");
+            System.Windows.Forms.TreeNode treeNode95 = new System.Windows.Forms.TreeNode("Item Info", new System.Windows.Forms.TreeNode[] {
             treeNode79,
             treeNode80,
             treeNode81,
@@ -210,7 +211,8 @@
             treeNode90,
             treeNode91,
             treeNode92,
-            treeNode93});
+            treeNode93,
+            treeNode94});
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.previewButton = new System.Windows.Forms.Button();
@@ -419,31 +421,33 @@
             treeNode84.Text = "Unit of measure";
             treeNode85.Name = "weightperunit";
             treeNode85.Text = "Weight of item";
-            treeNode86.Name = "stockdescription1+stockdescription2+stockdescription3";
-            treeNode86.Text = "Stock description";
-            treeNode87.Name = "quantityonhand";
-            treeNode87.Text = "Quantity on hand";
-            treeNode88.Name = "qtyonbackorder";
-            treeNode88.Text = "Quantity on backorder";
-            treeNode89.Name = "quantitycommitted";
-            treeNode89.Text = "Quantity committed";
-            treeNode90.Name = "datelastsale";
-            treeNode90.Text = "Date last sold";
-            treeNode91.Name = "datelastinvoiced";
-            treeNode91.Text = "Date last invoiced";
-            treeNode92.Name = "lastinvoicenumber";
-            treeNode92.Text = "Last invoice number";
-            treeNode93.Name = "datecreated";
-            treeNode93.Text = "Date created";
-            treeNode94.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            treeNode94.Name = "SWCCSSTOK";
-            treeNode94.Text = "Item Info";
+            treeNode86.Name = "SWCCSSTOK.binlocationid";
+            treeNode86.Text = "Bin location";
+            treeNode87.Name = "stockdescription1+stockdescription2+stockdescription3";
+            treeNode87.Text = "Stock description";
+            treeNode88.Name = "quantityonhand";
+            treeNode88.Text = "Quantity on hand";
+            treeNode89.Name = "qtyonbackorder";
+            treeNode89.Text = "Quantity on backorder";
+            treeNode90.Name = "quantitycommitted";
+            treeNode90.Text = "Quantity committed";
+            treeNode91.Name = "datelastsale";
+            treeNode91.Text = "Date last sold";
+            treeNode92.Name = "datelastinvoiced";
+            treeNode92.Text = "Date last invoiced";
+            treeNode93.Name = "lastinvoicenumber";
+            treeNode93.Text = "Last invoice number";
+            treeNode94.Name = "datecreated";
+            treeNode94.Text = "Date created";
+            treeNode95.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            treeNode95.Name = "SWCCSSTOK";
+            treeNode95.Text = "Item Info";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode29,
             treeNode43,
             treeNode58,
             treeNode78,
-            treeNode94});
+            treeNode95});
             this.treeView1.Size = new System.Drawing.Size(180, 413);
             this.treeView1.TabIndex = 1;
             // 

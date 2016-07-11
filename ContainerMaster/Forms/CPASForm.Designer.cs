@@ -43,6 +43,7 @@
             this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.containerMasterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buyReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.internationalPOLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editContainersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editContainerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,7 +61,7 @@
             this.dSRReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.commissionScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customCousinReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.internationalPOLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pOTemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContainerMasterDS)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -151,7 +152,8 @@
             this.reportsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.containerMasterToolStripMenuItem,
             this.buyReportToolStripMenuItem,
-            this.internationalPOLogToolStripMenuItem});
+            this.internationalPOLogToolStripMenuItem,
+            this.pOTemplateToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.reportsToolStripMenuItem.Text = "Reports";
@@ -169,6 +171,13 @@
             this.buyReportToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.buyReportToolStripMenuItem.Text = "Buy Report";
             this.buyReportToolStripMenuItem.Click += new System.EventHandler(this.buyReportToolStripMenuItem_Click);
+            // 
+            // internationalPOLogToolStripMenuItem
+            // 
+            this.internationalPOLogToolStripMenuItem.Name = "internationalPOLogToolStripMenuItem";
+            this.internationalPOLogToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.internationalPOLogToolStripMenuItem.Text = "International PO Log";
+            this.internationalPOLogToolStripMenuItem.Click += new System.EventHandler(this.internationalPOLogToolStripMenuItem_Click);
             // 
             // editContainersToolStripMenuItem
             // 
@@ -296,12 +305,12 @@
             this.customCousinReportsToolStripMenuItem.Text = "Custom Cousin Reports";
             this.customCousinReportsToolStripMenuItem.Click += new System.EventHandler(this.customCousinReportsToolStripMenuItem_Click);
             // 
-            // internationalPOLogToolStripMenuItem
+            // pOTemplateToolStripMenuItem
             // 
-            this.internationalPOLogToolStripMenuItem.Name = "internationalPOLogToolStripMenuItem";
-            this.internationalPOLogToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.internationalPOLogToolStripMenuItem.Text = "International PO Log";
-            this.internationalPOLogToolStripMenuItem.Click += new System.EventHandler(this.internationalPOLogToolStripMenuItem_Click);
+            this.pOTemplateToolStripMenuItem.Name = "pOTemplateToolStripMenuItem";
+            this.pOTemplateToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.pOTemplateToolStripMenuItem.Text = "PO Template";
+            this.pOTemplateToolStripMenuItem.Click += new System.EventHandler(this.pOTemplateToolStripMenuItem_Click);
             // 
             // CPASForm
             // 
@@ -358,6 +367,7 @@
         private System.Windows.Forms.ToolStripMenuItem dSRReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem commissionScheduleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem internationalPOLogToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pOTemplateToolStripMenuItem;
     }
 }
 

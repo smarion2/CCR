@@ -329,6 +329,23 @@ namespace CCR
         {
             poLog = null;
         }
+
+        POTemplate poTemp;
+        private void pOTemplateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (poTemp == null)
+            {
+                poTemp = new POTemplate();
+                poTemp.MdiParent = this;
+                poTemp.FormClosed += new FormClosedEventHandler(poTemp_formClosed);
+                poTemp.Show();
+            }
+        }
+
+        private void poTemp_formClosed(object sender, FormClosedEventArgs e)
+        {
+            poTemp = null;
+        }
     }
        
 }
