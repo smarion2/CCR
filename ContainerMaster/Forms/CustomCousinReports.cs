@@ -25,6 +25,8 @@ namespace CCR
         Dictionary<string, string> SWCCSSTOKrelations = new Dictionary<string, string>();
         Dictionary<string, string> SWCCSPO1relations = new Dictionary<string, string>();
 
+        List<TreeNode> fields = new List<TreeNode>();
+
         List<Table> tableList = new List<Table>();
 
         // make sure to check the parent node if any children have been seleted. 
@@ -68,6 +70,7 @@ namespace CCR
 
         private void CreateTables()
         {
+            tableList.Clear();
             foreach (TreeNode node in treeView1.Nodes)
             {
                 if (node.Checked == true)
@@ -79,7 +82,7 @@ namespace CCR
                         if (child.Checked == true)
                         {
                             child.Parent.Checked = true;
-                            table.fields.Add(child.Name + " as '" + child.Text + "'");                            
+                            table.fields.Add(child);                            
                         }
                     }
                     tableList.Add(table);
@@ -92,22 +95,10 @@ namespace CCR
 
         private void InitilizeTableRealtions(Table table)
         {
-            if (table.tableName == "SWCCSBIL1")
-            {
-                table.tableRelationList.Add(SWCCSBIL1relations);
-            }
-            if (table.tableName == "SWCCSBIL2")
-            {
-                table.tableRelationList.Add(SWCCSBIL2relations);
-            }
-            if (table.tableName == "SWCCSSTOK")
-            {
-                table.tableRelationList.Add(SWCCSSTOKrelations);
-            }
-            if (table.tableName == "SWCCSPO1")
-            {
-                table.tableRelationList.Add(SWCCSPO1relations);
-            }
+            if (table.tableName == "SWCCSBIL1") { table.tableRelationList.Add(SWCCSBIL1relations); }
+            if (table.tableName == "SWCCSBIL2") { table.tableRelationList.Add(SWCCSBIL2relations); }
+            if (table.tableName == "SWCCSSTOK") { table.tableRelationList.Add(SWCCSSTOKrelations); }
+            if (table.tableName == "SWCCSPO1")  { table.tableRelationList.Add(SWCCSPO1relations);  }
         }
 
 
@@ -142,42 +133,39 @@ namespace CCR
             //MessageBox.Show(sqlQuery);
         }
 
+        // TO DO Come back to this later after you get the wheres and order bys working
         private void CreateQuery()
         {
             sqlQuery = "SELECT ";
-            foreach (Table table in tableList)
-            {
-                foreach (string fields in table.fields)
-                {
-                    if (table.initilized)
-                        sqlQuery += fields + ", \r\n";
-                    else
-                        MessageBox.Show("Could not join " + table.tableName + "\r\n Fields selected for this table will be dropped");
-                }
-            }
-            sqlQuery += "FROM " + fromTable.tableName + "\r\n";
-            foreach (Table tableJoins in tableList)
-            {
-                if (tableJoins.fromTable == false)
-                    sqlQuery += tableJoins.joinStatement + "\r\n";
-            }
-            MessageBox.Show(sqlQuery);
-            sqlQuery = string.Empty;
-            tableList.Clear();
+
+            //foreach (Table table in tableList)
+            //{
+            //    foreach (string fields in table.fields)
+            //    {
+            //        if (table.initilized)
+            //            sqlQuery += fields + ", \r\n";
+            //        else
+            //            MessageBox.Show("Could not join " + table.tableName + "\r\n Fields selected for this table will be dropped");
+            //    }
+            //}
+            //sqlQuery += "FROM " + fromTable.tableName + "\r\n";
+            //foreach (Table tableJoins in tableList)
+            //{
+            //    if (tableJoins.fromTable == false)
+            //        sqlQuery += tableJoins.joinStatement + "\r\n";
+            //}
+            //MessageBox.Show(sqlQuery);
+            //sqlQuery = string.Empty;
+            //tableList.Clear();
             //fromTable = null;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {            
             //CreateRelations();
-            CreateTables();
+
             CheckForJoins();
             CreateQuery();
-        }
-
-        private void CreateRelations()
-        {
-
         }
 
         private void CustomCousinReports_Load(object sender, EventArgs e)
@@ -191,6 +179,40 @@ namespace CCR
 
             SWCCSPO1relations.Add("SWCCSPO2", "join SWCCSPO2 on SWCCSPO2.ponumber = SWCCSPO1.ponumber");
 
+        }
+
+        List<TreeNode> orderByNodes = new List<TreeNode>();
+        private void filtersButton_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            CreateTables(); 
+            foreach (Table tables in tableList)
+            {
+                foreach (TreeNode node in tables.fields)
+                {
+                    listBox1.Items.Add(node);
+                    
+                }
+            }
+        }
+
+        private void CreateComboBox(int row, TreeNode field)
+        {
+            DataGridViewComboBoxCell CBCell = new DataGridViewComboBoxCell();
+            CBCell = dataGridView1.Rows[0].Cells[1] as DataGridViewComboBoxCell;
+            CBCell.Items.Add(field);
+        }
+
+        private void addOrderButton_Click(object sender, EventArgs e)
+        {
+            listBox2.Items.Add(listBox1.SelectedItem);
+            listBox1.Items.Remove(listBox1.SelectedItem);
+        }
+
+        private void removeOrderButton_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Add(listBox2.SelectedItem);
+            listBox2.Items.Remove(listBox2.SelectedItem);
         }
     }
 
@@ -206,7 +228,7 @@ namespace CCR
         public string joinStatement { get { return this._joinStatement; } }
 
 
-        public List<string> fields = new List<string>();
+        public List<TreeNode> fields = new List<TreeNode>();
         public List<Dictionary<string, string>> tableRelationList = new List<Dictionary<string, string>>();
 
         public void JoinTables(Table tableToJoin)
