@@ -44,6 +44,7 @@ namespace CCR
                             if (containerItem == poItem && cmID == cmDataTable.Rows[c]["CMID"].ToString())
                             {
                                 dt.Rows[b][position] = cmDataTable.Rows[c][2];
+                                break;
                             }
                         }
                     }
@@ -74,6 +75,7 @@ namespace CCR
                             if (containerItem == buyItem && cmID == cmDataTable.Rows[c]["CMID"].ToString())
                             {
                                 dt.Rows[b][dt.Columns.Count - 1] = cmDataTable.Rows[c][1];
+                                break;
                             }
                         }
                     }

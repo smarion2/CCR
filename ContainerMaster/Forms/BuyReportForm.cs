@@ -363,6 +363,16 @@ namespace CCR
 
                     AddContainer.ToDataTable(buyReportDT);
 
+                    int rowIndex = 1;
+                    foreach(DataRow row in buyReportDT.Rows)
+                    {
+                        if (expediteCB.Checked == false)
+                        {
+                            row[94] = "=SUM(CR" + rowIndex + ":" + GetColumnName(buyReportDT.Columns.Count - 1) + rowIndex + ")";
+                        }
+                        rowIndex++;
+                    }
+
                     // write data to csv
                     StringBuilder sb = new StringBuilder();
 
@@ -412,6 +422,18 @@ namespace CCR
                     workSheet.Range["CB1:CB" + (buyReportDT.Rows.Count + 1)].Interior.Color = ColorTranslator.ToOle(Color.FromArgb(146, 208, 80));
                     workSheet.Range["CE1:CE" + (buyReportDT.Rows.Count + 1)].Interior.Color = ColorTranslator.ToOle(Color.FromArgb(146, 208, 80));
                     workSheet.Range["CF1:CF" + (buyReportDT.Rows.Count + 1)].Interior.Color = ColorTranslator.ToOle(Color.FromArgb(255, 255, 0));
+                    workSheet.Range["AD:AD"].NumberFormat = "MM/DD/YYYY";
+                    workSheet.Range["AP:AP"].NumberFormat = "MM/DD/YYYY";
+                    workSheet.Range["BB:BB"].NumberFormat = "MM/DD/YYYY";
+                    workSheet.Range["BN:BN"].NumberFormat = "MM/DD/YYYY";
+                    workSheet.Range["BZ:BZ"].NumberFormat = "MM/DD/YYYY";
+                    workSheet.Range["CG:CG"].NumberFormat = "0";
+                    workSheet.Range["CH:CH"].NumberFormat = "0";
+                    workSheet.Range["CI:CI"].NumberFormat = "0";
+                    workSheet.Range["CJ:CJ"].NumberFormat = "0";
+                    workSheet.Range["CK:CK"].NumberFormat = "0";
+                    workSheet.Range["CL:CL"].NumberFormat = "0";
+                    workSheet.Range["CM:CM"].NumberFormat = "0.#";
                     if (expediteCB.Checked == true)
                     {
                         workSheet.Range["CW1:CX" + (buyReportDT.Rows.Count + 1)].Interior.Color = ColorTranslator.ToOle(Color.FromArgb(255, 192, 0));
@@ -420,6 +442,7 @@ namespace CCR
                     // TODO get font type and bold to work the following code does not work.
                     excelApp.StandardFont = "Arial";
                     excelApp.StandardFontSize = 8;
+                    workSheet.Columns.AutoFit();
                     //Path.ChangeExtension(filepath, ".xlsx");
                     string replace = Path.GetFileName(fileDialog.FileName).Replace(".csv", ".xlsx");
                     string path = Path.GetDirectoryName(fileDialog.FileName) + "\\" + replace;
@@ -441,6 +464,20 @@ namespace CCR
                 }));
                 backgroundThread.Start();
             }
+        }
+
+        public string GetColumnName(int index)
+        {
+            const string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+            var value = "";
+
+            if (index >= letters.Length)
+                value += letters[index / letters.Length - 1];
+
+            value += letters[index % letters.Length];
+
+            return value;
         }
 
         private void CheckFilters()

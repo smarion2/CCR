@@ -20,21 +20,21 @@ namespace CCR
                                                                   where a.locationnumber = '800'", connectionString);
 
             System.Data.DataTable dateDT = GetData.ExecuteQuery(@"select itemidstocksvc, qty, datecreated from(
-                                                                  select distinct itemidstocksvc, count(quantitytoship) as 'qty', datecreated
-                                                                  from SWCCSBIL2
+                                                                  select itemidstocksvc, count(quantityordered) as 'qty', datecreated
+                                                                  from SWCCSBIL2                                                                  
                                                                   where locationnumber = '800'
                                                                   group by itemidstocksvc, datecreated
                                                                   UNION
-                                                                  select distinct itemidstocksvc, count(quantitytoship) as 'qty', datecreated 
+                                                                  select itemidstocksvc, count(quantityordered) as 'qty', datecreated 
                                                                   from SWCCSHST2
                                                                   where locationnumber = '800'
                                                                   group by itemidstocksvc, datecreated) x
                                                                   where datecreated > '6/1/2016'
                                                                   order by 3", connectionString);
 
-            System.Data.DataTable dt = GetData.ExecuteQuery(@"select customernumber as 'Customer Number', billtoname as 'Customer Name', ordernumber as 'Order ID', ponumber as 'Customer PO', productcategory as 'Product purchased',
-			                                                termsdescription as 'Payment Method', salespersonname as 'Sales Rep', ManagerName as 'Sales Manager', orderdate as 'Order Date', 
-			                                                totalprice as 'Order Amount', usercomment as 'Sales Location', trackingnumber as 'Tracking Number' from( 
+            System.Data.DataTable dt = GetData.ExecuteQuery(@"select customernumber as 'Customer Number', billtoname as 'Customer Name', ordernumber as 'Order ID', ponumber as 'Customer PO', salespersonname as 'Sales Rep', ManagerName as 'Sales Manager', 
+                                                            productcategory as 'Product purchased', termsdescription as 'Payment Method', '' as 'Credit ap received', orderdate as 'Order Date', 
+			                                                totalprice as 'Order Amount', usercomment as 'Sales Location', trackingnumber as 'Tracking Number', shippingdate as 'Date Shipped' from( 
                                                 select  b.customernumber, 
                                                         b.billtoname,
 				                                        b.ordernumber,
@@ -46,6 +46,7 @@ namespace CCR
 				                                        b.orderdate,
 				                                        b.totalprice,
 														b.usercomment,
+														b.shippingdate,
 														e.trackingnumber														 
                                                 from SWCCSBIL2 a 
                                                 join SWCCSBIL1 b on b.ordernumber = a.ordernumber
@@ -68,6 +69,7 @@ namespace CCR
 				                                        b.orderdate,
 				                                        b.totalprice,
 														b.usercomment,
+														b.dateshipped as shippingdate,
 														e.trackingnumber
                                                 from SWCCSHST2 a 
                                                 join SWCCSHST1 b on a.invoicenumber = b.invoicenumber    
@@ -78,7 +80,7 @@ namespace CCR
                                                 where b.locationnumber = '800' and orderdate > '6/1/2016') x 
 		                                        where totalprice > 0 
                                                 group by customernumber, billtoname, ordernumber, ponumber, productcategory, salespersonname, ManagerName, orderdate, 
-														totalprice, termsdescription, usercomment, trackingnumber
+														totalprice, termsdescription, usercomment, trackingnumber, shippingdate
 		                                        order by ordernumber", connectionString);
 
             dt.Columns.Add("Weekly Total").SetOrdinal(10);
@@ -232,7 +234,7 @@ namespace CCR
             }
 
             workSheet1.Columns.AutoFit();
-            Microsoft.Office.Interop.Excel.Range range = workSheet1.Range["A1", "M" + (dt.Rows.Count + 1)];
+            Microsoft.Office.Interop.Excel.Range range = workSheet1.Range["A1", "O" + (dt.Rows.Count + 1)];
             Object missing = System.Reflection.Missing.Value;
             workSheet1.ListObjects.AddEx(XlListObjectSourceType.xlSrcRange, range, missing, Microsoft.Office.Interop.Excel.XlYesNoGuess.xlYes, missing).Name = "MyTableStyle";
             workSheet1.ListObjects.get_Item("MyTableStyle").TableStyle = "TableStyleMedium2";
@@ -242,7 +244,7 @@ namespace CCR
                             missing, missing, missing, missing);
 
             workSheet2 = excelApp.ActiveSheet;
-
+            workSheet2.Move(After: excelApp.Sheets[excelApp.Sheets.Count]);
             excelApp.Visible = true;
             for (int i = 0; i < itemDT.Columns.Count; i++)
             {
