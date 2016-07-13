@@ -19,18 +19,19 @@ namespace CCR
                                                                   join SWCCSCATG b on a.productcategory = b.categorycode and b.locationnumber = '800'
                                                                   where a.locationnumber = '800'", connectionString);
 
-            System.Data.DataTable dateDT = GetData.ExecuteQuery(@"select itemidstocksvc, qty, datecreated from(
-                                                                  select itemidstocksvc, count(quantityordered) as 'qty', datecreated
-                                                                  from SWCCSBIL2                                                                  
-                                                                  where locationnumber = '800'
-                                                                  group by itemidstocksvc, datecreated
-                                                                  UNION
-                                                                  select itemidstocksvc, count(quantityordered) as 'qty', datecreated 
-                                                                  from SWCCSHST2
-                                                                  where locationnumber = '800'
-                                                                  group by itemidstocksvc, datecreated) x
-                                                                  where datecreated > '6/1/2016'
-                                                                  order by 3", connectionString);
+            System.Data.DataTable dateDT = GetData.ExecuteQuery(@"select itemidstocksvc, qty, orderdate from(
+                                                                            select itemidstocksvc, sum(quantityordered) as 'qty', orderdate
+                                                                            from SWCCSBIL2 a    
+                                                                            join SWCCSBIL1 b on b.ordernumber = a.ordernumber                                                              
+                                                                            where a.locationnumber = '800' and orderdate > '6/1/2016'
+                                                                            group by itemidstocksvc, orderdate
+                                                                            UNION
+                                                                            select itemidstocksvc, sum(quantityordered) as 'qty', orderdate 
+                                                                            from SWCCSHST2 a
+		                                                                    join SWCCSHST1 b on a.invoicenumber = b.invoicenumber
+                                                                            where a.locationnumber = '800' and orderdate > '6/1/2016'
+                                                                            group by itemidstocksvc, orderdate) x
+                                                                            order by 3", connectionString);
 
             System.Data.DataTable dt = GetData.ExecuteQuery(@"select customernumber as 'Customer Number', billtoname as 'Customer Name', ordernumber as 'Order ID', ponumber as 'Customer PO', salespersonname as 'Sales Rep', ManagerName as 'Sales Manager', 
                                                             productcategory as 'Product purchased', termsdescription as 'Payment Method', '' as 'Credit ap received', orderdate as 'Order Date', 
@@ -54,9 +55,9 @@ namespace CCR
 												left join SWCCATERM f on f.termscode = b.termscode
 		                                        left join IvystoneSalesPeople c on c.SalesPersonNumber = b.salesperson
 		                                        left join SWCCRSMAN d on d.salespersonnumber = b.salesperson                            
-                                                where b.locationnumber = '800' and orderdate > '6/1/2016'             
+                                                where b.locationnumber = '800' and orderdate > '6/1/2016' and totalprice > 0          
 		              
-                                                UNION
+                                                UNION ALL
 		 
                                                 select  b.customernumber,
 				                                        b.billtoname,
@@ -77,8 +78,7 @@ namespace CCR
 									            left join SWCCATERM f on f.termscode = b.termscode        
 		                                        left join IvystoneSalesPeople c on c.SalesPersonNumber = b.salespersonnumber                
 		                                        left join SWCCRSMAN d on d.salespersonnumber = b.salespersonnumber
-                                                where b.locationnumber = '800' and orderdate > '6/1/2016') x 
-		                                        where totalprice > 0 
+                                                where b.locationnumber = '800' and orderdate > '6/1/2016' and totalprice > 0) x 
                                                 group by customernumber, billtoname, ordernumber, ponumber, productcategory, salespersonname, ManagerName, orderdate, 
 														totalprice, termsdescription, usercomment, trackingnumber, shippingdate
 		                                        order by ordernumber", connectionString);
@@ -86,9 +86,9 @@ namespace CCR
             dt.Columns.Add("Weekly Total").SetOrdinal(10);
             // intialize variables to get categorys in the same column and get a weekly total
             string orderIndex = dt.Rows[0]["Order Id"].ToString();
-            string catColumn = dt.Rows[0]["Product purchased"].ToString();            
+            string catColumn = dt.Rows[0]["Product purchased"].ToString();
             for (int i = 0; i < dt.Rows.Count; i++)
-            {                
+            {
                 // if the current row is a new order number
                 if (orderIndex != dt.Rows[i]["Order Id"].ToString())
                 {
@@ -108,9 +108,10 @@ namespace CCR
                 {
                     // if row is duplicate store the category in the index to be insantiated later
                     catColumn += ", " + dt.Rows[i]["Product purchased"].ToString();
-                    dt.Rows[i]["Product purchased"] = "";
+                    dt.Rows[i]["Product purchased"] = "";                    
                 }
-            }
+                dt.Rows[dt.Rows.Count - 1]["Product purchased"] = catColumn;
+            }            
             // clean up extra rows created by the cat column
             for (int i = dt.Rows.Count - 1; i > -1; i--)
             {
@@ -151,12 +152,12 @@ namespace CCR
             // Get distinct Dates to create columns on itemDT
             var distinctDate = dateDT.AsEnumerable().Select(row => new
             {
-                datecreated = row.Field<DateTime>("datecreated")
+                orderdate = row.Field<DateTime>("orderdate")
             }).Distinct();
 
             foreach (var row in distinctDate)
             {
-                itemDT.Columns.Add(row.datecreated.ToString("d"));
+                itemDT.Columns.Add(row.orderdate.ToString("d"));
             }
 
             for (int r = 0; r < itemDT.Rows.Count; r++)
@@ -180,7 +181,7 @@ namespace CCR
 
             DataRow totalRow = itemDT.NewRow();
             totalRow[5] = "Totals:";
-            float colTotal = 0;            
+            float colTotal = 0;
             for (int c = 6; c < itemDT.Columns.Count; c++)
             {
                 foreach (DataRow row in itemDT.Rows)
@@ -190,7 +191,7 @@ namespace CCR
                 }
                 totalRow[c] = colTotal;
                 colTotal = 0;
-            }            
+            }
 
             itemDT.Rows.Add(totalRow);
             float rowTotal = 0;
@@ -207,7 +208,7 @@ namespace CCR
                 }
                 rowTotal = 0;
             }
-  
+
             string test = string.Empty;
 
             // ITS EXCEL TIME!!!!
@@ -226,7 +227,7 @@ namespace CCR
             // rows
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                 // to do: format datetime values before printing and change order amount column to currancy
+                // to do: format datetime values before printing and change order amount column to currancy
                 for (int j = 0; j < dt.Columns.Count; j++)
                 {
                     workSheet1.Cells[(i + 2), (j + 1)] = dt.Rows[i][j];
@@ -270,7 +271,7 @@ namespace CCR
         public string GetColumnName(int index)
         {
             const string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            
+
             var value = "";
 
             if (index >= letters.Length)
