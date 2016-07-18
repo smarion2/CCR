@@ -106,8 +106,10 @@
     </Compile>
     <Compile Include="Classes\AddContainer.cs" />
     <Compile Include="Classes\ContainerMaster.cs" />
+    <Compile Include="Classes\CreateContainer.cs" />
     <Compile Include="Classes\ErrorLogger.cs" />
     <Compile Include="Classes\LauraJanelleDSR.cs" />
+    <Compile Include="Classes\lauraJTEST.cs" />
     <Compile Include="Classes\ReportFilters.cs" />
     <Compile Include="Forms\CustomCousinReports.cs">
       <SubType>Form</SubType>

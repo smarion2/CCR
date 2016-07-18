@@ -81,6 +81,7 @@ namespace CCR
                                                 where b.locationnumber = '800' and orderdate > '6/1/2016' and totalprice > 0) x 
                                                 group by customernumber, billtoname, ordernumber, ponumber, productcategory, salespersonname, ManagerName, orderdate, 
 														totalprice, termsdescription, usercomment, trackingnumber, shippingdate
+                                        
 		                                        order by ordernumber", connectionString);
 
             dt.Columns.Add("Weekly Total").SetOrdinal(10);
@@ -246,7 +247,6 @@ namespace CCR
 
             workSheet2 = excelApp.ActiveSheet;
             workSheet2.Move(After: excelApp.Sheets[excelApp.Sheets.Count]);
-            excelApp.Visible = true;
             for (int i = 0; i < itemDT.Columns.Count; i++)
             {
                 workSheet2.Cells[1, (i + 1)] = itemDT.Columns[i].ColumnName;
@@ -264,6 +264,7 @@ namespace CCR
             Range range2 = workSheet2.Range["A1", GetColumnName(itemDT.Columns.Count - 1) + (itemDT.Rows.Count + 1)];
             workSheet2.ListObjects.AddEx(XlListObjectSourceType.xlSrcRange, range2, missing, Microsoft.Office.Interop.Excel.XlYesNoGuess.xlYes, missing).Name = "MyTableStyle2";
             workSheet2.ListObjects.get_Item("MyTableStyle2").TableStyle = "TableStyleLight21";
+            excelApp.Visible = true;
 
         }
 

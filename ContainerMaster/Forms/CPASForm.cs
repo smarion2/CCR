@@ -310,8 +310,10 @@ namespace CCR
 
         private void dSRReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LauraJanelleDSR dsr = new LauraJanelleDSR();
-            dsr.GenerateReport();
+            //LauraJanelleDSR dsr = new LauraJanelleDSR();
+            //dsr.GenerateReport();
+            lauraJTEST dsr = new lauraJTEST();
+            dsr.FirstPage();
         }
 
         International_PO_log poLog;

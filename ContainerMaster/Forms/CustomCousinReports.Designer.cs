@@ -112,7 +112,7 @@
             treeNode40,
             treeNode41,
             treeNode42});
-            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Po Number");
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("PO Number");
             System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("Vendor Number");
             System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Date Ordered");
             System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("Location Number");
@@ -141,9 +141,9 @@
             treeNode55,
             treeNode56,
             treeNode57});
-            System.Windows.Forms.TreeNode treeNode59 = new System.Windows.Forms.TreeNode("PO number");
+            System.Windows.Forms.TreeNode treeNode59 = new System.Windows.Forms.TreeNode("PO Number");
             System.Windows.Forms.TreeNode treeNode60 = new System.Windows.Forms.TreeNode("PO line number");
-            System.Windows.Forms.TreeNode treeNode61 = new System.Windows.Forms.TreeNode("Stock number");
+            System.Windows.Forms.TreeNode treeNode61 = new System.Windows.Forms.TreeNode("Item Number");
             System.Windows.Forms.TreeNode treeNode62 = new System.Windows.Forms.TreeNode("Location number");
             System.Windows.Forms.TreeNode treeNode63 = new System.Windows.Forms.TreeNode("Expected ship date");
             System.Windows.Forms.TreeNode treeNode64 = new System.Windows.Forms.TreeNode("Vendor number");
@@ -219,6 +219,7 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.filtersButton = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.removeOrderButton = new System.Windows.Forms.Button();
             this.addOrderButton = new System.Windows.Forms.Button();
             this.runButton = new System.Windows.Forms.Button();
@@ -310,7 +311,7 @@
             treeNode30.Text = "Order line number";
             treeNode31.Name = "SWCCSBIL2.locationnumber";
             treeNode31.Text = "Location number";
-            treeNode32.Name = "SWCCSBIL2.stockordered";
+            treeNode32.Name = "RTRIM(SWCCSBIL2.stockordered)";
             treeNode32.Text = "Item number";
             treeNode33.Name = "SWCCSBIL2.lineitemdesc1";
             treeNode33.Text = "Item description 1";
@@ -335,8 +336,8 @@
             treeNode43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             treeNode43.Name = "SWCCSBIL2";
             treeNode43.Text = "Sales Item Info";
-            treeNode44.Name = "SWCCSPO1.ponumber";
-            treeNode44.Text = "Po Number";
+            treeNode44.Name = "LTRIM(SWCCSPO1.ponumber)";
+            treeNode44.Text = "PO Number";
             treeNode45.Name = "SWCCSPO1.vendornumber ";
             treeNode45.Text = "Vendor Number";
             treeNode46.Name = "SWCCSPO1.dateordered";
@@ -366,12 +367,12 @@
             treeNode58.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             treeNode58.Name = "SWCCSPO1";
             treeNode58.Text = "Purchase Order Info";
-            treeNode59.Name = "SWCCSPO2.ponumber";
-            treeNode59.Text = "PO number";
+            treeNode59.Name = "LTRIM(SWCCSPO2.ponumber)";
+            treeNode59.Text = "PO Number";
             treeNode60.Name = "SWCCSPO2.polinenumber";
             treeNode60.Text = "PO line number";
-            treeNode61.Name = "SWCCSPO2.stocknumber";
-            treeNode61.Text = "Stock number";
+            treeNode61.Name = "RTRIM(SWCCSPO2.stocknumber)";
+            treeNode61.Text = "Item Number";
             treeNode62.Name = "SWCCSPO2.receivinglocation";
             treeNode62.Text = "Location number";
             treeNode63.Name = "SWCCSPO2.expectedshipdate";
@@ -407,7 +408,7 @@
             treeNode78.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             treeNode78.Name = "SWCCSPO2";
             treeNode78.Text = "Purchase Line Info";
-            treeNode79.Name = "SWCCSSTOK.stocknumber";
+            treeNode79.Name = "RTRIM(SWCCSSTOK.stocknumber)";
             treeNode79.Text = "Item Number";
             treeNode80.Name = "SWCCSSTOK.locationnumber";
             treeNode80.Text = "Location Number";
@@ -493,6 +494,7 @@
             // 
             // splitContainer2.Panel2
             // 
+            this.splitContainer2.Panel2.Controls.Add(this.checkBox1);
             this.splitContainer2.Panel2.Controls.Add(this.removeOrderButton);
             this.splitContainer2.Panel2.Controls.Add(this.addOrderButton);
             this.splitContainer2.Panel2.Controls.Add(this.runButton);
@@ -513,6 +515,16 @@
             this.filtersButton.Text = "Create Filters";
             this.filtersButton.UseVisualStyleBackColor = true;
             this.filtersButton.Click += new System.EventHandler(this.filtersButton_Click);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(365, 164);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(98, 17);
+            this.checkBox1.TabIndex = 7;
+            this.checkBox1.Text = "Add Containers";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // removeOrderButton
             // 
@@ -631,6 +643,7 @@
             this.splitContainer1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
+            this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -656,5 +669,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn fieldName;
         private System.Windows.Forms.DataGridViewComboBoxColumn comparison;
         private System.Windows.Forms.DataGridViewTextBoxColumn value;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

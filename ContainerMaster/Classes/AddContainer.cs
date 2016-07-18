@@ -23,7 +23,6 @@ namespace CCR
                 foreach (DataRow row in cmDetailsTable.Rows)
                 {
 
-                    int columnPos = 9;
                     // create container
                     string cmID = row["CMID"].ToString();
                     dt.Columns.Add("\"Supplier: " + row["Supplier"] + "\r\n" +
@@ -84,4 +83,6 @@ namespace CCR
             }//return dt;
         }
     }
+
+
 }

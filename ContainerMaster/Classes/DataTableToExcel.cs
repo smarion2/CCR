@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Office.Interop.Excel;
+using Excel = Microsoft.Office.Interop.Excel;
 using System.Windows.Forms;
+using System.IO;
 
 namespace CCR
 {
@@ -22,50 +23,64 @@ namespace CCR
                 if (Tbl == null || Tbl.Columns.Count == 0)
                     throw new Exception("ExportToExcel: Null or empty input table!\n");
 
-                // load excel, and create a new workbook
-                Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
-                excelApp.Workbooks.Add();
+                SaveFileDialog fileDialog = new SaveFileDialog();
+                fileDialog.Filter = "CSV | *.csv";
+                if (fileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filepath = Path.GetFullPath(fileDialog.FileName);
+                    StringBuilder sb = new StringBuilder();
+                    IEnumerable<string> columnNames = Tbl.Columns.Cast<System.Data.DataColumn>().
+                                                      Select(column => column.ColumnName);
+                    sb.AppendLine(string.Join(",", columnNames));
 
-                // single worksheet
-                Microsoft.Office.Interop.Excel._Worksheet workSheet = excelApp.ActiveSheet;
+                    foreach (System.Data.DataRow row in Tbl.Rows)
+                    {
+                        IEnumerable<string> fields = row.ItemArray.Select(field => field.ToString());
+                        sb.AppendLine(string.Join(",", fields));
+                    }
 
-                // column headings
-                for (int i = 0; i < Tbl.Columns.Count; i++)
-                {
-                    workSheet.Cells[1, (i + 1)] = Tbl.Columns[i].ColumnName;
-                }
-                workSheet.Range["1:1"].Orientation = 90;
-                int rowCount = 1;
-                // rows
-                for (int i = 0; i < Tbl.Rows.Count; i++)
-                {
-                    rowCount++;
-                    // to do: format datetime values before printing
-                    for (int j = 0; j < Tbl.Columns.Count; j++)
-                    {
-                        workSheet.Cells[(i + 2), (j + 1)] = Tbl.Rows[i][j];
-                    }
-                }
+                    File.WriteAllText(filepath, sb.ToString());
+                    // open csv in Excel
+                    Excel.Application excelApp = new Excel.Application();
+                    Object missing = System.Reflection.Missing.Value;
+                    excelApp.Workbooks.OpenText(filepath,
+                                                missing, 3,
+                                                Excel.XlTextParsingType.xlDelimited,
+                                                Excel.XlTextQualifier.xlTextQualifierNone,
+                                                missing, missing, missing, true, missing, missing, missing,
+                                                missing, missing, missing, missing, missing, missing);
 
-                // check fielpath
-                if (ExcelFilePath != null && ExcelFilePath != "")
-                {
-                    try
-                    {
-                        workSheet.SaveAs(ExcelFilePath);
-                        excelApp.Quit();
-                        MessageBox.Show("Excel file saved!");
-                    }
-                    catch (Exception ex)
-                    {
-                        throw new Exception("ExportToExcel: Excel file could not be saved! Check filepath.\n"
-                            + ex.Message);
-                    }
-                }
-                else    // no filepath is given
-                {
+                    Excel._Worksheet workSheet = excelApp.ActiveSheet;
+                    excelApp.ReferenceStyle = Excel.XlReferenceStyle.xlA1;
+                    workSheet.Columns.AutoFit();
+                    string replace = Path.GetFileName(fileDialog.FileName).Replace(".csv", ".xlsx");
+                    string path = Path.GetDirectoryName(fileDialog.FileName) + "\\" + replace;
+                    workSheet.SaveAs(path, Microsoft.Office.Interop.Excel.XlFileFormat.xlOpenXMLWorkbook, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                    excelApp.Workbooks.Open(path);
                     excelApp.Visible = true;
+                    //excelApp.Quit();
+                    File.Delete(filepath);
                 }
+
+                //// check fielpath
+                //if (ExcelFilePath != null && ExcelFilePath != "")
+                //{
+                //    try
+                //    {
+                //        workSheet.SaveAs(ExcelFilePath);
+                //        excelApp.Quit();
+                //        MessageBox.Show("Excel file saved!");
+                //    }
+                //    catch (Exception ex)
+                //    {
+                //        throw new Exception("ExportToExcel: Excel file could not be saved! Check filepath.\n"
+                //            + ex.Message);
+                //    }
+                //}
+                //else    // no filepath is given
+                //{
+                //    excelApp.Visible = true;
+                //}
             }
             catch (Exception ex)
             {

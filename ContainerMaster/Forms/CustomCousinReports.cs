@@ -16,7 +16,7 @@ namespace CCR
         {
             InitializeComponent();
         }
-
+        string connectionString = "Data Source=srv-swdb;Initial Catalog=swdb;Persist Security Info=True;User ID=swdb;Password=SouthWare99";
         string sqlQuery = "SELECT ";
         Table fromTable = new Table();
         // Create dictionarys of the relations for each table
@@ -65,7 +65,7 @@ namespace CCR
                 }
             }
             fromTable.fromTable = true;
-            fromTable.initilized = true;        
+            fromTable.initilized = true;
             return fromTable;
             //Table result = tableList.Find(x => x.tableName == fromTable.tableName);
         }
@@ -84,7 +84,7 @@ namespace CCR
                         if (child.Checked == true)
                         {
                             child.Parent.Checked = true;
-                            table.fields.Add(child);                            
+                            table.fields.Add(child);
                         }
                     }
                     tableList.Add(table);
@@ -113,7 +113,7 @@ namespace CCR
             {
                 if (joinToJoin.initilized == false)
                 {
-                    foreach(Table alreadyJoined in tableList)
+                    foreach (Table alreadyJoined in tableList)
                     {
                         if (alreadyJoined.fromTable == false && alreadyJoined.initilized == true)
                         {
@@ -142,7 +142,7 @@ namespace CCR
                         MessageBox.Show("Could not join " + table.tableName + "\r\n Fields selected for this table will be dropped");
                 }
             }
-            sqlQuery = sqlQuery.Substring(0, sqlQuery.Length -4) + "\r\n";
+            sqlQuery = sqlQuery.Substring(0, sqlQuery.Length - 4) + "\r\n";
             sqlQuery += "FROM " + fromTable.tableName + "\r\n";
             foreach (Table tableJoins in tableList)
             {
@@ -153,13 +153,21 @@ namespace CCR
             if (orderByFields.Count > 0)
             {
                 sqlQuery += "Order by ";
-                foreach(string orderby in orderByFields)
+                foreach (string orderby in orderByFields)
                 {
                     sqlQuery += orderby + ",";
                 }
                 sqlQuery = sqlQuery.TrimEnd(',');
             }
-            MessageBox.Show(sqlQuery);
+            //MessageBox.Show(sqlQuery);
+            DataTable dt = GetData.ExecuteQuery(sqlQuery, connectionString);
+            if (checkBox1.Checked == true)
+            {
+                CreateContainer c = new CreateContainer();
+                c.AddToDataTable(dt);
+               // AddContainer.ToDataTable(dt);
+            }
+            DataTableToExcel.ExportToExcel(dt);
             sqlQuery = string.Empty;
             tableList.Clear();
             fromTable = null;
@@ -169,6 +177,7 @@ namespace CCR
         List<string> orderByFields = new List<string>();
         private void button1_Click(object sender, EventArgs e)
         {
+            fromTable = null;            
             CreateOrderByFields();
             CreateWhereClause();
             CheckForJoins();
@@ -189,10 +198,10 @@ namespace CCR
         // translate pretty user text to database field name
         private void CreateOrderByFields()
         {
-            foreach(string item in listBox2.Items)
+            foreach (string item in listBox2.Items)
             {
                 //string orderByField = string.Empty;
-                if(filterFields.ContainsKey(item))
+                if (filterFields.ContainsKey(item))
                 {
                     orderByFields.Add(filterFields[item]);
                 }
@@ -205,12 +214,13 @@ namespace CCR
         {
             filterFields.Clear();
             listBox1.Items.Clear();
+            listBox2.Items.Clear();
             CreateTables();
             CreateFilterFields();
-            foreach(KeyValuePair<string,string> fields in filterFields)
+            foreach (KeyValuePair<string, string> fields in filterFields)
             {
                 listBox1.Items.Add(fields.Key);
-                CreateComboBox(0, fields);                
+                CreateComboBox(0, fields);
             }
         }
         // method to populate combobox for fields to filter by?
@@ -225,9 +235,9 @@ namespace CCR
         int filterIndex = 0;
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            dataGridView1.Rows[0].Cells[0].Value = "Where";
+            dataGridView1.Rows[0].Cells[0].Value = "WHERE";
             filterIndex++;
-            foreach(var fields in filterFields)
+            foreach (var fields in filterFields)
             {
                 CreateComboBox(filterIndex, fields);
             }
@@ -282,8 +292,8 @@ namespace CCR
             if (table.tableName == "SWCCSBIL1") { table.tableRelationList.Add(SWCCSBIL1relations); }
             if (table.tableName == "SWCCSBIL2") { table.tableRelationList.Add(SWCCSBIL2relations); }
             if (table.tableName == "SWCCSSTOK") { table.tableRelationList.Add(SWCCSSTOKrelations); }
-            if (table.tableName == "SWCCSPO1")  { table.tableRelationList.Add(SWCCSPO1relations);  }
-            if (table.tableName == "SWCCSPO2")  { table.tableRelationList.Add(SWCCSPO2relations);  }
+            if (table.tableName == "SWCCSPO1") { table.tableRelationList.Add(SWCCSPO1relations); }
+            if (table.tableName == "SWCCSPO2") { table.tableRelationList.Add(SWCCSPO2relations); }
         }
 
 
