@@ -36,8 +36,6 @@ namespace CCR
 
         private void runReportButton_Click_1(object sender, EventArgs e)
         {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
             System.Data.DataTable buyReportDT = new System.Data.DataTable();
             System.Data.DataTable containerDT;
             SaveFileDialog fileDialog = new SaveFileDialog();
@@ -367,7 +365,7 @@ namespace CCR
                     containers.AddToDataTable(buyReportDT, buyReportDT.Columns.Count);
                     //AddContainer.ToDataTable(buyReportDT);
 
-                    int rowIndex = 1;
+                    int rowIndex = 2;
                     foreach(DataRow row in buyReportDT.Rows)
                     {
                         if (expediteCB.Checked == false)
@@ -455,8 +453,6 @@ namespace CCR
                     excelApp.Visible = true;
                     //excelApp.Quit();
                     File.Delete(filepath);
-                    stopwatch.Stop();
-                    MessageBox.Show(stopwatch.Elapsed.ToString());
                     progressLabel.BeginInvoke(
                             new Action(() =>
                             {
