@@ -171,6 +171,12 @@
       <DependentUpon>ediengineDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Classes\GetData.cs" />
+    <Compile Include="Forms\DSRForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DSRForm.Designer.cs">
+      <DependentUpon>DSRForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\InputContainerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ContainerMaster1.rdlc">
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DSRForm.resx">
+      <DependentUpon>DSRForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\InputContainerForm.resx">
       <DependentUpon>InputContainerForm.cs</DependentUpon>

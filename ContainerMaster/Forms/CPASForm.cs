@@ -308,12 +308,27 @@ namespace CCR
             ccr = null;
         }
 
+        DSRForm dsr;
         private void dSRReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if(dsr == null)
+            {
+                dsr = new DSRForm();
+                dsr.MdiParent = this;
+                dsr.FormClosed += new FormClosedEventHandler(dsr_formClosed);
+                dsr.Show();
+            }
             //LauraJanelleDSR dsr = new LauraJanelleDSR();
             //dsr.GenerateReport();
-            lauraJTEST dsr = new lauraJTEST();
-            dsr.FirstPage();
+
+
+            //lauraJTEST dsr = new lauraJTEST();
+            //dsr.FirstPage();
+        }
+
+        private void dsr_formClosed(object sender, FormClosedEventArgs e)
+        {
+            dsr = null; 
         }
 
         International_PO_log poLog;

@@ -1,19 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data;
-using Microsoft.Office.Interop.Excel;
+using System.Windows.Forms;
 
 namespace CCR
 {
-    class lauraJTEST
+    public partial class DSRForm : Form
     {
+        public DSRForm()
+        {
+            InitializeComponent();
+        }
         string connectionString = "Data Source=srv-swdb;Initial Catalog=swdb;Persist Security Info=True;User ID=swdb;Password=SouthWare99";
         System.Data.DataTable orders;
         System.Data.DataTable invoices;
-        public void FirstPage()
+        private void DSRForm_Load(object sender, EventArgs e)
         {
             orders = GetData.ExecuteQuery(@"select      b.customernumber as 'Customer Number', 
                                                         b.billtoname as 'Customer Name',
@@ -38,7 +45,7 @@ namespace CCR
                                         left join SWCCATERM f on f.termscode = b.termscode
                                         left join IvystoneSalesPeople c on c.SalesPersonNumber = b.salesperson
                                         left join SWCCRSMAN d on d.salespersonnumber = b.salesperson
-                                        left join LJCreditApp g on g.CustomerNumber = b.customernumber
+                                        left join LJCreditApp g on g.CustomerNumber = LTRIM(b.customernumber)
                                         left join LJOrderInfo h on h.OrderNumber = b.ordernumber                            
                                         where b.locationnumber = '800' and orderdate > '6/1/2016' and totalprice > 0
                                         group by b.customernumber, billtoname, b.ordernumber, ponumber, productcategory, salespersonname, ManagerName, orderdate, 
@@ -69,7 +76,7 @@ namespace CCR
                                 left join SWCCATERM f on f.termscode = b.termscode        
                                 left join IvystoneSalesPeople c on c.SalesPersonNumber = b.salespersonnumber                
                                 left join SWCCRSMAN d on d.salespersonnumber = b.salespersonnumber
-                                left join LJCreditApp g on g.CustomerNumber = b.customernumber
+                                left join LJCreditApp g on g.CustomerNumber = LTRIM(b.customernumber)
                                 left join LJOrderInfo h on h.OrderNumber = b.ordernumber                     
                                 where b.locationnumber = '800' and orderdate > '6/1/2016' and totalprice > 0
                                 group by b.customernumber, billtoname, b.ordernumber, customerponumber, category, salespersonname, ManagerName, orderdate, 
@@ -85,7 +92,7 @@ namespace CCR
 
             // group category column from Sales orders THANKS RICK!!!
             string orderIndex = string.Empty;
-            foreach(DataRow row in orders.Rows)
+            foreach (DataRow row in orders.Rows)
             {
                 if (row["Order ID"].ToString() == orderIndex)
                 {
@@ -100,6 +107,7 @@ namespace CCR
 
             // now do the same with the invoices
             string invoiceIndex = string.Empty;
+            orderIndex = string.Empty;
             foreach (DataRow row in invoices.Rows)
             {
                 if (row["Order ID"].ToString() == orderIndex)
@@ -124,7 +132,8 @@ namespace CCR
             dv.Sort = "[Order Date] ASC";
             finalDoc = null;
             finalDoc = dv.ToTable();
-            finalDoc.Columns.Add("Weekly Total").SetOrdinal(10);
+            finalDoc.Columns.Add("Weekly Total").SetOrdinal(11);
+            dataGridView1.Columns[10].DefaultCellStyle.Format = "c";
             // calculate weekly totals
             bool endOfWeek = false;
             double weeklyTotal = 0;
@@ -151,39 +160,82 @@ namespace CCR
                     finalDoc.Rows[i]["Weekly Total"] = weeklyTotal.ToString("c");
                 }
             }
-
-
-
-            Microsoft.Office.Interop.Excel.Application excelApp = new Microsoft.Office.Interop.Excel.Application();
-            excelApp.Workbooks.Add();
-            //var collection = new Microsoft.Office.Interop.Excel.Worksheet[2];
-
-            // single worksheet
-            Microsoft.Office.Interop.Excel._Worksheet workSheet1 = excelApp.ActiveSheet;
-
-            // column headings
-            for (int i = 0; i < finalDoc.Columns.Count; i++)
+            foreach(DataRow row in finalDoc.Rows)
             {
-                workSheet1.Cells[1, (i + 1)] = finalDoc.Columns[i].ColumnName;
+                dataGridView1.Rows.Add(row.ItemArray);
             }
-            // rows
-            for (int i = 0; i < finalDoc.Rows.Count; i++)
+            //dataGridView1.DataSource = finalDoc;
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            DataTable order = new DataTable();
+            order.Columns.Add("OrderNumber");
+            order.Columns.Add("Shipped");
+            order.Columns.Add("Notes");
+            order.Columns.Add("CSCRep");
+            foreach(DataGridViewRow row in dataGridView1.Rows)
             {
-                // to do: format datetime values before printing and change order amount column to currancy
-                for (int j = 0; j < finalDoc.Columns.Count; j++)
+                order.Rows.Add(row.Cells["ordernumber"].Value, row.Cells["Shipped"].Value, row.Cells["Notes"].Value, row.Cells["CSCrep"].Value);
+            }
+            order.Rows[order.Rows.Count - 1].Delete();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    workSheet1.Cells[(i + 2), (j + 1)] = finalDoc.Rows[i][j];
+                    SqlCommand cmd = new SqlCommand(@"Create Table LJOrderInfoTMP(OrderNumber char(10),
+                                                             Shipped char(10),
+                                                             Notes nvarchar(max),
+                                                             CSCRep nchar(10))", conn);
+                    SqlCommand sp = new SqlCommand("UpdateDSR");
+                    sp.CommandType = CommandType.StoredProcedure;
+                    sp.Connection = conn;
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+
+                    using (SqlBulkCopy bulkcopy = new SqlBulkCopy(connectionString))
+                    {
+                        bulkcopy.DestinationTableName = "LJOrderInfoTMP";
+                        bulkcopy.ColumnMappings.Add("OrderNumber", "OrderNumber");
+                        bulkcopy.ColumnMappings.Add("Shipped", "Shipped");
+                        bulkcopy.ColumnMappings.Add("Notes", "Notes");
+                        bulkcopy.ColumnMappings.Add("CSCRep", "CSCRep");
+                        bulkcopy.WriteToServer(order);
+                    }
+
+                    sp.ExecuteNonQuery();
                 }
             }
+            catch (Exception ex)
+            {
+                ErrorLogger.LogError("Could not create table for DSR", ex.ToString());
+                throw;
+            }
+        }
 
-            workSheet1.Columns.AutoFit();
-            Microsoft.Office.Interop.Excel.Range range = workSheet1.Range["A1", "O" + (finalDoc.Rows.Count + 1)];
-            Object missing = System.Reflection.Missing.Value;
-            workSheet1.ListObjects.AddEx(XlListObjectSourceType.xlSrcRange, range, missing, Microsoft.Office.Interop.Excel.XlYesNoGuess.xlYes, missing).Name = "MyTableStyle";
-            workSheet1.ListObjects.get_Item("MyTableStyle").TableStyle = "TableStyleMedium2";
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand(@"IF NOT EXISTS(select customernumber from LJCreditApp where LTRIM(CustomerNumber) = @textbox)
+                                                      INSERT INTO LJCreditApp VALUES(@textbox, @combobox)
+                                                      else
+                                                      UPDATE LJCreditApp SET CreditAppReceived = @combobox where CustomerNumber = @textbox", conn);
+                    cmd.Parameters.AddWithValue("@textbox", textBox1.Text);
+                    cmd.Parameters.AddWithValue("@combobox", comboBox1.SelectedItem);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception)
+            {
 
-            excelApp.Visible = true;
-            excelApp.Quit();
+                throw;
+            }
 
         }
     }
