@@ -112,22 +112,24 @@
             treeNode40,
             treeNode41,
             treeNode42});
-            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("PO Number");
-            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("Vendor Number");
-            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Date Ordered");
-            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("Location Number");
-            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("PO Status");
-            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("Vendor Name");
-            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("Vendor Address");
-            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("Vendor City");
-            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("Vendor State");
-            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("Vendor Zipcode");
-            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("Vendor country code");
-            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("Contact Name");
-            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("Ship date");
-            System.Windows.Forms.TreeNode treeNode57 = new System.Windows.Forms.TreeNode("Po comments");
-            System.Windows.Forms.TreeNode treeNode58 = new System.Windows.Forms.TreeNode("Purchase Order Info", new System.Windows.Forms.TreeNode[] {
-            treeNode44,
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Invoiced Order Info");
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("Invoice Number");
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Line Number");
+            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("Invoice date");
+            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("Customer number");
+            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("Item number");
+            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("Location number");
+            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("Item description");
+            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("Shipping date");
+            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("Unit of measure");
+            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("Quantity ordered");
+            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("Quantity to ship");
+            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("Quantity on backorder");
+            System.Windows.Forms.TreeNode treeNode57 = new System.Windows.Forms.TreeNode("Quantity canceled");
+            System.Windows.Forms.TreeNode treeNode58 = new System.Windows.Forms.TreeNode("Unit price");
+            System.Windows.Forms.TreeNode treeNode59 = new System.Windows.Forms.TreeNode("Unit cost");
+            System.Windows.Forms.TreeNode treeNode60 = new System.Windows.Forms.TreeNode("Category");
+            System.Windows.Forms.TreeNode treeNode61 = new System.Windows.Forms.TreeNode("Invoiced Line Info", new System.Windows.Forms.TreeNode[] {
             treeNode45,
             treeNode46,
             treeNode47,
@@ -140,30 +142,25 @@
             treeNode54,
             treeNode55,
             treeNode56,
-            treeNode57});
-            System.Windows.Forms.TreeNode treeNode59 = new System.Windows.Forms.TreeNode("PO Number");
-            System.Windows.Forms.TreeNode treeNode60 = new System.Windows.Forms.TreeNode("PO line number");
-            System.Windows.Forms.TreeNode treeNode61 = new System.Windows.Forms.TreeNode("Item Number");
-            System.Windows.Forms.TreeNode treeNode62 = new System.Windows.Forms.TreeNode("Location number");
-            System.Windows.Forms.TreeNode treeNode63 = new System.Windows.Forms.TreeNode("Expected ship date");
-            System.Windows.Forms.TreeNode treeNode64 = new System.Windows.Forms.TreeNode("Vendor number");
-            System.Windows.Forms.TreeNode treeNode65 = new System.Windows.Forms.TreeNode("Item description");
-            System.Windows.Forms.TreeNode treeNode66 = new System.Windows.Forms.TreeNode("Unit of measure");
-            System.Windows.Forms.TreeNode treeNode67 = new System.Windows.Forms.TreeNode("Conversion factor");
-            System.Windows.Forms.TreeNode treeNode68 = new System.Windows.Forms.TreeNode("Unit cost");
-            System.Windows.Forms.TreeNode treeNode69 = new System.Windows.Forms.TreeNode("Order quantity");
-            System.Windows.Forms.TreeNode treeNode70 = new System.Windows.Forms.TreeNode("Requested ship date");
-            System.Windows.Forms.TreeNode treeNode71 = new System.Windows.Forms.TreeNode("Last record date");
-            System.Windows.Forms.TreeNode treeNode72 = new System.Windows.Forms.TreeNode("Last quantity recieved");
-            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("Recieved to date qty");
-            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("Cancelled qty");
-            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("Vendor part number");
-            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("Date created");
-            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("Date modified");
-            System.Windows.Forms.TreeNode treeNode78 = new System.Windows.Forms.TreeNode("Purchase Line Info", new System.Windows.Forms.TreeNode[] {
+            treeNode57,
+            treeNode58,
             treeNode59,
-            treeNode60,
-            treeNode61,
+            treeNode60});
+            System.Windows.Forms.TreeNode treeNode62 = new System.Windows.Forms.TreeNode("PO Number");
+            System.Windows.Forms.TreeNode treeNode63 = new System.Windows.Forms.TreeNode("Vendor Number");
+            System.Windows.Forms.TreeNode treeNode64 = new System.Windows.Forms.TreeNode("Date Ordered");
+            System.Windows.Forms.TreeNode treeNode65 = new System.Windows.Forms.TreeNode("Location Number");
+            System.Windows.Forms.TreeNode treeNode66 = new System.Windows.Forms.TreeNode("PO Status");
+            System.Windows.Forms.TreeNode treeNode67 = new System.Windows.Forms.TreeNode("Vendor Name");
+            System.Windows.Forms.TreeNode treeNode68 = new System.Windows.Forms.TreeNode("Vendor Address");
+            System.Windows.Forms.TreeNode treeNode69 = new System.Windows.Forms.TreeNode("Vendor City");
+            System.Windows.Forms.TreeNode treeNode70 = new System.Windows.Forms.TreeNode("Vendor State");
+            System.Windows.Forms.TreeNode treeNode71 = new System.Windows.Forms.TreeNode("Vendor Zipcode");
+            System.Windows.Forms.TreeNode treeNode72 = new System.Windows.Forms.TreeNode("Vendor country code");
+            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("Contact Name");
+            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("Ship date");
+            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("Po comments");
+            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("Purchase Order Info", new System.Windows.Forms.TreeNode[] {
             treeNode62,
             treeNode63,
             treeNode64,
@@ -177,26 +174,29 @@
             treeNode72,
             treeNode73,
             treeNode74,
-            treeNode75,
-            treeNode76,
-            treeNode77});
+            treeNode75});
+            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("PO Number");
+            System.Windows.Forms.TreeNode treeNode78 = new System.Windows.Forms.TreeNode("PO line number");
             System.Windows.Forms.TreeNode treeNode79 = new System.Windows.Forms.TreeNode("Item Number");
-            System.Windows.Forms.TreeNode treeNode80 = new System.Windows.Forms.TreeNode("Location Number");
-            System.Windows.Forms.TreeNode treeNode81 = new System.Windows.Forms.TreeNode("Primary Vendor");
-            System.Windows.Forms.TreeNode treeNode82 = new System.Windows.Forms.TreeNode("Product cateogry");
-            System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("Order status");
+            System.Windows.Forms.TreeNode treeNode80 = new System.Windows.Forms.TreeNode("Location number");
+            System.Windows.Forms.TreeNode treeNode81 = new System.Windows.Forms.TreeNode("Expected ship date");
+            System.Windows.Forms.TreeNode treeNode82 = new System.Windows.Forms.TreeNode("Vendor number");
+            System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("Item description");
             System.Windows.Forms.TreeNode treeNode84 = new System.Windows.Forms.TreeNode("Unit of measure");
-            System.Windows.Forms.TreeNode treeNode85 = new System.Windows.Forms.TreeNode("Weight of item");
-            System.Windows.Forms.TreeNode treeNode86 = new System.Windows.Forms.TreeNode("Bin location");
-            System.Windows.Forms.TreeNode treeNode87 = new System.Windows.Forms.TreeNode("Stock description");
-            System.Windows.Forms.TreeNode treeNode88 = new System.Windows.Forms.TreeNode("Quantity on backorder");
-            System.Windows.Forms.TreeNode treeNode89 = new System.Windows.Forms.TreeNode("Quantity on hand");
-            System.Windows.Forms.TreeNode treeNode90 = new System.Windows.Forms.TreeNode("Quantity committed");
-            System.Windows.Forms.TreeNode treeNode91 = new System.Windows.Forms.TreeNode("Date last sold");
-            System.Windows.Forms.TreeNode treeNode92 = new System.Windows.Forms.TreeNode("Date last invoiced");
-            System.Windows.Forms.TreeNode treeNode93 = new System.Windows.Forms.TreeNode("Last invoice number");
+            System.Windows.Forms.TreeNode treeNode85 = new System.Windows.Forms.TreeNode("Conversion factor");
+            System.Windows.Forms.TreeNode treeNode86 = new System.Windows.Forms.TreeNode("Unit cost");
+            System.Windows.Forms.TreeNode treeNode87 = new System.Windows.Forms.TreeNode("Order quantity");
+            System.Windows.Forms.TreeNode treeNode88 = new System.Windows.Forms.TreeNode("Requested ship date");
+            System.Windows.Forms.TreeNode treeNode89 = new System.Windows.Forms.TreeNode("Last record date");
+            System.Windows.Forms.TreeNode treeNode90 = new System.Windows.Forms.TreeNode("Last quantity recieved");
+            System.Windows.Forms.TreeNode treeNode91 = new System.Windows.Forms.TreeNode("Recieved to date qty");
+            System.Windows.Forms.TreeNode treeNode92 = new System.Windows.Forms.TreeNode("Cancelled qty");
+            System.Windows.Forms.TreeNode treeNode93 = new System.Windows.Forms.TreeNode("Vendor part number");
             System.Windows.Forms.TreeNode treeNode94 = new System.Windows.Forms.TreeNode("Date created");
-            System.Windows.Forms.TreeNode treeNode95 = new System.Windows.Forms.TreeNode("Item Info", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode95 = new System.Windows.Forms.TreeNode("Date modified");
+            System.Windows.Forms.TreeNode treeNode96 = new System.Windows.Forms.TreeNode("Purchase Line Info", new System.Windows.Forms.TreeNode[] {
+            treeNode77,
+            treeNode78,
             treeNode79,
             treeNode80,
             treeNode81,
@@ -212,7 +212,41 @@
             treeNode91,
             treeNode92,
             treeNode93,
-            treeNode94});
+            treeNode94,
+            treeNode95});
+            System.Windows.Forms.TreeNode treeNode97 = new System.Windows.Forms.TreeNode("Item Number");
+            System.Windows.Forms.TreeNode treeNode98 = new System.Windows.Forms.TreeNode("Location Number");
+            System.Windows.Forms.TreeNode treeNode99 = new System.Windows.Forms.TreeNode("Primary Vendor");
+            System.Windows.Forms.TreeNode treeNode100 = new System.Windows.Forms.TreeNode("Product cateogry");
+            System.Windows.Forms.TreeNode treeNode101 = new System.Windows.Forms.TreeNode("Order status");
+            System.Windows.Forms.TreeNode treeNode102 = new System.Windows.Forms.TreeNode("Unit of measure");
+            System.Windows.Forms.TreeNode treeNode103 = new System.Windows.Forms.TreeNode("Weight of item");
+            System.Windows.Forms.TreeNode treeNode104 = new System.Windows.Forms.TreeNode("Bin location");
+            System.Windows.Forms.TreeNode treeNode105 = new System.Windows.Forms.TreeNode("Stock description");
+            System.Windows.Forms.TreeNode treeNode106 = new System.Windows.Forms.TreeNode("Quantity on backorder");
+            System.Windows.Forms.TreeNode treeNode107 = new System.Windows.Forms.TreeNode("Quantity on hand");
+            System.Windows.Forms.TreeNode treeNode108 = new System.Windows.Forms.TreeNode("Quantity committed");
+            System.Windows.Forms.TreeNode treeNode109 = new System.Windows.Forms.TreeNode("Date last sold");
+            System.Windows.Forms.TreeNode treeNode110 = new System.Windows.Forms.TreeNode("Date last invoiced");
+            System.Windows.Forms.TreeNode treeNode111 = new System.Windows.Forms.TreeNode("Last invoice number");
+            System.Windows.Forms.TreeNode treeNode112 = new System.Windows.Forms.TreeNode("Date created");
+            System.Windows.Forms.TreeNode treeNode113 = new System.Windows.Forms.TreeNode("Item Info", new System.Windows.Forms.TreeNode[] {
+            treeNode97,
+            treeNode98,
+            treeNode99,
+            treeNode100,
+            treeNode101,
+            treeNode102,
+            treeNode103,
+            treeNode104,
+            treeNode105,
+            treeNode106,
+            treeNode107,
+            treeNode108,
+            treeNode109,
+            treeNode110,
+            treeNode111,
+            treeNode112});
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.previewButton = new System.Windows.Forms.Button();
@@ -336,120 +370,160 @@
             treeNode43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             treeNode43.Name = "SWCCSBIL2";
             treeNode43.Text = "Sales Item Info";
-            treeNode44.Name = "LTRIM(SWCCSPO1.ponumber)";
-            treeNode44.Text = "PO Number";
-            treeNode45.Name = "SWCCSPO1.vendornumber ";
-            treeNode45.Text = "Vendor Number";
-            treeNode46.Name = "SWCCSPO1.dateordered";
-            treeNode46.Text = "Date Ordered";
-            treeNode47.Name = "SWCCSPO1.location";
-            treeNode47.Text = "Location Number";
-            treeNode48.Name = "SWCCSPO1.status";
-            treeNode48.Text = "PO Status";
-            treeNode49.Name = "SWCCSPO1.vendorname";
-            treeNode49.Text = "Vendor Name";
-            treeNode50.Name = "SWCCSPO1.vendoraddress1";
-            treeNode50.Text = "Vendor Address";
-            treeNode51.Name = "SWCCSPO1.vendoraddresscity";
-            treeNode51.Text = "Vendor City";
-            treeNode52.Name = "SWCCSPO1.vendoraddressstate";
-            treeNode52.Text = "Vendor State";
-            treeNode53.Name = "SWCCSPO1.vendoraddresszip";
-            treeNode53.Text = "Vendor Zipcode";
-            treeNode54.Name = "SWCCSPO1.vendorcountrycode";
-            treeNode54.Text = "Vendor country code";
-            treeNode55.Name = "SWCCSPO1.pocontactname";
-            treeNode55.Text = "Contact Name";
-            treeNode56.Name = "SWCCSPO1.shipdate";
-            treeNode56.Text = "Ship date";
-            treeNode57.Name = "SWCCSPO1.comments";
-            treeNode57.Text = "Po comments";
-            treeNode58.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            treeNode58.Name = "SWCCSPO1";
-            treeNode58.Text = "Purchase Order Info";
-            treeNode59.Name = "LTRIM(SWCCSPO2.ponumber)";
-            treeNode59.Text = "PO Number";
-            treeNode60.Name = "SWCCSPO2.polinenumber";
-            treeNode60.Text = "PO line number";
-            treeNode61.Name = "RTRIM(SWCCSPO2.stocknumber)";
-            treeNode61.Text = "Item Number";
-            treeNode62.Name = "SWCCSPO2.receivinglocation";
-            treeNode62.Text = "Location number";
-            treeNode63.Name = "SWCCSPO2.expectedshipdate";
-            treeNode63.Text = "Expected ship date";
-            treeNode64.Name = "SWCCSPO2.vendornumber";
-            treeNode64.Text = "Vendor number";
-            treeNode65.Name = "SWCCSPO2.descline1";
-            treeNode65.Text = "Item description";
-            treeNode66.Name = "SWCCSPO2.unitofmeasure";
-            treeNode66.Text = "Unit of measure";
-            treeNode67.Name = "SWCCSPO2.conversionfactor";
-            treeNode67.Text = "Conversion factor";
-            treeNode68.Name = "SWCCSPO2.unitcost";
-            treeNode68.Text = "Unit cost";
-            treeNode69.Name = "SWCCSPO2.orderquantity";
-            treeNode69.Text = "Order quantity";
-            treeNode70.Name = "SWCCSPO2.requestedshipdate";
-            treeNode70.Text = "Requested ship date";
-            treeNode71.Name = "SWCCSPO2.lastrecdate";
-            treeNode71.Text = "Last record date";
-            treeNode72.Name = "SWCCSPO2.lastreceivedqty";
-            treeNode72.Text = "Last quantity recieved";
-            treeNode73.Name = "SWCCSPO2.receivedtodateqty";
-            treeNode73.Text = "Recieved to date qty";
-            treeNode74.Name = "SWCCSPO2.cancelledqty";
-            treeNode74.Text = "Cancelled qty";
-            treeNode75.Name = "SWCCSPO2.vendorpartnumber";
-            treeNode75.Text = "Vendor part number";
-            treeNode76.Name = "SWCCSPO2.datecreated";
-            treeNode76.Text = "Date created";
-            treeNode77.Name = "SWCCSPO2.datemodified";
-            treeNode77.Text = "Date modified";
-            treeNode78.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            treeNode78.Name = "SWCCSPO2";
-            treeNode78.Text = "Purchase Line Info";
-            treeNode79.Name = "RTRIM(SWCCSSTOK.stocknumber)";
+            treeNode44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            treeNode44.Name = "SWCCSHST1";
+            treeNode44.Text = "Invoiced Order Info";
+            treeNode45.Name = "SWCCSHST2.invoicenumber";
+            treeNode45.Text = "Invoice Number";
+            treeNode46.Name = "SWCCSHST2.linenumber";
+            treeNode46.Text = "Line Number";
+            treeNode47.Name = "SWCCSHST2.invoicedate";
+            treeNode47.Text = "Invoice date";
+            treeNode48.Name = "SWCCSHST2.customernumber";
+            treeNode48.Text = "Customer number";
+            treeNode49.Name = "SWCCSHST2.itemidstocksvc";
+            treeNode49.Text = "Item number";
+            treeNode50.Name = "SWCCSHST2.locationnumber";
+            treeNode50.Text = "Location number";
+            treeNode51.Name = "SWCCSHST2.linhstdesc1";
+            treeNode51.Text = "Item description";
+            treeNode52.Name = "SWCCSHST2.shippingdate";
+            treeNode52.Text = "Shipping date";
+            treeNode53.Name = "SWCCSHST2.unitofmeasure";
+            treeNode53.Text = "Unit of measure";
+            treeNode54.Name = "SWCCSHST2.quantityordered";
+            treeNode54.Text = "Quantity ordered";
+            treeNode55.Name = "SWCCSHST2.quantitytoship";
+            treeNode55.Text = "Quantity to ship";
+            treeNode56.Name = "SWCCSHST2.qtybkord";
+            treeNode56.Text = "Quantity on backorder";
+            treeNode57.Name = "SWCCSHST2.qtycanceled";
+            treeNode57.Text = "Quantity canceled";
+            treeNode58.Name = "SWCCSHST2.unitprice";
+            treeNode58.Text = "Unit price";
+            treeNode59.Name = "SWCCSHST2.unitcost";
+            treeNode59.Text = "Unit cost";
+            treeNode60.Name = "SWCCSHST2.category";
+            treeNode60.Text = "Category";
+            treeNode61.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            treeNode61.Name = "SWCCSHST2";
+            treeNode61.Text = "Invoiced Line Info";
+            treeNode62.Name = "LTRIM(SWCCSPO1.ponumber)";
+            treeNode62.Text = "PO Number";
+            treeNode63.Name = "SWCCSPO1.vendornumber ";
+            treeNode63.Text = "Vendor Number";
+            treeNode64.Name = "SWCCSPO1.dateordered";
+            treeNode64.Text = "Date Ordered";
+            treeNode65.Name = "SWCCSPO1.location";
+            treeNode65.Text = "Location Number";
+            treeNode66.Name = "SWCCSPO1.status";
+            treeNode66.Text = "PO Status";
+            treeNode67.Name = "SWCCSPO1.vendorname";
+            treeNode67.Text = "Vendor Name";
+            treeNode68.Name = "SWCCSPO1.vendoraddress1";
+            treeNode68.Text = "Vendor Address";
+            treeNode69.Name = "SWCCSPO1.vendoraddresscity";
+            treeNode69.Text = "Vendor City";
+            treeNode70.Name = "SWCCSPO1.vendoraddressstate";
+            treeNode70.Text = "Vendor State";
+            treeNode71.Name = "SWCCSPO1.vendoraddresszip";
+            treeNode71.Text = "Vendor Zipcode";
+            treeNode72.Name = "SWCCSPO1.vendorcountrycode";
+            treeNode72.Text = "Vendor country code";
+            treeNode73.Name = "SWCCSPO1.pocontactname";
+            treeNode73.Text = "Contact Name";
+            treeNode74.Name = "SWCCSPO1.shipdate";
+            treeNode74.Text = "Ship date";
+            treeNode75.Name = "SWCCSPO1.comments";
+            treeNode75.Text = "Po comments";
+            treeNode76.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            treeNode76.Name = "SWCCSPO1";
+            treeNode76.Text = "Purchase Order Info";
+            treeNode77.Name = "LTRIM(SWCCSPO2.ponumber)";
+            treeNode77.Text = "PO Number";
+            treeNode78.Name = "SWCCSPO2.polinenumber";
+            treeNode78.Text = "PO line number";
+            treeNode79.Name = "RTRIM(SWCCSPO2.stocknumber)";
             treeNode79.Text = "Item Number";
-            treeNode80.Name = "SWCCSSTOK.locationnumber";
-            treeNode80.Text = "Location Number";
-            treeNode81.Name = "SWCCSSTOK.primaryvendorno";
-            treeNode81.Text = "Primary Vendor";
-            treeNode82.Name = "SWCCSSTOK.productcategory";
-            treeNode82.Text = "Product cateogry";
-            treeNode83.Name = "SWCCSSTOK.orderynpdxam";
-            treeNode83.Text = "Order status";
-            treeNode84.Name = "SWCCSSTOK.stkunitofmeasure";
+            treeNode80.Name = "SWCCSPO2.receivinglocation";
+            treeNode80.Text = "Location number";
+            treeNode81.Name = "SWCCSPO2.expectedshipdate";
+            treeNode81.Text = "Expected ship date";
+            treeNode82.Name = "SWCCSPO2.vendornumber";
+            treeNode82.Text = "Vendor number";
+            treeNode83.Name = "SWCCSPO2.descline1";
+            treeNode83.Text = "Item description";
+            treeNode84.Name = "SWCCSPO2.unitofmeasure";
             treeNode84.Text = "Unit of measure";
-            treeNode85.Name = "SWCCSSTOK.weightperunit";
-            treeNode85.Text = "Weight of item";
-            treeNode86.Name = "SWCCSSTOK.binlocationid";
-            treeNode86.Text = "Bin location";
-            treeNode87.Name = "SWCCSSTOK.stockdescription1+SWCCSSTOK.stockdescription2+SWCCSSTOK.stockdescriptio" +
-    "n3";
-            treeNode87.Text = "Stock description";
-            treeNode88.Name = "SWCCSSTOK.qtyonbackorder";
-            treeNode88.Text = "Quantity on backorder";
-            treeNode89.Name = "SWCCSSTOK.quantityonhand";
-            treeNode89.Text = "Quantity on hand";
-            treeNode90.Name = "SWCCSSTOK.quantitycommitted";
-            treeNode90.Text = "Quantity committed";
-            treeNode91.Name = "SWCCSSTOK.datelastsale";
-            treeNode91.Text = "Date last sold";
-            treeNode92.Name = "SWCCSSTOK.datelastinvoiced";
-            treeNode92.Text = "Date last invoiced";
-            treeNode93.Name = "SWCCSSTOK.lastinvoicenumber";
-            treeNode93.Text = "Last invoice number";
-            treeNode94.Name = "SWCCSSTOK.datecreated";
+            treeNode85.Name = "SWCCSPO2.conversionfactor";
+            treeNode85.Text = "Conversion factor";
+            treeNode86.Name = "SWCCSPO2.unitcost";
+            treeNode86.Text = "Unit cost";
+            treeNode87.Name = "SWCCSPO2.orderquantity";
+            treeNode87.Text = "Order quantity";
+            treeNode88.Name = "SWCCSPO2.requestedshipdate";
+            treeNode88.Text = "Requested ship date";
+            treeNode89.Name = "SWCCSPO2.lastrecdate";
+            treeNode89.Text = "Last record date";
+            treeNode90.Name = "SWCCSPO2.lastreceivedqty";
+            treeNode90.Text = "Last quantity recieved";
+            treeNode91.Name = "SWCCSPO2.receivedtodateqty";
+            treeNode91.Text = "Recieved to date qty";
+            treeNode92.Name = "SWCCSPO2.cancelledqty";
+            treeNode92.Text = "Cancelled qty";
+            treeNode93.Name = "SWCCSPO2.vendorpartnumber";
+            treeNode93.Text = "Vendor part number";
+            treeNode94.Name = "SWCCSPO2.datecreated";
             treeNode94.Text = "Date created";
-            treeNode95.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            treeNode95.Name = "SWCCSSTOK";
-            treeNode95.Text = "Item Info";
+            treeNode95.Name = "SWCCSPO2.datemodified";
+            treeNode95.Text = "Date modified";
+            treeNode96.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            treeNode96.Name = "SWCCSPO2";
+            treeNode96.Text = "Purchase Line Info";
+            treeNode97.Name = "RTRIM(SWCCSSTOK.stocknumber)";
+            treeNode97.Text = "Item Number";
+            treeNode98.Name = "SWCCSSTOK.locationnumber";
+            treeNode98.Text = "Location Number";
+            treeNode99.Name = "SWCCSSTOK.primaryvendorno";
+            treeNode99.Text = "Primary Vendor";
+            treeNode100.Name = "SWCCSSTOK.productcategory";
+            treeNode100.Text = "Product cateogry";
+            treeNode101.Name = "SWCCSSTOK.orderynpdxam";
+            treeNode101.Text = "Order status";
+            treeNode102.Name = "SWCCSSTOK.stkunitofmeasure";
+            treeNode102.Text = "Unit of measure";
+            treeNode103.Name = "SWCCSSTOK.weightperunit";
+            treeNode103.Text = "Weight of item";
+            treeNode104.Name = "SWCCSSTOK.binlocationid";
+            treeNode104.Text = "Bin location";
+            treeNode105.Name = "SWCCSSTOK.stockdescription1+SWCCSSTOK.stockdescription2+SWCCSSTOK.stockdescriptio" +
+    "n3";
+            treeNode105.Text = "Stock description";
+            treeNode106.Name = "SWCCSSTOK.qtyonbackorder";
+            treeNode106.Text = "Quantity on backorder";
+            treeNode107.Name = "SWCCSSTOK.quantityonhand";
+            treeNode107.Text = "Quantity on hand";
+            treeNode108.Name = "SWCCSSTOK.quantitycommitted";
+            treeNode108.Text = "Quantity committed";
+            treeNode109.Name = "SWCCSSTOK.datelastsale";
+            treeNode109.Text = "Date last sold";
+            treeNode110.Name = "SWCCSSTOK.datelastinvoiced";
+            treeNode110.Text = "Date last invoiced";
+            treeNode111.Name = "SWCCSSTOK.lastinvoicenumber";
+            treeNode111.Text = "Last invoice number";
+            treeNode112.Name = "SWCCSSTOK.datecreated";
+            treeNode112.Text = "Date created";
+            treeNode113.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            treeNode113.Name = "SWCCSSTOK";
+            treeNode113.Text = "Item Info";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode29,
             treeNode43,
-            treeNode58,
-            treeNode78,
-            treeNode95});
+            treeNode44,
+            treeNode61,
+            treeNode76,
+            treeNode96,
+            treeNode113});
             this.treeView1.Size = new System.Drawing.Size(180, 413);
             this.treeView1.TabIndex = 1;
             // 

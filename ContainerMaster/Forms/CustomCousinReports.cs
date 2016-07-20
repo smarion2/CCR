@@ -25,6 +25,8 @@ namespace CCR
         Dictionary<string, string> SWCCSSTOKrelations = new Dictionary<string, string>();
         Dictionary<string, string> SWCCSPO1relations = new Dictionary<string, string>();
         Dictionary<string, string> SWCCSPO2relations = new Dictionary<string, string>();
+        Dictionary<string, string> SWCCSHST1relations = new Dictionary<string, string>();
+        Dictionary<string, string> SWCCSHST2relations = new Dictionary<string, string>();
 
         List<TreeNode> fields = new List<TreeNode>();
 
@@ -274,7 +276,7 @@ namespace CCR
 
             SWCCSBIL2relations.Add("SWCCSBIL1", "join SWCCSBIL1 on SWCCSBIL1.ordernumber = SWCCSBIL2.ordernumber");
             SWCCSBIL2relations.Add("SWCCSSTOK", "join SWCCSSTOK on SWCCSSTOK.stocknumber = SWCCSBIL2.stockordered");
-            SWCCSBIL2relations.Add("SWCCSPO2", "join SWCCSPO2 on SWCCSPO2.stocknumber = SWCCSBIL2.stockordered");
+            //SWCCSBIL2relations.Add("SWCCSPO2", "join SWCCSPO2 on SWCCSPO2.stocknumber = SWCCSBIL2.stockordered");
 
             SWCCSSTOKrelations.Add("SWCCSBIL2", "join SWCCSBIL2 on SWCCSBIL2.stockordered = SWCCSSTOK.stocknumber");
             SWCCSSTOKrelations.Add("SWCCSPO2", "join SWCCSPO2 on SWCCSPO2.stocknumber = SWCCSSTOK.stocknumber");
@@ -283,7 +285,12 @@ namespace CCR
 
             SWCCSPO2relations.Add("SWCCSPO1", "join SWCCSPO1 on SWCCSPO1.ponumber = SWCCSPO2.ponumber");
             SWCCSPO2relations.Add("SWCCSSTOK", "join SWCCSSTOK on SWCCSSTOK.stocknumber = SWCCSPO2.stocknumber");
-            SWCCSPO2relations.Add("SWCCSBIL2", "join SWCCSBIL2 on SWCCSBIL2.stockordered = SWCCSPO2.stocknumber");
+            //SWCCSPO2relations.Add("SWCCSBIL2", "join SWCCSBIL2 on SWCCSBIL2.stockordered = SWCCSPO2.stocknumber");
+
+            SWCCSHST1relations.Add("SWCCSHST2", "join SWCCSHST2 on SWCCSHST2.invoicenumber = SWCCSHST1.invoicenumber");
+
+            SWCCSHST2relations.Add("SWCCSHST1", "join SWCCSHST1 on SWCCSHST1.invoicenumber = SWCCSHST2.invoicenumber");
+            SWCCSHST2relations.Add("SWCCSSTOK", "join SWCCSSTOK on SWCCSSTOK.stocknumber = SWCCSHST2.itemidstocksvc");
 
         }
 
@@ -294,6 +301,8 @@ namespace CCR
             if (table.tableName == "SWCCSSTOK") { table.tableRelationList.Add(SWCCSSTOKrelations); }
             if (table.tableName == "SWCCSPO1") { table.tableRelationList.Add(SWCCSPO1relations); }
             if (table.tableName == "SWCCSPO2") { table.tableRelationList.Add(SWCCSPO2relations); }
+            if (table.tableName == "SWCCSHST2") { table.tableRelationList.Add(SWCCSHST2relations); }
+            if (table.tableName == "SWCCSHST1") { table.tableRelationList.Add(SWCCSHST1relations); }
         }
 
 

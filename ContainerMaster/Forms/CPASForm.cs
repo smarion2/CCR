@@ -293,7 +293,6 @@ namespace CCR
         CustomCousinReports ccr;
         private void customCousinReportsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Feature Currently in beta, this report will not return data");
             if(ccr == null)
             {
                 ccr = new CustomCousinReports();
