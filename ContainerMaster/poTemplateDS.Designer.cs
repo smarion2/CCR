@@ -327,6 +327,8 @@ namespace CCR {
             
             private global::System.Data.DataColumn columnvendornumber;
             
+            private global::System.Data.DataColumn columnvendorname;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public BuyReportDataDataTable() {
@@ -554,6 +556,14 @@ namespace CCR {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn vendornameColumn {
+                get {
+                    return this.columnvendorname;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -613,7 +623,8 @@ namespace CCR {
                         string fishwildlife, 
                         string walmartbayloc, 
                         string ponumber, 
-                        string vendornumber) {
+                        string vendornumber, 
+                        string vendorname) {
                 BuyReportDataRow rowBuyReportDataRow = ((BuyReportDataRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         stocknumber,
@@ -639,7 +650,8 @@ namespace CCR {
                         fishwildlife,
                         walmartbayloc,
                         ponumber,
-                        vendornumber};
+                        vendornumber,
+                        vendorname};
                 rowBuyReportDataRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBuyReportDataRow);
                 return rowBuyReportDataRow;
@@ -693,6 +705,7 @@ namespace CCR {
                 this.columnwalmartbayloc = base.Columns["walmartbayloc"];
                 this.columnponumber = base.Columns["ponumber"];
                 this.columnvendornumber = base.Columns["vendornumber"];
+                this.columnvendorname = base.Columns["vendorname"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -746,6 +759,8 @@ namespace CCR {
                 base.Columns.Add(this.columnponumber);
                 this.columnvendornumber = new global::System.Data.DataColumn("vendornumber", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnvendornumber);
+                this.columnvendorname = new global::System.Data.DataColumn("vendorname", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvendorname);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnstocknumber}, true));
                 this.columnstocknumber.AllowDBNull = false;
@@ -766,10 +781,9 @@ namespace CCR {
                 this.columncomments.MaxLength = 30;
                 this.columnfishwildlife.MaxLength = 16;
                 this.columnwalmartbayloc.MaxLength = 16;
-                this.columnponumber.AllowDBNull = false;
                 this.columnponumber.MaxLength = 10;
-                this.columnvendornumber.AllowDBNull = false;
                 this.columnvendornumber.MaxLength = 10;
+                this.columnvendorname.MaxLength = 30;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1251,7 +1265,12 @@ namespace CCR {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string ponumber {
                 get {
-                    return ((string)(this[this.tableBuyReportData.ponumberColumn]));
+                    try {
+                        return ((string)(this[this.tableBuyReportData.ponumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'ponumber\' in table \'BuyReportData\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableBuyReportData.ponumberColumn] = value;
@@ -1262,10 +1281,31 @@ namespace CCR {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string vendornumber {
                 get {
-                    return ((string)(this[this.tableBuyReportData.vendornumberColumn]));
+                    try {
+                        return ((string)(this[this.tableBuyReportData.vendornumberColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'vendornumber\' in table \'BuyReportData\' is DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tableBuyReportData.vendornumberColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string vendorname {
+                get {
+                    try {
+                        return ((string)(this[this.tableBuyReportData.vendornameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'vendorname\' in table \'BuyReportData\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBuyReportData.vendornameColumn] = value;
                 }
             }
             
@@ -1496,6 +1536,42 @@ namespace CCR {
             public void SetwalmartbaylocNull() {
                 this[this.tableBuyReportData.walmartbaylocColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsponumberNull() {
+                return this.IsNull(this.tableBuyReportData.ponumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetponumberNull() {
+                this[this.tableBuyReportData.ponumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsvendornumberNull() {
+                return this.IsNull(this.tableBuyReportData.vendornumberColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetvendornumberNull() {
+                this[this.tableBuyReportData.vendornumberColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsvendornameNull() {
+                return this.IsNull(this.tableBuyReportData.vendornameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetvendornameNull() {
+                this[this.tableBuyReportData.vendornameColumn] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -1681,6 +1757,7 @@ namespace CCR.poTemplateDSTableAdapters {
             tableMapping.ColumnMappings.Add("walmartbayloc", "walmartbayloc");
             tableMapping.ColumnMappings.Add("ponumber", "ponumber");
             tableMapping.ColumnMappings.Add("vendornumber", "vendornumber");
+            tableMapping.ColumnMappings.Add("vendorname", "vendorname");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1697,7 +1774,7 @@ namespace CCR.poTemplateDSTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"select swccspo2.stocknumber, swccspo2.ponumber, swccspo1.vendornumber, swccspo1. dateordered, requestedshipdate, expectedshipdate, descline1, unitofmeasure, orderquantity, upc, binlocationid, vendorpartnumber, 
+            this._commandCollection[0].CommandText = @"select RTRIM(swccspo2.stocknumber) as 'stocknumber', LTRIM(swccspo2.ponumber) as ponumber, LTRIM(swccspo1.vendornumber) as 'vendornumber', swccspo1.vendorname, swccspo1. dateordered, requestedshipdate, expectedshipdate, descline1, unitofmeasure, orderquantity, upc, binlocationid, vendorpartnumber, 
 		unitcost, unitcost * orderquantity as 'ExtCost', innerpkselunt, mastercaseqty, mstrcsdimcm, mstrcswghtk, tariffcode, SWCCSX005.comment as 'Header', hdrprefix as 'HeaderPrefix',comments, fishwildlife, walmartbayloc
 from SWCCSPO2
 join SWCCSPO1 on SWCCSPO1.ponumber = SWCCSPO2.ponumber

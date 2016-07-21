@@ -12,7 +12,7 @@
               <DbSource ConnectionRef="SouthWareConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>select swccspo2.stocknumber, swccspo2.ponumber, swccspo1.vendornumber, swccspo1. dateordered, requestedshipdate, expectedshipdate, descline1, unitofmeasure, orderquantity, upc, binlocationid, vendorpartnumber, 
+                    <CommandText>select RTRIM(swccspo2.stocknumber) as 'stocknumber', LTRIM(swccspo2.ponumber) as ponumber, LTRIM(swccspo1.vendornumber) as 'vendornumber', swccspo1.vendorname, swccspo1. dateordered, requestedshipdate, expectedshipdate, descline1, unitofmeasure, orderquantity, upc, binlocationid, vendorpartnumber, 
 		unitcost, unitcost * orderquantity as 'ExtCost', innerpkselunt, mastercaseqty, mstrcsdimcm, mstrcswghtk, tariffcode, SWCCSX005.comment as 'Header', hdrprefix as 'HeaderPrefix',comments, fishwildlife, walmartbayloc
 from SWCCSPO2
 join SWCCSPO1 on SWCCSPO1.ponumber = SWCCSPO2.ponumber
@@ -53,6 +53,7 @@ where LTRIM(swccspo1.ponumber) = @ponumber</CommandText>
               <Mapping SourceColumn="walmartbayloc" DataSetColumn="walmartbayloc" />
               <Mapping SourceColumn="ponumber" DataSetColumn="ponumber" />
               <Mapping SourceColumn="vendornumber" DataSetColumn="vendornumber" />
+              <Mapping SourceColumn="vendorname" DataSetColumn="vendorname" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -67,7 +68,7 @@ where LTRIM(swccspo1.ponumber) = @ponumber</CommandText>
         <xs:element name="BuyReportData" msprop:Generator_TableClassName="BuyReportDataDataTable" msprop:Generator_TableVarName="tableBuyReportData" msprop:Generator_TablePropName="BuyReportData" msprop:Generator_RowDeletingName="BuyReportDataRowDeleting" msprop:Generator_RowChangingName="BuyReportDataRowChanging" msprop:Generator_RowEvHandlerName="BuyReportDataRowChangeEventHandler" msprop:Generator_RowDeletedName="BuyReportDataRowDeleted" msprop:Generator_UserTableName="BuyReportData" msprop:Generator_RowChangedName="BuyReportDataRowChanged" msprop:Generator_RowEvArgName="BuyReportDataRowChangeEvent" msprop:Generator_RowClassName="BuyReportDataRow">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="stocknumber" msprop:Generator_ColumnVarNameInTable="columnstocknumber" msprop:Generator_ColumnPropNameInRow="stocknumber" msprop:Generator_ColumnPropNameInTable="stocknumberColumn" msprop:Generator_UserColumnName="stocknumber">
+              <xs:element name="stocknumber" msprop:Generator_ColumnVarNameInTable="columnstocknumber" msprop:Generator_ColumnPropNameInRow="stocknumber" msprop:Generator_ColumnPropNameInTable="stocknumberColumn" msprop:Generator_UserColumnName="stocknumber" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
@@ -167,17 +168,24 @@ where LTRIM(swccspo1.ponumber) = @ponumber</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="ponumber" msprop:Generator_ColumnVarNameInTable="columnponumber" msprop:Generator_ColumnPropNameInRow="ponumber" msprop:Generator_ColumnPropNameInTable="ponumberColumn" msprop:Generator_UserColumnName="ponumber">
+              <xs:element name="ponumber" msprop:Generator_ColumnVarNameInTable="columnponumber" msprop:Generator_ColumnPropNameInRow="ponumber" msprop:Generator_ColumnPropNameInTable="ponumberColumn" msprop:Generator_UserColumnName="ponumber" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="vendornumber" msprop:Generator_ColumnVarNameInTable="columnvendornumber" msprop:Generator_ColumnPropNameInRow="vendornumber" msprop:Generator_ColumnPropNameInTable="vendornumberColumn" msprop:Generator_UserColumnName="vendornumber">
+              <xs:element name="vendornumber" msprop:Generator_ColumnVarNameInTable="columnvendornumber" msprop:Generator_ColumnPropNameInRow="vendornumber" msprop:Generator_ColumnPropNameInTable="vendornumberColumn" msprop:Generator_UserColumnName="vendornumber" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="vendorname" msprop:Generator_ColumnVarNameInTable="columnvendorname" msprop:Generator_ColumnPropNameInRow="vendorname" msprop:Generator_ColumnPropNameInTable="vendornameColumn" msprop:Generator_UserColumnName="vendorname" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

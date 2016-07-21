@@ -213,6 +213,7 @@ namespace CCR
                 ErrorLogger.LogError("Could not create table for DSR", ex.ToString());
                 throw;
             }
+            MessageBox.Show("Database updated!");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -236,6 +237,7 @@ namespace CCR
 
                 throw;
             }
+            MessageBox.Show("Credit App updated");
 
         }
     }

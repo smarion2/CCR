@@ -89,8 +89,8 @@ namespace CCR
                 Container container = new Container();
                 container.id = row["CMID"].ToString();
                 container.supplier = row["Supplier"].ToString();
-                container.etaData = row["ETADate"].ToString();
-                container.shipped = row["ShipDate"].ToString();
+                container.etaData = Convert.ToDateTime(row["ETADate"]).ToString("d");
+                container.shipped = Convert.ToDateTime(row["ShipDate"]).ToString("d");
                 container.cartons = row["ContainerQty"].ToString();
                 container.deliveryMode = row["ShipType"].ToString();
                 container.containerNumber = row["ContainerNumber"].ToString();

@@ -44,17 +44,6 @@ C:\Users\sammarion\Documents\CCR\ContainerMaster\bin\Debug\CCR.pdb
 C:\Users\sammarion\Documents\CCR\ContainerMaster\bin\Debug\BarcodeLib.dll
 C:\Users\sammarion\Documents\CCR\ContainerMaster\bin\Debug\DataStreams.dll
 C:\Users\sammarion\Documents\CCR\ContainerMaster\bin\Debug\LumenWorks.Framework.IO.dll
-C:\Users\sammarion\Documents\CCR\ContainerMaster\bin\Debug\Microsoft.SqlServer.Types.dll
-C:\Users\sammarion\Documents\CCR\ContainerMaster\bin\Debug\de\Microsoft.SqlServer.Types.resources.dll
-C:\Users\sammarion\Documents\CCR\ContainerMaster\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
-C:\Users\sammarion\Documents\CCR\ContainerMaster\bin\Debug\fr\Microsoft.SqlServer.Types.resources.dll
-C:\Users\sammarion\Documents\CCR\ContainerMaster\bin\Debug\it\Microsoft.SqlServer.Types.resources.dll
-C:\Users\sammarion\Documents\CCR\ContainerMaster\bin\Debug\ja\Microsoft.SqlServer.Types.resources.dll
-C:\Users\sammarion\Documents\CCR\ContainerMaster\bin\Debug\ko\Microsoft.SqlServer.Types.resources.dll
-C:\Users\sammarion\Documents\CCR\ContainerMaster\bin\Debug\pt\Microsoft.SqlServer.Types.resources.dll
-C:\Users\sammarion\Documents\CCR\ContainerMaster\bin\Debug\ru\Microsoft.SqlServer.Types.resources.dll
-C:\Users\sammarion\Documents\CCR\ContainerMaster\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
-C:\Users\sammarion\Documents\CCR\ContainerMaster\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
 C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.csproj.ResolveComReference.cache
 C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.CustomCousinReports.resources
 C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.Forms.analysisWeeklySummaryForm.resources
@@ -81,3 +70,6 @@ C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.application
 C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.exe
 C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.csprojResolveAssemblyReference.cache
 C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\CCR.DSRForm.resources
+C:\Users\sammarion\Documents\CCR\ContainerMaster\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\RdlCompile.cache
+C:\Users\sammarion\Documents\CCR\ContainerMaster\obj\Debug\RdlCompile.compiled
