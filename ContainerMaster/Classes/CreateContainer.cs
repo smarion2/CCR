@@ -40,7 +40,7 @@ namespace CCR
                     {
                         if (container.contents.ContainsKey(row["Item Number"].ToString() + row["PO Number"].ToString()))
                         {
-                            row[dt.Columns.Count - 1] = container.contents[row["Item Number"].ToString() + row["PO Number"].ToString()];
+                            row[position] = container.contents[row["Item Number"].ToString() + row["PO Number"].ToString()];
                         }
                     }
                     position++;
@@ -82,8 +82,15 @@ namespace CCR
 
         private void Create()
         {
-            DataTable cmDetailsTable = GetData.ExecuteQuery(@"select * from CM_Details where Delivered is null order by Supplier, ETADate", connectionString);
-
+            DataTable cmDetailsTable = new DataTable();
+            if (joinType == JoinType.POItems)
+            {
+                cmDetailsTable = GetData.ExecuteQuery(@"select * from CM_Details where Delivered is null order by Supplier, ETADate", connectionString);
+            }
+            else if (joinType == JoinType.Items)
+            {
+                cmDetailsTable = GetData.ExecuteQuery(@"select * from CM_Details where Delivered is null order by ETADate", connectionString);
+            }
             foreach (DataRow row in cmDetailsTable.Rows)
             {
                 Container container = new Container();
@@ -94,6 +101,7 @@ namespace CCR
                 container.cartons = row["ContainerQty"].ToString();
                 container.deliveryMode = row["ShipType"].ToString();
                 container.containerNumber = row["ContainerNumber"].ToString();
+                container.SetContainerColor();
 
                 if (joinType == JoinType.Items)
                 {
@@ -153,7 +161,13 @@ namespace CCR
                                                      WHERE Delivered is null group by ItemNumber, PONumber, data.CMID", connectionString);
             }
         }
+
+        public List<Container> GetContainerList()
+        {
+            return containerList;
+        }
     }
+
 
     class Container
     {
@@ -164,7 +178,86 @@ namespace CCR
         public string cartons { get; set; }
         public string deliveryMode { get; set; }
         public string containerNumber { get; set; }
+        public int[] RGBcolor = new int[3];
 
         public Dictionary<string, double> contents = new Dictionary<string, double>();
+
+        public void SetContainerColor()
+        {
+            if (supplier == "Asian Art & Craft")
+            {
+                RGBcolor[0] = 242;
+                RGBcolor[1] = 164;
+                RGBcolor[2] = 209;
+            }
+
+            if (supplier == "Aurient")
+            {
+                RGBcolor[0] = 255;
+                RGBcolor[1] = 255;
+                RGBcolor[2] = 193;
+            }
+                
+            if (supplier == "Banaras")
+            {
+                RGBcolor[0] = 177;
+                RGBcolor[1] = 160;
+                RGBcolor[2] = 199;
+            }
+            if (supplier == "Bestone")
+            {
+                RGBcolor[0] = 253;
+                RGBcolor[1] = 233;
+                RGBcolor[2] = 217;
+            }
+            if (supplier == "Chain Wit")
+            {
+                RGBcolor[0] = 197;
+                RGBcolor[1] = 217;
+                RGBcolor[2] = 241;
+            }
+            if (supplier == "Creative Craft")
+            {
+                RGBcolor[0] = 146;
+                RGBcolor[1] = 205;
+                RGBcolor[2] = 220;
+            }
+            if (supplier == "Kwan Hing")
+            {
+                RGBcolor[0] = 250;
+                RGBcolor[1] = 191;
+                RGBcolor[2] = 143;
+            }
+            if (supplier == "Ningbo")
+            {
+                RGBcolor[0] = 235;
+                RGBcolor[1] = 241;
+                RGBcolor[2] = 222;
+            }
+            if (supplier == "Samsom")
+            {
+                RGBcolor[0] = 218;
+                RGBcolor[1] = 238;
+                RGBcolor[2] = 243;
+            }    
+            if (supplier == "TMI")
+            {
+                RGBcolor[0] = 196;
+                RGBcolor[1] = 189;
+                RGBcolor[2] = 151;
+            }
+            if (supplier == "Yu Ming")
+            {
+                RGBcolor[0] = 141;
+                RGBcolor[1] = 180;
+                RGBcolor[2] = 226;
+            }
+            if (supplier == "Zhongyi")
+            {
+                RGBcolor[0] = 191;
+                RGBcolor[1] = 211;
+                RGBcolor[2] = 145;
+            }
+        }
     }
 }

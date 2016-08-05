@@ -26,7 +26,7 @@
     <MapFileExtensions>true</MapFileExtensions>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>63</ApplicationRevision>
+    <ApplicationRevision>73</ApplicationRevision>
     <ApplicationVersion>1.1.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -108,8 +108,10 @@
     <Compile Include="Classes\ContainerMaster.cs" />
     <Compile Include="Classes\CreateContainer.cs" />
     <Compile Include="Classes\ErrorLogger.cs" />
+    <Compile Include="Classes\FixWMASN.cs" />
     <Compile Include="Classes\LauraJanelleDSR.cs" />
     <Compile Include="Classes\lauraJTEST.cs" />
+    <Compile Include="Classes\OpenPOByVendor.cs" />
     <Compile Include="Classes\ReportFilters.cs" />
     <Compile Include="Forms\CustomCousinReports.cs">
       <SubType>Form</SubType>
@@ -205,6 +207,12 @@
     <Compile Include="Classes\PopulateJASTracking.cs" />
     <Compile Include="Classes\Program.cs" />
     <Compile Include="Classes\Prompt.cs" />
+    <Compile Include="Forms\NewSalesReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\NewSalesReport.Designer.cs">
+      <DependentUpon>NewSalesReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\RoyaltyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -327,6 +335,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\International PO log.resx">
       <DependentUpon>International PO log.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewSalesReport.resx">
+      <DependentUpon>NewSalesReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="itemImage.rdlc" />
     <EmbeddedResource Include="Forms\LauraJanelleForm.resx">
@@ -576,22 +587,22 @@
   <ItemGroup>
     <PublishFile Include="Microsoft.ReportViewer.DataVisualization">
       <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
       <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Assembly</FileType>
     </PublishFile>
   </ItemGroup>

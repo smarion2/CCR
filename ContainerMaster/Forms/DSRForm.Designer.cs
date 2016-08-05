@@ -30,29 +30,19 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.excelButton = new System.Windows.Forms.Button();
-            this.updateButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.customerNumberBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.CustomerNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ordernumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerPO = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salespersonname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ManagerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.termsdescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreditAppReceived = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderdate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weeklyTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.usercomment = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Shipped = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dateshipped = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Notes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CSCrep = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.trackingnumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.orderNumberBox = new System.Windows.Forms.TextBox();
+            this.shipComboBox = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cscTextBox = new System.Windows.Forms.TextBox();
+            this.notesBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,56 +52,27 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CustomerNumber,
-            this.CustomerName,
-            this.ordernumber,
-            this.customerPO,
-            this.salespersonname,
-            this.ManagerName,
-            this.category,
-            this.termsdescription,
-            this.CreditAppReceived,
-            this.orderdate,
-            this.totalprice,
-            this.weeklyTotal,
-            this.usercomment,
-            this.Shipped,
-            this.dateshipped,
-            this.Notes,
-            this.CSCrep,
-            this.trackingnumber});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(-2, 1);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(941, 501);
+            this.dataGridView1.Size = new System.Drawing.Size(941, 644);
             this.dataGridView1.TabIndex = 0;
             // 
             // excelButton
             // 
             this.excelButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.excelButton.Location = new System.Drawing.Point(831, 507);
+            this.excelButton.Location = new System.Drawing.Point(831, 706);
             this.excelButton.Name = "excelButton";
             this.excelButton.Size = new System.Drawing.Size(93, 23);
             this.excelButton.TabIndex = 1;
             this.excelButton.Text = "Export to Excel";
             this.excelButton.UseVisualStyleBackColor = true;
-            // 
-            // updateButton
-            // 
-            this.updateButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.updateButton.Location = new System.Drawing.Point(746, 508);
-            this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(73, 23);
-            this.updateButton.TabIndex = 2;
-            this.updateButton.Text = "Update DB";
-            this.updateButton.UseVisualStyleBackColor = true;
-            this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
+            this.excelButton.Click += new System.EventHandler(this.excelButton_Click);
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(77, 514);
+            this.label1.Location = new System.Drawing.Point(366, 657);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 13);
             this.label1.TabIndex = 3;
@@ -125,23 +86,23 @@
             "No",
             "Yes",
             "Approved"});
-            this.comboBox1.Location = new System.Drawing.Point(280, 509);
+            this.comboBox1.Location = new System.Drawing.Point(569, 652);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 4;
             // 
-            // textBox1
+            // customerNumberBox
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.textBox1.Location = new System.Drawing.Point(174, 509);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 5;
+            this.customerNumberBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.customerNumberBox.Location = new System.Drawing.Point(463, 652);
+            this.customerNumberBox.Name = "customerNumberBox";
+            this.customerNumberBox.Size = new System.Drawing.Size(100, 20);
+            this.customerNumberBox.TabIndex = 5;
             // 
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button1.Location = new System.Drawing.Point(407, 509);
+            this.button1.Location = new System.Drawing.Point(804, 651);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 23);
             this.button1.TabIndex = 6;
@@ -149,132 +110,118 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // CustomerNumber
+            // label2
             // 
-            this.CustomerNumber.HeaderText = "Customer Number";
-            this.CustomerNumber.Name = "CustomerNumber";
-            this.CustomerNumber.ReadOnly = true;
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(384, 682);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Order Number";
             // 
-            // CustomerName
+            // orderNumberBox
             // 
-            this.CustomerName.HeaderText = "Customer Name";
-            this.CustomerName.Name = "CustomerName";
-            this.CustomerName.ReadOnly = true;
+            this.orderNumberBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.orderNumberBox.Location = new System.Drawing.Point(463, 677);
+            this.orderNumberBox.Name = "orderNumberBox";
+            this.orderNumberBox.Size = new System.Drawing.Size(100, 20);
+            this.orderNumberBox.TabIndex = 8;
             // 
-            // ordernumber
+            // shipComboBox
             // 
-            this.ordernumber.HeaderText = "Order ID";
-            this.ordernumber.Name = "ordernumber";
-            this.ordernumber.ReadOnly = true;
+            this.shipComboBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.shipComboBox.FormattingEnabled = true;
+            this.shipComboBox.Items.AddRange(new object[] {
+            "Yes",
+            "CC",
+            "Holding",
+            "Picking",
+            "Terms",
+            "Issues",
+            "No",
+            " "});
+            this.shipComboBox.Location = new System.Drawing.Point(569, 704);
+            this.shipComboBox.Name = "shipComboBox";
+            this.shipComboBox.Size = new System.Drawing.Size(121, 21);
+            this.shipComboBox.TabIndex = 9;
             // 
-            // customerPO
+            // label3
             // 
-            this.customerPO.HeaderText = "Customer PO";
-            this.customerPO.Name = "customerPO";
-            this.customerPO.ReadOnly = true;
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(406, 712);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "CSC Rep";
             // 
-            // salespersonname
+            // cscTextBox
             // 
-            this.salespersonname.HeaderText = "Sales Rep";
-            this.salespersonname.Name = "salespersonname";
-            this.salespersonname.ReadOnly = true;
+            this.cscTextBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.cscTextBox.Location = new System.Drawing.Point(463, 705);
+            this.cscTextBox.Name = "cscTextBox";
+            this.cscTextBox.Size = new System.Drawing.Size(100, 20);
+            this.cscTextBox.TabIndex = 11;
             // 
-            // ManagerName
+            // notesBox
             // 
-            this.ManagerName.HeaderText = "Sales Manager";
-            this.ManagerName.Name = "ManagerName";
-            this.ManagerName.ReadOnly = true;
+            this.notesBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.notesBox.Location = new System.Drawing.Point(696, 690);
+            this.notesBox.Multiline = true;
+            this.notesBox.Name = "notesBox";
+            this.notesBox.Size = new System.Drawing.Size(100, 35);
+            this.notesBox.TabIndex = 12;
             // 
-            // category
+            // label4
             // 
-            this.category.HeaderText = "Product purchased";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(696, 674);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Notes";
             // 
-            // termsdescription
+            // button2
             // 
-            this.termsdescription.HeaderText = "Payment Method";
-            this.termsdescription.Name = "termsdescription";
-            this.termsdescription.ReadOnly = true;
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.button2.Location = new System.Drawing.Point(829, 677);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(95, 23);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Update Order";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // CreditAppReceived
+            // label5
             // 
-            this.CreditAppReceived.HeaderText = "Credit ap recieved";
-            this.CreditAppReceived.Name = "CreditAppReceived";
-            this.CreditAppReceived.ReadOnly = true;
-            this.CreditAppReceived.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // orderdate
-            // 
-            this.orderdate.HeaderText = "Order Date";
-            this.orderdate.Name = "orderdate";
-            this.orderdate.ReadOnly = true;
-            // 
-            // totalprice
-            // 
-            this.totalprice.HeaderText = "Order Amount";
-            this.totalprice.Name = "totalprice";
-            this.totalprice.ReadOnly = true;
-            // 
-            // weeklyTotal
-            // 
-            this.weeklyTotal.HeaderText = "Weekly Total";
-            this.weeklyTotal.Name = "weeklyTotal";
-            this.weeklyTotal.ReadOnly = true;
-            // 
-            // usercomment
-            // 
-            this.usercomment.HeaderText = "Sales Location";
-            this.usercomment.Name = "usercomment";
-            this.usercomment.ReadOnly = true;
-            // 
-            // Shipped
-            // 
-            this.Shipped.HeaderText = "Shipped";
-            this.Shipped.Items.AddRange(new object[] {
-            "Yes       ",
-            "CC        ",
-            "Holding   ",
-            "Picking   ",
-            "Terms     ",
-            "Issues    ",
-            "No        "});
-            this.Shipped.Name = "Shipped";
-            // 
-            // dateshipped
-            // 
-            this.dateshipped.HeaderText = "Date Shipped";
-            this.dateshipped.Name = "dateshipped";
-            this.dateshipped.ReadOnly = true;
-            this.dateshipped.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dateshipped.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Notes
-            // 
-            this.Notes.HeaderText = "Notes";
-            this.Notes.Name = "Notes";
-            // 
-            // CSCrep
-            // 
-            this.CSCrep.HeaderText = "CSC Rept";
-            this.CSCrep.Name = "CSCrep";
-            // 
-            // trackingnumber
-            // 
-            this.trackingnumber.HeaderText = "Tracking Number";
-            this.trackingnumber.Name = "trackingnumber";
-            this.trackingnumber.ReadOnly = true;
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(569, 684);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(52, 13);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Shipped?";
             // 
             // DSRForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(941, 534);
+            this.ClientSize = new System.Drawing.Size(941, 733);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.notesBox);
+            this.Controls.Add(this.cscTextBox);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.shipComboBox);
+            this.Controls.Add(this.orderNumberBox);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.customerNumberBox);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.updateButton);
             this.Controls.Add(this.excelButton);
             this.Controls.Add(this.dataGridView1);
             this.Name = "DSRForm";
@@ -290,28 +237,18 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button excelButton;
-        private System.Windows.Forms.Button updateButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox customerNumberBox;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ordernumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn customerPO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn salespersonname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ManagerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn termsdescription;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CreditAppReceived;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orderdate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalprice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn weeklyTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn usercomment;
-        private System.Windows.Forms.DataGridViewComboBoxColumn Shipped;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateshipped;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Notes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CSCrep;
-        private System.Windows.Forms.DataGridViewTextBoxColumn trackingnumber;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox orderNumberBox;
+        private System.Windows.Forms.ComboBox shipComboBox;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox cscTextBox;
+        private System.Windows.Forms.TextBox notesBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label5;
     }
 }

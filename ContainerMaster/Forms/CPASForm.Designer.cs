@@ -45,6 +45,8 @@
             this.buyReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.internationalPOLogToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pOTemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openPOByVendorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newSalesReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editContainersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editContainerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,6 +64,7 @@
             this.dSRReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.commissionScheduleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customCousinReportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fixWMASNToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ContainerMasterDS)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -153,7 +156,9 @@
             this.containerMasterToolStripMenuItem,
             this.buyReportToolStripMenuItem,
             this.internationalPOLogToolStripMenuItem,
-            this.pOTemplateToolStripMenuItem});
+            this.pOTemplateToolStripMenuItem,
+            this.openPOByVendorToolStripMenuItem,
+            this.newSalesReportToolStripMenuItem});
             this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
             this.reportsToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.reportsToolStripMenuItem.Text = "Reports";
@@ -185,6 +190,20 @@
             this.pOTemplateToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.pOTemplateToolStripMenuItem.Text = "New PO Export";
             this.pOTemplateToolStripMenuItem.Click += new System.EventHandler(this.pOTemplateToolStripMenuItem_Click);
+            // 
+            // openPOByVendorToolStripMenuItem
+            // 
+            this.openPOByVendorToolStripMenuItem.Name = "openPOByVendorToolStripMenuItem";
+            this.openPOByVendorToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.openPOByVendorToolStripMenuItem.Text = "Open PO by Vendor";
+            this.openPOByVendorToolStripMenuItem.Click += new System.EventHandler(this.openPOByVendorToolStripMenuItem_Click);
+            // 
+            // newSalesReportToolStripMenuItem
+            // 
+            this.newSalesReportToolStripMenuItem.Name = "newSalesReportToolStripMenuItem";
+            this.newSalesReportToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.newSalesReportToolStripMenuItem.Text = "New Sales Report";
+            this.newSalesReportToolStripMenuItem.Click += new System.EventHandler(this.newSalesReportToolStripMenuItem_Click);
             // 
             // editContainersToolStripMenuItem
             // 
@@ -234,7 +253,8 @@
             this.eDIToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aSNInvoiceMismatchToolStripMenuItem,
             this.populateTrackingNumbersToolStripMenuItem,
-            this.createUPSInvoiceFileToolStripMenuItem});
+            this.createUPSInvoiceFileToolStripMenuItem,
+            this.fixWMASNToolStripMenuItem});
             this.eDIToolStripMenuItem.Name = "eDIToolStripMenuItem";
             this.eDIToolStripMenuItem.Size = new System.Drawing.Size(36, 20);
             this.eDIToolStripMenuItem.Text = "EDI";
@@ -242,21 +262,21 @@
             // aSNInvoiceMismatchToolStripMenuItem
             // 
             this.aSNInvoiceMismatchToolStripMenuItem.Name = "aSNInvoiceMismatchToolStripMenuItem";
-            this.aSNInvoiceMismatchToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.aSNInvoiceMismatchToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.aSNInvoiceMismatchToolStripMenuItem.Text = "ASN / Invoice Mismatch";
             this.aSNInvoiceMismatchToolStripMenuItem.Click += new System.EventHandler(this.aSNInvoiceMismatchToolStripMenuItem_Click);
             // 
             // populateTrackingNumbersToolStripMenuItem
             // 
             this.populateTrackingNumbersToolStripMenuItem.Name = "populateTrackingNumbersToolStripMenuItem";
-            this.populateTrackingNumbersToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.populateTrackingNumbersToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.populateTrackingNumbersToolStripMenuItem.Text = "Populate Tracking Numbers";
             this.populateTrackingNumbersToolStripMenuItem.Click += new System.EventHandler(this.populateTrackingNumbersToolStripMenuItem_Click);
             // 
             // createUPSInvoiceFileToolStripMenuItem
             // 
             this.createUPSInvoiceFileToolStripMenuItem.Name = "createUPSInvoiceFileToolStripMenuItem";
-            this.createUPSInvoiceFileToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.createUPSInvoiceFileToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.createUPSInvoiceFileToolStripMenuItem.Text = "Create UPS CA invoice file";
             this.createUPSInvoiceFileToolStripMenuItem.Click += new System.EventHandler(this.createUPSInvoiceFileToolStripMenuItem_Click);
             // 
@@ -311,6 +331,13 @@
             this.customCousinReportsToolStripMenuItem.Size = new System.Drawing.Size(144, 20);
             this.customCousinReportsToolStripMenuItem.Text = "Custom Cousin Reports";
             this.customCousinReportsToolStripMenuItem.Click += new System.EventHandler(this.customCousinReportsToolStripMenuItem_Click);
+            // 
+            // fixWMASNToolStripMenuItem
+            // 
+            this.fixWMASNToolStripMenuItem.Name = "fixWMASNToolStripMenuItem";
+            this.fixWMASNToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.fixWMASNToolStripMenuItem.Text = "Fix WM ASN";
+            this.fixWMASNToolStripMenuItem.Click += new System.EventHandler(this.fixWMASNToolStripMenuItem_Click);
             // 
             // CPASForm
             // 
@@ -368,6 +395,9 @@
         private System.Windows.Forms.ToolStripMenuItem commissionScheduleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem internationalPOLogToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pOTemplateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openPOByVendorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newSalesReportToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fixWMASNToolStripMenuItem;
     }
 }
 

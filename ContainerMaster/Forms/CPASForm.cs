@@ -363,6 +363,35 @@ namespace CCR
         {
             poTemp = null;
         }
+
+        private void openPOByVendorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenPOByVendor po = new OpenPOByVendor();
+            po.CreateReport();
+        }
+
+        NewSalesReport newSalesReport;
+        private void newSalesReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(newSalesReport == null)
+            {
+                newSalesReport = new NewSalesReport();
+                newSalesReport.MdiParent = this;
+                newSalesReport.FormClosed += new FormClosedEventHandler(newSalesReport_formClosed);
+                newSalesReport.Show();
+            }
+        }
+
+        private void newSalesReport_formClosed(object sender, EventArgs e)
+        {
+            newSalesReport = null;
+        }
+
+        private void fixWMASNToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FixWMASN asn = new FixWMASN();
+            asn.Fix();
+        }
     }
        
 }
